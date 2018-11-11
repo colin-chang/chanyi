@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title> </title>
+	<link rel="stylesheet" type="text/css" href="popup.css" />
+
+	<script src="js/jquery-2.0.0.min.js"></script>
+	<script src="js/jquery.signalR.min.js"></script>
+	<script src="popup.js"></script>
+</head>
+
+<body>
+	<div>
+		<form>
+			<table>
+				<!--<tr>
+					<td class="item-name"><label for="stat">是否开启拨号</label></td>
+					<td><input type="checkbox" id="stat" name="stat"></td>
+				</tr>-->
+				<tr>
+					<td class="item-name">服务器IP：</td>
+					<td><input type="text" id="serverIp" value="192.168.1.100" /></td>
+				</tr>
+				<tr>
+					<td class="item-name">服务器端口：</td>
+					<td><input type="text" id="serverPort" value="20003" /></td>
+				</tr>
+				<tr>
+					<tr>
+						<td class="item-name">服务器状态：</td>
+						<td id="serverState"></td>
+					</tr>
+					<td class="item-name"><label for="interval">刷新间隔：</label></td>
+					<td>
+						<select name="interval" id="interval">
+							<option value="0" selected="selected">不刷新</option>
+							<option value="0.2">0.2秒</option>
+							<option value="0.4">0.4秒</option>
+							<option value="0.6">0.6秒</option>
+							<option value="0.8">0.8秒</option>
+							<option value="1">1秒</option>
+							<option value="2">2秒</option>
+							<option value="3">3秒</option>
+							<option value="4">4秒</option>
+							<option value="5">5秒</option>
+							<option value="6">6秒</option>
+							<option value="7">7秒</option>
+							<option value="8">8秒</option>
+							<option value="9">9秒</option>
+							<option value="10">10秒</option>
+							<option value="20">20秒</option>
+							<option value="30">30秒</option>
+							<option value="60">1分钟</option>
+							<option value="120">2分钟</option>
+							<option value="300">5分钟</option>
+							<option value="600">10分钟</option>
+							<option value="3600">30分钟</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="item-name" style="width:50%"><label for="uname">用户名：</label></td>
+					<td style="width:70%">
+						<div id="content">
+							<input type="text" id="uname" name="uname" placeholder="请输入用户名" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align='center'>
+						<input type="button" id="btnSubmit" value="保存">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"> <span id="msg" style="color:red;"></span></td>
+			</table>
+		</form>
+	</div>
+</body>
+
+
+</html>

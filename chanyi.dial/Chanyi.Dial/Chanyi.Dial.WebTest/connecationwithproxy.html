@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>使用代理</title>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/signalr.js/2.2.0/jquery.signalR.min.js"></script>
+    <script src="http://127.0.0.1:20003/signalr/hubs"></script>
+    <script>
+        $(function () {
+            "use strict";
+
+            document.cookie = { UserId: "xxx", UserAgent: "web" };
+            //创建并设置代理
+            var proxy = $.connection.Transmitter;
+
+            //启动连接
+            $.connection.hub.url = "http://127.0.0.1:20003/signalr";
+            $.connection.hub.logging = true;//日志记录
+            $.connection.hub.start().done(function () {
+                //连接成功
+                log("连接成功 my id:" + $.connection.hub.id + " my userName:" + proxy.state.UserName);//记录日志
+
+                //调用服务端方法示例
+                $("xxx").on("event", function () {
+                    //用户名校验
+                    proxy.server.isUserNameEnabled("xxx").done(function (result) {
+                        if (!!result) {
+                            //xxx
+                        }
+                        else {
+                            //xxx
+                        }
+                    }).fail(function (err) {
+                        handle(err);
+                    });
+                    //新增web用户
+                    proxy.server.addWebUser("xxx").done(function () {
+                        //xxx
+                    }).fail(function (err) {
+                        handle(err);
+                    });
+                    //抓取电话号码
+                    proxy.server.fetchPhoneNumber("xxx").done(function (result) {
+                        if (!!result) {
+                            //xxx
+                        }
+                        else {
+                            //xxx
+                        }
+                    }).fail(function (err) {
+                        handle(err);
+                    });
+                });
+
+            }).fail(function () {
+                //连接失败
+            });
+            function log(msg) {
+                $.connection.hub.log(msg);
+            }
+            //异常处理
+            function handle(err) {
+                log(err.message);
+            }
+        });
+    </script>
+</body>
+</html>
