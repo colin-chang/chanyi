@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="53082d3b-adcd-4383-a23b-39d9efb31066" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://chanyikeji.com:10009/Chanyi.Product.Services/QueryService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="24f3a88e-4644-4d4c-a282-0277c79d4573" SourceId="1" SourceUrl="net.tcp://chanyikeji.com:10009/Chanyi.Product.Services/QueryService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="5d6e1082-2ad0-4561-ba69-926800b5f1fe" SourceId="1" SourceUrl="net.tcp://chanyikeji.com:10009/Chanyi.Product.Services/QueryService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2e365b6f-398a-422f-9b89-09d6f6052063" SourceId="1" SourceUrl="net.tcp://chanyikeji.com:10009/Chanyi.Product.Services/QueryService/mex" />
+    <MetadataFile FileName="Chanyi.Product.QueryService.Core.Filter.xsd" MetadataType="Schema" ID="df5eea38-561f-498c-abef-3a88e451836d" SourceId="1" SourceUrl="net.tcp://chanyikeji.com:10009/Chanyi.Product.Services/QueryService/mex" />
+    <MetadataFile FileName="Chanyi.Product.QueryService.Core.Dto.xsd" MetadataType="Schema" ID="2dd8c20b-48c7-49e4-81be-5479c7d0bcc2" SourceId="1" SourceUrl="net.tcp://chanyikeji.com:10009/Chanyi.Product.Services/QueryService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

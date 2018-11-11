@@ -1,0 +1,193 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Inputs.AddFeedWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        Title="添加新饲料" Height="550" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/Feed.png">
+
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Form.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.6*"></RowDefinition>
+            <RowDefinition Height="0.6*" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}" ComboBox.LostFocus="ComboBox_LostFocus" Margin="10,-5,-10,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="32*"></RowDefinition>
+                <RowDefinition Height="10*" ></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+                <RowDefinition Height="26*" ></RowDefinition>
+                <RowDefinition Height="26*" ></RowDefinition>
+                <RowDefinition Height="26*" ></RowDefinition>
+                <RowDefinition Height="26" ></RowDefinition>
+                <RowDefinition Height="26*" ></RowDefinition>
+                <RowDefinition Height="26*" ></RowDefinition>
+                <RowDefinition Height="26*" ></RowDefinition>
+                <RowDefinition Height="26*"></RowDefinition>
+                <RowDefinition Height="26*"></RowDefinition>
+                <RowDefinition Height="10*" ></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="20*" ></RowDefinition>
+                <RowDefinition Height="5*" ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <TextBlock Grid.Row="1" Grid.Column="1">饲料名称<Run Style="{StaticResource required}"/>:</TextBlock>
+            <ComboBox  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  IsEditable="True" ItemsSource="{Binding FeedNames}" DisplayMemberPath="Name" SelectedValue="{Binding FeedNameId}" SelectedValuePath="Id"></ComboBox>
+            <TextBlock Grid.Row="1" Grid.Column="5"><Hyperlink Command="{Binding AddFeedName}" Tag="Inputs.AddFeedNameWindow" Style="{StaticResource hlkOtherAdd}">新增</Hyperlink></TextBlock>
+
+
+            <TextBlock Grid.Row="1" Grid.Column="7">饲料类型<Run Style="{StaticResource required}"/>:</TextBlock>
+            <ComboBox Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" ItemsSource="{Binding TypeNames}" DisplayMemberPath="Name" SelectedValue="{Binding TypeNameId}" SelectedValuePath="Id"></ComboBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="11">产地<Run Style="{StaticResource required}"/>:</TextBlock>
+            <ComboBox Grid.Row="1" Grid.Column="12"  Grid.ColumnSpan="6" IsEditable="True" ItemsSource="{Binding AreaNames}" DisplayMemberPath="Name" SelectedValue="{Binding AreaId}" SelectedValuePath="Id"></ComboBox>
+            <TextBlock Grid.Row="1" Grid.Column="19"><Hyperlink Command="{Binding AddAreaName}"  Tag="Inputs.AddAreaWindow" Style="{StaticResource hlkOtherAdd}">新增</Hyperlink></TextBlock>
+
+            <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="21" Grid.RowSpan="12" Header="饲料成分详情(单位：g/Kg)" Margin="5,10,5,0">
+            </GroupBox>
+
+            <TextBlock Grid.Row="4" Grid.Column="1">蛋白质含量:</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding CP}"></TextBox>
+            <TextBlock Grid.Row="5" Grid.Column="1">干物质含量:</TextBlock>
+            <TextBox  Grid.Row="5" Grid.Column="3" Text="{Binding DMI}"></TextBox>
+            <TextBlock Grid.Row="6" Grid.Column="1">粗脂肪:</TextBlock>
+            <TextBox Grid.Row="6" Grid.Column="3" Text="{Binding EE}"></TextBox>
+            <TextBlock Grid.Row="7" Grid.Column="1">粗纤维:</TextBlock>
+            <TextBox  Grid.Row="7" Grid.Column="3" Text="{Binding CF}"></TextBox>
+            <TextBlock Grid.Row="8" Grid.Column="1">无氮浸出物:</TextBlock>
+            <TextBox Grid.Row="8" Grid.Column="3" Text="{Binding NFE}"></TextBox>
+            <TextBlock Grid.Row="9" Grid.Column="1">粗灰分:</TextBlock>
+            <TextBox  Grid.Row="9" Grid.Column="3" Text="{Binding Ash}"></TextBox>
+            <TextBlock Grid.Row="10" Grid.Column="1">中性洗涤纤维:</TextBlock>
+            <TextBox Grid.Row="10" Grid.Column="3" Text="{Binding NDF}"></TextBox>
+            <TextBlock Grid.Row="11" Grid.Column="1">酸性洗涤纤维:</TextBlock>
+            <TextBox  Grid.Row="11" Grid.Column="3" Text="{Binding ADF}"></TextBox>
+            <TextBlock Grid.Row="12" Grid.Column="1">淀粉:</TextBlock>
+            <TextBox Grid.Row="12" Grid.Column="3" Text="{Binding Starch}"></TextBox>
+           
+            <TextBlock Grid.Row="4" Grid.Column="5">精氨酸:</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="7" Text="{Binding Arg}"></TextBox>
+            <TextBlock Grid.Row="5" Grid.Column="5">组氨酸:</TextBlock>
+            <TextBox  Grid.Row="5" Grid.Column="7" Text="{Binding His}"></TextBox>
+            <TextBlock Grid.Row="6" Grid.Column="5">异亮氨酸:</TextBlock>
+            <TextBox Grid.Row="6" Grid.Column="7" Text="{Binding Ile}"></TextBox>
+            <TextBlock Grid.Row="7" Grid.Column="5">亮氨酸:</TextBlock>
+            <TextBox  Grid.Row="7" Grid.Column="7" Text="{Binding Leu}"></TextBox>
+            <TextBlock Grid.Row="8" Grid.Column="5">赖氨酸:</TextBlock>
+            <TextBox Grid.Row="8" Grid.Column="7" Text="{Binding Lys}"></TextBox>
+            <TextBlock Grid.Row="9" Grid.Column="5">蛋氨酸:</TextBlock>
+            <TextBox Grid.Row="9" Grid.Column="7" Text="{Binding Met}"></TextBox>
+            <TextBlock Grid.Row="10" Grid.Column="5">胱氨酸:</TextBlock>
+            <TextBox  Grid.Row="10" Grid.Column="7" Text="{Binding Cys}"></TextBox>
+            <TextBlock Grid.Row="11" Grid.Column="5">苯丙氨酸:</TextBlock>
+            <TextBox Grid.Row="11" Grid.Column="7" Text="{Binding Phe}"></TextBox>
+            <TextBlock Grid.Row="12" Grid.Column="5">叶酸:</TextBlock>
+            <TextBox Grid.Row="12" Grid.Column="7" Text="{Binding Folic}"></TextBox>
+            
+
+            <TextBlock Grid.Row="4" Grid.Column="9">酪氨酸:</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="11" Text="{Binding Tyr}"></TextBox>
+            <TextBlock Grid.Row="5" Grid.Column="9">苏氨酸:</TextBlock>
+            <TextBox  Grid.Row="5" Grid.Column="11" Text="{Binding Thr}"></TextBox>
+            <TextBlock Grid.Row="6" Grid.Column="9">色氨酸:</TextBlock>
+            <TextBox Grid.Row="6" Grid.Column="11" Text="{Binding Trp}"></TextBox>
+            <TextBlock Grid.Row="7" Grid.Column="9">缬氨酸:</TextBlock>
+            <TextBox Grid.Row="7" Grid.Column="11" Text="{Binding Val}"></TextBox>
+            <TextBlock Grid.Row="8" Grid.Column="9">有效磷:</TextBlock>
+            <TextBox  Grid.Row="8" Grid.Column="11" Text="{Binding P}"></TextBox>
+            <TextBlock Grid.Row="9" Grid.Column="9">烟酸:</TextBlock>
+            <TextBox Grid.Row="9" Grid.Column="11" Text="{Binding Niacin}"></TextBox>
+            <TextBlock Grid.Row="10" Grid.Column="9">亚油酸:</TextBlock>
+            <TextBox Grid.Row="10" Grid.Column="11" Text="{Binding LinoleicAcid}"></TextBox>
+            <TextBlock Grid.Row="11" Grid.Column="9">泛酸:</TextBlock>
+            <TextBox Grid.Row="11" Grid.Column="11" Text="{Binding PantothenicAcid}"></TextBox>
+            
+            
+            <TextBlock Grid.Row="12" Grid.Column="9">钙:</TextBlock>
+            <TextBox Grid.Row="12" Grid.Column="11" Text="{Binding Ga}"></TextBox>
+            <TextBlock Grid.Row="4" Grid.Column="13">钠:</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="15" Text="{Binding Na}"></TextBox>
+            <TextBlock Grid.Row="5" Grid.Column="13">氯:</TextBlock>
+            <TextBox  Grid.Row="5" Grid.Column="15" Text="{Binding Cl}"></TextBox>
+            <TextBlock Grid.Row="6" Grid.Column="13">镁:</TextBlock>
+            <TextBox Grid.Row="6" Grid.Column="15" Text="{Binding Mg}"></TextBox>
+            <TextBlock Grid.Row="7" Grid.Column="13">钾:</TextBlock>
+            <TextBox Grid.Row="7" Grid.Column="15" Text="{Binding K}"></TextBox>
+            <TextBlock Grid.Row="8" Grid.Column="13">铁:</TextBlock>
+            <TextBox Grid.Row="8" Grid.Column="15" Text="{Binding Fe}"></TextBox>
+            <TextBlock Grid.Row="9" Grid.Column="13">铜:</TextBlock>
+            <TextBox  Grid.Row="9" Grid.Column="15" Text="{Binding Cu}"></TextBox>
+            <TextBlock Grid.Row="10" Grid.Column="13">锰:</TextBlock>
+            <TextBox Grid.Row="10" Grid.Column="15" Text="{Binding Mn}"></TextBox>
+            <TextBlock Grid.Row="11" Grid.Column="13">锌:</TextBlock>
+            <TextBox Grid.Row="11" Grid.Column="15" Text="{Binding Zn}"></TextBox>
+            <TextBlock Grid.Row="12" Grid.Column="13">硒:</TextBlock>
+            <TextBox  Grid.Row="12" Grid.Column="15" Text="{Binding Se}"></TextBox>
+
+
+
+          
+           
+            <TextBlock Grid.Row="4" Grid.Column="17">胡萝卜素:</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="19" Text="{Binding Carotene}"></TextBox>
+            <TextBlock Grid.Row="5" Grid.Column="17">维生素E:</TextBlock>
+            <TextBox Grid.Row="5" Grid.Column="19" Text="{Binding VE}"></TextBox>
+            <TextBlock Grid.Row="6" Grid.Column="17">维生素B1 :</TextBlock>
+            <TextBox  Grid.Row="6" Grid.Column="19" Text="{Binding VB1}"></TextBox>
+            <TextBlock Grid.Row="7" Grid.Column="17">维生素B2:</TextBlock>
+            <TextBox Grid.Row="7" Grid.Column="19" Text="{Binding VB2}"></TextBox>
+            <TextBlock Grid.Row="8" Grid.Column="17">维生素B6:</TextBlock>
+            <TextBox Grid.Row="8" Grid.Column="19" Text="{Binding VB6}"></TextBox>
+            <TextBlock Grid.Row="9" Grid.Column="17">维生素B12:</TextBlock>
+            <TextBox Grid.Row="9" Grid.Column="19" Text="{Binding VB12}"></TextBox>
+            <TextBlock Grid.Row="10" Grid.Column="17">胆碱:</TextBlock>
+            <TextBox Grid.Row="10" Grid.Column="19" Text="{Binding Choline}"></TextBox>
+
+            <TextBlock Grid.Row="11" Grid.Column="17">生物素:</TextBlock>
+            <TextBox Grid.Row="11" Grid.Column="19" Text="{Binding Biotin}"></TextBox>
+            <TextBlock Grid.Row="12" Grid.Column="17">总磷:</TextBlock>
+            <TextBox Grid.Row="12" Grid.Column="19" Text="{Binding AllP}"></TextBox>
+
+            <TextBlock Grid.Row="14" Grid.Column="1">描述<Run Style="{StaticResource required}"/>:</TextBlock>
+            <TextBox Grid.Row="14" Grid.Column="3" Grid.ColumnSpan="7" Style="{StaticResource txtRemark}" Text="{Binding Description }"></TextBox>
+
+            <!--<TextBlock Grid.Row="14" Grid.Column="9">备注:</TextBlock>
+            <TextBox Grid.Row="14" Grid.Column="11" Grid.ColumnSpan="9" Height="50" Style="{StaticResource remark}" Text="{Binding Remark}"></TextBox>-->
+           
+            <TextBlock Grid.Row="15" Grid.Column="13"  Grid.ColumnSpan="7" Style="{StaticResource txtblcError}" x:Name="error"  Text="{Binding Error}"></TextBlock>
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <Button Content="确定" Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True"></Button>
+            <Button Content="取消" Command="{Binding CancelCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

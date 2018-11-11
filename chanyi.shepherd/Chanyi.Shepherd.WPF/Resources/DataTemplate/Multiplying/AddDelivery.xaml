@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate x:Key="AddLambList">
+        <CheckBox IsChecked="{Binding IsChecked}">
+            <CheckBox.Content>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>【编号】</TextBlock>
+                    <TextBlock Text="{Binding SerialNumber}"></TextBlock>
+                    <TextBlock>[性别]</TextBlock>
+                    <TextBlock Text="{Binding Gender}"></TextBlock>
+                    <TextBlock>[初生重]</TextBlock>
+                    <TextBlock Text="{Binding BirthWeight}"></TextBlock>
+                    <TextBlock>[圈舍]</TextBlock>
+                    <TextBlock Text="{Binding Sheepfold}"></TextBlock>
+                    <TextBlock>[备注]</TextBlock>
+                    <TextBlock Text="{Binding Remark}"></TextBlock>
+                </StackPanel>
+            </CheckBox.Content>
+        </CheckBox>
+    </DataTemplate>
+</ResourceDictionary>

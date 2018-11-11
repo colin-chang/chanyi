@@ -1,0 +1,132 @@
+﻿@import "../Common/common";
+
+@padding: 40px;
+@boxHeight: 530px;
+@totalHeight: @headerHeight+@copyrightHeight+ @boxHeight + @padding+@padding; //790px
+
+
+.full-height {
+    html, body {
+        height: 100%;
+    }
+
+    body > article {
+        .calc-height(100%,@headerHeight+@copyrightHeight);
+    }
+}
+
+@media(min-width:768px) and ( min-height :790px ) { //媒体查询不支持数据计算
+    .full-height;
+}
+
+@media(max-width:767px) and (min-height:1080px) {
+    .full-height;
+}
+
+body > article {
+    .bg-linear(#7CB7DE,#BEE1F5);
+}
+
+.main {
+    min-height: @boxHeight+@padding*2+0px;
+    padding: @padding;
+    box-sizing: border-box;
+
+    .box {
+        min-height: @boxHeight;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 25px 40px;
+        background-color: #fff;
+        .border-radius(5px);
+
+        .title span {
+            padding-bottom: 3px;
+            border-bottom: 3px solid #FFA00A;
+        }
+
+        .body {
+            .margin-top(50px);
+
+
+            .validationSummary {
+                display: inline-block;
+                color: #a94442;
+                margin-left: 20px;
+
+                .field-validation-error {
+                    display: none;
+                }
+            }
+
+            .help {
+                border-left: 1px solid #DEDEDE;
+                padding: 5px 0 0 20px;
+
+                h4 {
+                    padding: 0 0 10px 10px;
+                    border-bottom: 1px dotted #ccc;
+                }
+
+                ol {
+                    line-height: 25px;
+
+                    ul {
+                        list-style: initial;
+                        left: -20px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media(max-width:992px) {
+        .box {
+            padding: 25px 25px;
+
+            .title {
+                padding-left: 15px;
+            }
+        }
+
+        .help {
+            padding-left: 10px;
+        }
+    }
+}
+
+
+@media(max-width:767px) {
+    .main {
+        padding: 4%;
+
+        .box {
+            .body {
+                .help {
+                    border-left-width: 0;
+                    padding-left: 0;
+                    .margin-top;
+                }
+
+                .form-customer > div {
+                    .form-control {
+                        height: 30px;
+                        padding: 5px 10px;
+                        font-size: 12px;
+                        line-height: 1.5;
+                        border-radius: 3px;
+                    }
+
+                    textarea.form-control {
+                        height: auto;
+                    }
+
+                    .control-label {
+                        padding-top: 6px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

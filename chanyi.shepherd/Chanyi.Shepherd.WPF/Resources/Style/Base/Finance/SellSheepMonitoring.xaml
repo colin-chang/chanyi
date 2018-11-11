@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+                    xmlns:toolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+                    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Common.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="TextBlock" BasedOn="{StaticResource txtblc}">
+        <Setter Property="Margin" Value="15,0,0,0"></Setter>
+    </Style>
+    <Style TargetType="ComboBox" BasedOn="{StaticResource cmbox}">
+        <Setter Property="Width" Value="80"></Setter>
+    </Style>
+    <Style TargetType="DatePicker" BasedOn="{StaticResource dp}">
+    </Style>
+    <Style TargetType="Button" BasedOn="{StaticResource btn}"></Style>
+
+    <Style TargetType="visualizationToolkit:Legend" x:Key="columnLegend">
+        <Setter Property="Width" Value="0"></Setter>
+    </Style>
+   
+    <Style TargetType="toolkit:Chart" x:Key="baseChart">
+        <Setter Property="Width" Value="370"></Setter>
+        <Setter Property="Height" Value="360"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="Margin" Value="0,0,0,0"></Setter>
+    </Style>
+    <Style TargetType="toolkit:Chart" BasedOn="{StaticResource baseChart}"></Style>
+    <Style TargetType="StackPanel" x:Key="stkCondition">
+        <Setter Property="Orientation" Value="Horizontal"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+    </Style>
+
+</ResourceDictionary>

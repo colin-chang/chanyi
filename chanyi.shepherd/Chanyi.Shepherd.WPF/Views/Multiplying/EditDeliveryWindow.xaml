@@ -1,0 +1,117 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Multiplying.EditDeliveryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter"
+      Title="编辑资料" Height="370" Width="560" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/Delivery.png">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Style/Base/Form.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/Style/Base/Multiplying/AddDelivery.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.Resources>
+            <cvt:DeliveryWay2IntStringConverter x:Key="d2s"></cvt:DeliveryWay2IntStringConverter>
+            <cvt:MidwiferyReason2IntStringConverter x:Key="m2s"></cvt:MidwiferyReason2IntStringConverter>
+            <cvt:DeliveryWay2VisibilityConverter x:Key="i2v"></cvt:DeliveryWay2VisibilityConverter>
+            <cvt:MidwiferyReasonInt2BoolConverter x:Key="i2cReason"></cvt:MidwiferyReasonInt2BoolConverter>
+            <cvt:Gender2BoolConverter x:Key="g2b"></cvt:Gender2BoolConverter>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.5*"></RowDefinition>
+            <RowDefinition Height="0.8*" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="5" Style="{StaticResource contentControl}" ComboBox.LostFocus="ComboBox_LostFocus">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"></ColumnDefinition>
+                <ColumnDefinition Width="74*"></ColumnDefinition>
+                <ColumnDefinition  Width="145*"></ColumnDefinition>
+                <ColumnDefinition Width="60*"></ColumnDefinition>
+                <ColumnDefinition Width="74*"></ColumnDefinition>
+                <ColumnDefinition Width="145*"></ColumnDefinition>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--母羊分娩表单-->
+            <TextBlock Grid.Row="1" Grid.Column="1">产羔母羊<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding FemaleNumber}"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="4">总产羔数<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <ComboBox Grid.Row="1" Grid.Column="5" ItemsSource="{Binding Numbers,Mode=OneTime}" DisplayMemberPath="Name" SelectedValue="{Binding TotalCount}" SelectedValuePath="Id" />
+
+            <TextBlock Grid.Row="2" Grid.Column="1">产羔时间<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <DatePicker Grid.Row="2" Grid.Column="2" SelectedDate="{Binding DeliveryDate}"></DatePicker>
+            <TextBlock Grid.Row="2" Grid.Column="4">产活羔数<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <Grid Grid.Row="2" Grid.Column="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ComboBox Style="{StaticResource cbDeliveryCount}"  ItemsSource="{Binding LiveMaleNumbers,Mode=OneTime}" DisplayMemberPath="Name" SelectedValue="{Binding LiveMaleCount}" SelectedValuePath="Id" />
+                <ComboBox Grid.Column="1" Style="{StaticResource cbDeliveryCount}"  ItemsSource="{Binding LiveFemaleNumbers,Mode=OneTime}" DisplayMemberPath="Name" SelectedValue="{Binding LiveFemaleCount}" SelectedValuePath="Id" />
+                <ComboBox Grid.Column="2" Style="{StaticResource cbDeliveryCount}"  ItemsSource="{Binding LiveTotalNumbers,Mode=OneTime}" DisplayMemberPath="Name" SelectedValue="{Binding LiveTotalCount}" SelectedValuePath="Id" IsEditable="False" IsEnabled="False"/>
+            </Grid>
+
+            <TextBlock Grid.Row="3" Grid.Column="1">产羔方式<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <ComboBox Grid.Row="3" Grid.Column="2" SelectedValue="{Binding DeliveryWay, Converter={StaticResource d2s}}" SelectedValuePath="Tag" x:Name="cbDelivery">
+                <ComboBoxItem Tag="0">顺产</ComboBoxItem>
+                <ComboBoxItem Tag="1">助产</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Grid.Row="3"  Grid.Column="3" HorizontalAlignment="Center" Margin="0" Visibility="{Binding ElementName=cbDelivery,Path=SelectedIndex,Converter={StaticResource i2v}}">
+                <Hyperlink TextDecorations="none" Command="{Binding OpenPopCommand}" CommandParameter="{Binding ElementName=popDeliverReason}">助产原因</Hyperlink>
+            </TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="4">接生员<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <ComboBox Grid.Row="3" Grid.Column="5" ItemsSource="{Binding Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId}" SelectedValuePath="Id"></ComboBox>
+
+            <TextBlock Grid.Row="4" Grid.Column="1">备注：</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4"  Style="{StaticResource txtRemark}" Text="{Binding Remark}"></TextBox>
+
+            <TextBlock Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" Style="{StaticResource txtblcError}" x:Name="error"  Text="{Binding Error}"></TextBlock>
+
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <Button Content="确定" Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True"></Button>
+            <Button Content="取消" Command="{Binding CancelCommand}"></Button>
+        </StackPanel>
+
+        <Popup x:Name="popDeliverReason"
+           PlacementTarget="{Binding ElementName=cbDelivery}" AllowsTransparency="True" PopupAnimation="Slide" Placement="Bottom" >
+            <Grid  Style="{StaticResource gdPopDeliverReason}">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1">助产原因：</TextBlock>
+                <ComboBox  Grid.Column="2" SelectedValue="{Binding DeliverReason, Converter={StaticResource m2s}}" SelectedValuePath="Tag"  x:Name="cbMidwiferyReason">
+                    <ComboBoxItem Tag="0">无</ComboBoxItem>
+                    <ComboBoxItem Tag="1">胎位不正</ComboBoxItem>
+                    <ComboBoxItem Tag="2">阴道狭窄</ComboBoxItem>
+                    <ComboBoxItem Tag="3">其他</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Grid.Row="1" Grid.Column="1">其他具体原因：</TextBlock>
+                <TextBox Grid.Row="1"  Grid.Column="2" Style="{StaticResource txtDeliverOtherReasonDetail}"  IsEnabled="{Binding ElementName=cbMidwiferyReason,Path=SelectedIndex,Converter={StaticResource i2cReason}}" Text="{Binding DeliverReasonOtherDetail}"></TextBox>
+                <Button Grid.Row="2" Grid.Column="2" Command="{Binding ClosePopCommand}" CommandParameter="{Binding ElementName=popDeliverReason}">确定</Button>
+            </Grid>
+        </Popup>
+    </Grid>
+</Window>

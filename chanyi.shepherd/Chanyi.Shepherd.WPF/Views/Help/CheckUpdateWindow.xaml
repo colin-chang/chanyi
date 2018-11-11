@@ -1,0 +1,40 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Help.CheckUpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="软件更新" Height="260" Width="420" Icon="/Images/Update.ico" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Help/CheckUpdate.xaml"></ResourceDictionary>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFE5EFFA" Offset="0"/>
+            <GradientStop Color="#FFAFD3FC" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Images/logo.png"></Image>
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource title}">新版本软件可用，您可以现在升级！</TextBlock>
+                <TextBlock>牧羊人 v<Run Text="{Binding NewVersion,Mode=OneTime}"></Run> 现在可用（已安装 v<Run Text="{Binding Version,Mode=OneTime}"></Run>）</TextBlock>
+                <TextBlock>您是否现在升级最新版 牧羊人 v<Run Text="{Binding NewVersion,Mode=OneTime}"></Run> ?</TextBlock>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource btns}">
+            <Button Command="{Binding SkipCommand}">跳过此版本</Button>
+            <Button Command="{Binding RemindLaterCommand}">稍后提醒</Button>
+            <Button Command="{Binding UpdateNowCommand}">马上升级</Button>
+        </StackPanel>
+    </Grid>
+</Window>

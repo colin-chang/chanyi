@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Form.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="TextBox" BasedOn="{StaticResource txt}">
+        <Setter Property="Height" Value="24"></Setter>
+    </Style>
+    <Style TargetType="TextBox" BasedOn="{x:Null}" x:Key="desc">
+        <Setter Property="Grid.Row" Value="2"></Setter>
+        <Setter Property="Grid.RowSpan" Value="2"></Setter>
+        <Setter Property="Grid.Column" Value="3"></Setter>
+        <Setter Property="Height" Value="78"></Setter>
+        <Setter Property="AcceptsReturn" Value="True"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="error" BasedOn="{StaticResource txtblcError}">
+        <Setter Property="Grid.Row" Value="4"></Setter>
+        <Setter Property="Grid.Column" Value="3"></Setter>
+        <Setter Property="Margin" Value="5,0"></Setter>
+    </Style>
+</ResourceDictionary>

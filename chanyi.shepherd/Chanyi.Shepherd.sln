@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.0 UI", "1.0 UI", "{5CD5CEAB-CED1-4AFB-A4CA-1CF40638B809}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanyi.Shepherd.WPF", "Chanyi.Shepherd.WPF\Chanyi.Shepherd.WPF.csproj", "{8E4963FD-1C25-4FFE-A76E-FBFC952EFA55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.0 Dao", "3.0 Dao", "{0E253CA9-1A79-4932-A1FC-DCA27E5D2EB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.0 Service", "2.0 Service", "{F2278C2E-DA5E-402F-9201-1AC7B8317306}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanyi.Shepherd.Dao", "Chanyi.Shepherd.Dao\Chanyi.Shepherd.Dao.csproj", "{2B5CDD03-3412-43D1-9758-BC933449456D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanyi.Shepherd.IDao", "Chanyi.Shepherd.IDao\Chanyi.Shepherd.IDao.csproj", "{6B7E8BDD-269B-4459-A6D7-99EE81B682A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.0 Model", "4.0 Model", "{51B635CB-E99D-44BE-AA67-14C8CFAD75B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanyi.Shepherd.IServices", "Chanyi.Shepherd.IServices\Chanyi.Shepherd.IServices.csproj", "{D948B65A-4378-4A35-88D5-623560113832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanyi.Shepherd.Services", "Chanyi.Shepherd.Services\Chanyi.Shepherd.Services.csproj", "{65C2C941-6A92-4696-A3C3-E68C7FF3DC99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanyi.Shepherd.QueryModel", "Chanyi.Shepherd.QueryModel\Chanyi.Shepherd.QueryModel.csproj", "{CE873449-22B3-431B-9E36-3487A8AC38DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{403C10B7-9CAB-43FD-8884-C8CEC70DE9F6}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E4963FD-1C25-4FFE-A76E-FBFC952EFA55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E4963FD-1C25-4FFE-A76E-FBFC952EFA55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E4963FD-1C25-4FFE-A76E-FBFC952EFA55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E4963FD-1C25-4FFE-A76E-FBFC952EFA55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B5CDD03-3412-43D1-9758-BC933449456D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B5CDD03-3412-43D1-9758-BC933449456D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B5CDD03-3412-43D1-9758-BC933449456D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B5CDD03-3412-43D1-9758-BC933449456D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7E8BDD-269B-4459-A6D7-99EE81B682A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7E8BDD-269B-4459-A6D7-99EE81B682A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7E8BDD-269B-4459-A6D7-99EE81B682A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7E8BDD-269B-4459-A6D7-99EE81B682A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D948B65A-4378-4A35-88D5-623560113832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D948B65A-4378-4A35-88D5-623560113832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D948B65A-4378-4A35-88D5-623560113832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D948B65A-4378-4A35-88D5-623560113832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65C2C941-6A92-4696-A3C3-E68C7FF3DC99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C2C941-6A92-4696-A3C3-E68C7FF3DC99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C2C941-6A92-4696-A3C3-E68C7FF3DC99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C2C941-6A92-4696-A3C3-E68C7FF3DC99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE873449-22B3-431B-9E36-3487A8AC38DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE873449-22B3-431B-9E36-3487A8AC38DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE873449-22B3-431B-9E36-3487A8AC38DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE873449-22B3-431B-9E36-3487A8AC38DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E4963FD-1C25-4FFE-A76E-FBFC952EFA55} = {5CD5CEAB-CED1-4AFB-A4CA-1CF40638B809}
+		{2B5CDD03-3412-43D1-9758-BC933449456D} = {0E253CA9-1A79-4932-A1FC-DCA27E5D2EB0}
+		{6B7E8BDD-269B-4459-A6D7-99EE81B682A8} = {0E253CA9-1A79-4932-A1FC-DCA27E5D2EB0}
+		{D948B65A-4378-4A35-88D5-623560113832} = {F2278C2E-DA5E-402F-9201-1AC7B8317306}
+		{65C2C941-6A92-4696-A3C3-E68C7FF3DC99} = {F2278C2E-DA5E-402F-9201-1AC7B8317306}
+		{CE873449-22B3-431B-9E36-3487A8AC38DF} = {51B635CB-E99D-44BE-AA67-14C8CFAD75B9}
+	EndGlobalSection
+EndGlobal

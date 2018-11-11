@@ -1,0 +1,412 @@
+﻿@import "../Common/common";
+
+.number-font {
+    font-family: 'Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif';
+}
+
+.banner {
+    @color: #7D0E0F;
+    .banner(@color,@color);
+    color: #fff;
+
+    .maintitle {
+        @height: 700px;
+        background-color: @color;
+        min-height: @height;
+
+        .slogan {
+            padding: 100px 0 0 8%;
+
+            h1 {
+                font-family: YouYuan;
+
+                small {
+                    color: #fff;
+                }
+
+                @media(min-width:1200px) {
+                    small {
+                        font-size: 25px;
+                    }
+                }
+            }
+
+            .min-price {
+                color: #FFB149;
+
+                div {
+                    display: inline-block;
+                    margin: 30px 0;
+                    padding-left: 15px;
+                    font-size: 40px;
+                }
+
+                div:first-child {
+                    border-right: 1px solid #8C6F46;
+                    padding-left: 0;
+                    padding-right: 35px;
+                }
+
+                .price {
+                    font-size: 50px;
+                    .number-font;
+                }
+
+                small {
+                    font-size: 20px;
+                    float: right;
+                }
+            }
+        }
+
+        .bg-banner {
+            min-height: @height;
+            .bg-banner;
+            background-size: auto;
+            background-image: url("/Images/Price/bg-banner-lg.png");
+            background-position: left center;
+            background-color: #901314;
+        }
+    }
+
+    @media(max-width:1199px) {
+        .maintitle {
+            @height: 580px;
+            min-height: @height;
+
+            .slogan {
+                h1 {
+                    font-size: 35px;
+
+                    small {
+                        font-size: 20px;
+                    }
+                }
+
+                .min-price {
+                    div {
+                        font-size: 35px;
+                    }
+
+                    .price {
+                        font-size: 40px;
+                        .number-font;
+                    }
+
+                    small {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+
+            .bg-banner {
+                min-height: @height;
+                background-image: url("/Images/Price/bg-banner-md.png");
+            }
+        }
+    }
+
+    @media(max-width:991px) and (min-width:768px) {
+        .maintitle {
+            @height: 570px;
+            min-height: 1100px;
+
+            .slogan {
+                position: relative;
+                top: 480px;
+                z-index: 3;
+
+                h1 {
+                    font-size: 48px;
+
+                    small {
+                        font-size: 30px;
+                    }
+                }
+
+                .min-price {
+                    div {
+                        font-size: 45px;
+                    }
+
+                    .price {
+                        font-size: 50px;
+                        .number-font;
+                    }
+
+                    small {
+                        font-size: 25px;
+                    }
+                }
+            }
+
+            .bg-banner {
+                min-height: @height;
+                position: relative;
+                top: @height*-0.93;
+                background-image: url("/Images/Price/bg-banner-sm.png");
+                background-size: contain;
+                background-position: center top;
+                background-color: #7D0E0F;
+            }
+        }
+    }
+
+    @media(max-width:767px) {
+        .maintitle {
+            min-height: 200px;
+
+            .slogan {
+                padding: 5% 5% 15% 10%;
+
+                .min-price {
+                    div {
+                        font-size: 24px;
+                    }
+
+                    .price {
+                        font-size: 32px;
+                        .number-font;
+                    }
+
+                    small {
+                        font-size: 18px;
+                    }
+                }
+
+                p {
+                    .margin-top(15px);
+                }
+            }
+
+            .bg-banner {
+                display: none;
+            }
+        }
+    }
+
+    .subtitle {
+        background-color: #961E1F;
+        padding: 15px 0 45px 0;
+
+        .col-xs-4 {
+            .margin-top(30px);
+        }
+
+        .fa {
+            font-size: 60px;
+        }
+
+        p {
+            max-width: 60px;
+            margin: 15px auto;
+        }
+    }
+}
+
+.price {
+    .margin-top(50px);
+
+    .label-title {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .table th {
+        text-align: center;
+    }
+
+    .glyphicon {
+        font-size: 18px;
+    }
+
+    .glyphicon-ok {
+        color: #54BB0C;
+    }
+
+    .glyphicon-remove {
+        color: #C50E28;
+    }
+
+    .text-allfunction {
+        font-weight: 600;
+        font-family: 'Microsoft YaHei UI Light';
+    }
+
+    .diffversion {
+        .margin-top(25px);
+        font-size: 15px;
+
+        dl {
+            .margin-top;
+            border: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        dt, dd {
+            line-height: 28px;
+        }
+    }
+
+    @media(max-width:767px) {
+        .diffversion dl {
+            padding: 15px;
+        }
+
+        .btn-buy, .btn-custom {
+            padding: 1px 5px;
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 3px;
+        }
+    }
+}
+
+.question {
+    .margin-top(50px);
+    background-color: #1C1C1C;
+    min-height: 500px;
+    padding: 30px 2%;
+    color: #F3D8A4;
+
+    .ques-type {
+        font-size: 18px;
+    }
+
+    dt, dd {
+        line-height: 25px;
+        overflow: hidden;
+    }
+
+    dt:before {
+        content: "Q：";
+    }
+
+    dd:before {
+        content: "A：";
+    }
+}
+
+.service {
+    font-size: 15px;
+    margin: 50px 0 60px 0;
+
+    .text-title {
+        .margin-top;
+    }
+
+    .text-service {
+        line-height: 28px;
+    }
+
+    ul {
+        line-height: 25px;
+    }
+}
+
+.contact {
+    margin-bottom: 50px;
+    text-align: center;
+
+    .bg {
+        background-image: url("/Images/Price/bg-ad-lg.jpg");
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+
+    .bg;
+
+    .ad {
+        min-height: 162px;
+        margin-bottom: 40px;
+        background-color: #5DA9DD;
+        .bg;
+    }
+
+    .text-hasquestion {
+        font-size: 30px;
+        margin-bottom: 60px;
+    }
+
+    .color {
+        color: #FF6700;
+    }
+
+    .block {
+        display: block;
+    }
+
+    .glyphicon {
+        font-size: 50px;
+        .color;
+        .block;
+    }
+
+    small {
+        font-size: 15px;
+        .block;
+        .color;
+    }
+
+    .tel {
+        font-size: 28px;
+        .block;
+        .margin-top(50px);
+
+        a {
+            color: #000;
+        }
+    }
+}
+
+@media(max-width:1200px) {
+    .bg {
+        background-image: url("/Images/Price/bg-ad-md.jpg");
+    }
+
+    .contact {
+        .bg;
+
+        .ad {
+            .bg;
+        }
+    }
+}
+
+@media(max-width:992px) {
+    .bg {
+        background-image: url("/Images/Price/bg-ad-sm.jpg");
+        background-position: left top;
+    }
+
+    .contact {
+        .bg;
+
+        .ad {
+            .bg;
+        }
+    }
+}
+
+@media(max-width:767px) {
+    .contact {
+        background-image: none;
+
+        .ad {
+            background-image: url("/Images/Price/bg-ad-xs.jpg");
+            background-position: center;
+            min-height: 120px;
+        }
+
+        .text-hasquestion {
+            font-size: 25px;
+            margin-bottom: 50px;
+        }
+
+        .tel {
+            font-size: 20px;
+            .margin-top(30px);
+        }
+    }
+}

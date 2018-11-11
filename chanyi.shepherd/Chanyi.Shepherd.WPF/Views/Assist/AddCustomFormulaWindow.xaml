@@ -1,0 +1,84 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Assist.AddCustomFormulaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chanyi.Shepherd.WPF.Views.Assist"
+        mc:Ignorable="d"
+        Title="自定义配方" Height="500" Width="750" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/FormulaDesign.png">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Style/Base/Assist/AddCustomFormula.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/DataTemplate/Common.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock><Run Style="{StaticResource required}"/>名称：</TextBlock>
+                <TextBox Text="{Binding Name}"></TextBox>
+                <TextBlock><Run Style="{StaticResource required}"/>适用于：</TextBlock>
+                <TextBox Text="{Binding Apply2}"></TextBox>
+                <TextBlock ><!--<Run Style="{StaticResource required}"/>-->不良反应：</TextBlock>
+                <TextBox Text="{Binding SideEffect}"></TextBox>
+                <TextBlock ><Run Style="{StaticResource required}"/>制作人：</TextBlock>
+                <ComboBox ItemsSource="{Binding Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId}" SelectedValuePath="Id"></ComboBox>
+                <TextBlock Text="备注："></TextBlock>
+                <TextBox Text="{Binding Remark}"></TextBox>
+            </StackPanel>
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="8"></ColumnDefinition>
+                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="所有饲料">
+                    <DataGrid ItemsSource="{Binding Feeds}">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="选择" CellTemplate="{StaticResource CheckedColumn}">
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="饲料名称" Binding="{Binding Name}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="饲料产地" Binding="{Binding Area}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="饲料类型" Binding="{Binding Type}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Width="*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+                <GroupBox Header="饲料配比" Grid.Column="2">
+                    <DataGrid ItemsSource="{Binding FormulaFeeds}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="饲料名称" Binding="{Binding Name}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="饲料产地" Binding="{Binding Area}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="饲料类型" Binding="{Binding Type}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTemplateColumn Header="用量">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding Amount,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="操作" IsReadOnly="True" CellTemplate="{StaticResource RemoveColumn}"></DataGridTemplateColumn>
+                            <DataGridTextColumn Width="*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+            </Grid>
+        </Grid>
+        <StackPanel Style="{StaticResource spButtons}" Grid.Row="1">
+            <Button Command="{Binding SubmitCommand}">确定</Button>
+            <Button Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">取消</Button>
+        </StackPanel>
+    </Grid>
+</Window>

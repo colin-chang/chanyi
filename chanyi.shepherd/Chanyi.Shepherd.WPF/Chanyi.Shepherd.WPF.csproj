@@ -1,0 +1,1971 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E4963FD-1C25-4FFE-A76E-FBFC952EFA55}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Chanyi.Shepherd.WPF</RootNamespace>
+    <AssemblyName>Chanyi.Shepherd.WPF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Chanyi.FtpUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chanyi.FtpUtility.1.0.0\lib\Chanyi.FtpUtility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Chanyi.SecurityUtility, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chanyi.SecurityUtility.1.0.1\lib\Chanyi.SecurityUtility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Chanyi.Utility, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chanyi.Utility.1.0.5\lib\Chanyi.Utility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.1.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.Core.3.1.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net1213, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.Log4Net1213.3.1.0\lib\net40\Common.Logging.Log4Net1213.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity">
+      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=2.0.0.40000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Spring.Aop.2.0.1\lib\net40\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=2.0.0.40000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Spring.Core.2.0.1\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=2.0.1.40000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Spring.Data.2.0.1\lib\net40\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WPF Toolkit\v3.5.50211.1\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WPF Toolkit\v3.5.50211.1\WPFToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Controls.v5.5">
+      <HintPath>..\packages\Xceed.Wpf.Controls.5.5.15110.14390\lib\net40\Xceed.Wpf.Controls.v5.5.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid.v5.5">
+      <HintPath>..\packages\Xceed.Wpf.DataGrid.5.5.15110.14390\lib\net40\Xceed.Wpf.DataGrid.v5.5.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Expands\AttcahProperty\GridColumn.cs" />
+    <Compile Include="Expands\Converter\CommonConverter.cs" />
+    <Compile Include="Expands\Converter\Enum2BoolConverter.cs" />
+    <Compile Include="Expands\Converter\Enum2StringConverter.cs" />
+    <Compile Include="Expands\Converter\Enum2VisibilityConverter.cs" />
+    <Compile Include="Expands\Converter\Gender2BoolConverter.cs" />
+    <Compile Include="Expands\Converter\EnumNullable2IntNullableConverter.cs" />
+    <Compile Include="Expands\Converter\Enum2IntStringConverter.cs" />
+    <Compile Include="Expands\Converter\IndentConverter.cs" />
+    <Compile Include="Expands\Converter\IsDel2OperationConverter.cs" />
+    <Compile Include="Expands\Converter\ResourceTriggerConverter.cs" />
+    <Compile Include="Expands\Converter\Sa2VisibilityConverter.cs" />
+    <Compile Include="Expands\Converter\YearMonth2MonthConverter.cs" />
+    <Compile Include="Expands\Helper\CommonExpand.cs" />
+    <Compile Include="Expands\Helper\DatePickerCalendar.cs" />
+    <Compile Include="Expands\Helper\TreeExpand.cs" />
+    <Compile Include="Expands\SystemExpand\PanelExpand.cs" />
+    <Compile Include="Expands\SystemExpand\WindowExpand.cs" />
+    <Compile Include="Expands\ValidateRule\BeforeTodayAttribute.cs" />
+    <Compile Include="Expands\ValidateRule\ConditionValidAttribute.cs" />
+    <Compile Include="Expands\ValidateRule\NullableEmailAttribute.cs" />
+    <Compile Include="Expands\ValidateRule\NumberAttribute.cs" />
+    <Compile Include="Expands\ValidateRule\IdNumAttribute.cs" />
+    <Compile Include="Expands\ValidateRule\EntityPropertyAttribute.cs" />
+    <Compile Include="Expands\ValidateRule\RequiredCollectionAttribute.cs" />
+    <Compile Include="Helper\ChineseToPinYinHelper.cs" />
+    <Compile Include="Helper\CompatibilityHelper.cs" />
+    <Compile Include="Helper\XmlHelper.cs" />
+    <Compile Include="Model\AblactationData.cs" />
+    <Compile Include="Model\AbortionData.cs" />
+    <Compile Include="Model\ActionResultEnum.cs" />
+    <Compile Include="Model\AssessData\AssessStudsheepData.cs" />
+    <Compile Include="Model\AssessData\FirstAssessData.cs" />
+    <Compile Include="Model\AssessData\SecondAssessData.cs" />
+    <Compile Include="Model\Finance\BuyFeedData.cs" />
+    <Compile Include="Model\Finance\BuyMedicineData.cs" />
+    <Compile Include="Model\Finance\BuyOtherData.cs" />
+    <Compile Include="Model\DeliveryData.cs" />
+    <Compile Include="Model\DeliveryLambData.cs" />
+    <Compile Include="Model\FamilyTreeButton.cs" />
+    <Compile Include="Model\FamilyTreeData.cs" />
+    <Compile Include="Model\FeedWithAllFiledsData.cs" />
+    <Compile Include="Model\Finance\SellAllSheepData.cs" />
+    <Compile Include="Model\Finance\SellFeedData.cs" />
+    <Compile Include="Model\Finance\SellOtherData.cs" />
+    <Compile Include="Model\Input\FeedData.cs" />
+    <Compile Include="Model\Input\FeedOutData.cs" />
+    <Compile Include="Model\Input\FormulaData.cs" />
+    <Compile Include="Model\Input\FormulaDetailsData.cs" />
+    <Compile Include="Model\Input\SheepfoldData.cs" />
+    <Compile Include="Model\Nutrient.cs" />
+    <Compile Include="Model\SimpleFeedData.cs" />
+    <Compile Include="Model\NodeData.cs" />
+    <Compile Include="Model\Finance\SellSheepData.cs" />
+    <Compile Include="Model\AssessData\ThirdAssessData.cs" />
+    <Compile Include="Service References\ProductService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="UserControls\DataPager.xaml.cs">
+      <DependentUpon>DataPager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeedChartReport.xaml.cs">
+      <DependentUpon>FeedChartReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProgressRing.xaml.cs">
+      <DependentUpon>ProgressRing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\AddViewModel.cs" />
+    <Compile Include="ViewModels\AddWithTreeViewModel.cs" />
+    <Compile Include="ViewModels\Assist\AddFormulaNutrientViewModel.cs" />
+    <Compile Include="ViewModels\Assist\AddCustomFormulaViewModel.cs" />
+    <Compile Include="ViewModels\Assist\AddFormulaViewModel.cs" />
+    <Compile Include="ViewModels\Assist\AssistMatingViewModel.cs" />
+    <Compile Include="ViewModels\Assist\DiseaseViewModel.cs" />
+    <Compile Include="ViewModels\Assist\EditFormulaNutrientViewModel.cs" />
+    <Compile Include="ViewModels\Assist\FormulaNutrientViewModel.cs" />
+    <Compile Include="ViewModels\Assist\FormulaViewModel.cs" />
+    <Compile Include="ViewModels\Assist\PedigreeChartViewModel.cs" />
+    <Compile Include="ViewModels\Assist\SicknessViewModel.cs" />
+    <Compile Include="ViewModels\Assist\SymtomViewModel.cs" />
+    <Compile Include="ViewModels\Assist\TwoMatingViewModel.cs" />
+    <Compile Include="ViewModels\BaseInfo\AddBreedViewModel.cs" />
+    <Compile Include="ViewModels\BaseInfo\AddSheepFoldViewModel.cs" />
+    <Compile Include="ViewModels\BaseInfo\EditSheepfoldViewModel.cs" />
+    <Compile Include="ViewModels\BaseInfo\EditSheepViewModel.cs" />
+    <Compile Include="ViewModels\BaseInfo\AddSheepViewModel.cs" />
+    <Compile Include="ViewModels\BaseInfo\FarmViewModel.cs" />
+    <Compile Include="ViewModels\BaseInfo\SheepfoldViewModel.cs" />
+    <Compile Include="ViewModels\BaseInfo\SheepViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\AddAssessStudsheepViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\AddExceptAssessSheep.cs" />
+    <Compile Include="ViewModels\Breeding\AddFirstAssessViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\AddSecondAssessViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\AddThirdAssessViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\AssessStudsheepViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\EditFirstAssessViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\EditSecondAssessViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\EditStudsheepViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\EditThirdAssessViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\ExceptAssessSheepViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\FirstAssessViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\SecondAssessViewModel.cs" />
+    <Compile Include="ViewModels\Breeding\ThirdAssessViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\AddAntiepidemicPlanViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\AddAntiepidemicViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\AddTreatmentViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\AntiepidemicPlanViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\AntiepidemicViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\EditAntiepidemicPlanViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\EditAntiepidemicViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\EditTreatmentViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\ExecuteAntiepidemicPlanViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseControl\TreatmentViewModel.cs" />
+    <Compile Include="ViewModels\EidtViewModel.cs" />
+    <Compile Include="ViewModels\File\ExportViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddBuyFeedViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddBuyMedicineViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddBuyOtherViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddBuySheepViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddElectricChargeViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddPayoffViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddSellFeedViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddSellManureViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddSellOtherViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddSellSheepAllViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddSellSheepViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddSellWoolViewModel.cs" />
+    <Compile Include="ViewModels\Finance\AddWaterRateViewModel.cs" />
+    <Compile Include="ViewModels\Finance\BuyFeedViewModel.cs" />
+    <Compile Include="ViewModels\Finance\BuyMedicineViewModel.cs" />
+    <Compile Include="ViewModels\Finance\BuyOtherViewModel.cs" />
+    <Compile Include="ViewModels\Finance\BuySheepViewModel.cs" />
+    <Compile Include="ViewModels\Finance\ElectricChargeViewModel.cs" />
+    <Compile Include="ViewModels\Finance\SellSheepMonitoringViewMode.cs" />
+    <Compile Include="ViewModels\Finance\PayoffViewModel.cs" />
+    <Compile Include="ViewModels\Finance\SellFeedViewModel.cs" />
+    <Compile Include="ViewModels\Finance\SellManureViewModel.cs" />
+    <Compile Include="ViewModels\Finance\SellOtherViewModel.cs" />
+    <Compile Include="ViewModels\Finance\SellSheepViewModel.cs" />
+    <Compile Include="ViewModels\Finance\SellWoolViewModel.cs" />
+    <Compile Include="ViewModels\Finance\WaterRateViewModel.cs" />
+    <Compile Include="ViewModels\FormViewModel.cs" />
+    <Compile Include="ViewModels\GroupManage\AddDeathManageViewModel.cs" />
+    <Compile Include="ViewModels\GroupManage\AddMoveSheepfoldViewModel.cs" />
+    <Compile Include="ViewModels\GroupManage\DeathManageViewModel.cs" />
+    <Compile Include="ViewModels\GroupManage\EditDeathManageViewModel.cs" />
+    <Compile Include="ViewModels\GroupManage\GroupMonitoringViewModel.cs" />
+    <Compile Include="ViewModels\GroupManage\MoveSheepfoldViewModel.cs" />
+    <Compile Include="ViewModels\GroupManage\SellSheepManageViewModel.cs" />
+    <Compile Include="ViewModels\Help\AboutViewModel.cs" />
+    <Compile Include="ViewModels\Help\CheckUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Help\FeedbackViewModel.cs" />
+    <Compile Include="ViewModels\Help\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\HR\AddDepartureEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\HR\AddDutyViewModel.cs" />
+    <Compile Include="ViewModels\HR\AddEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\HR\AddPurchaserViewModel.cs" />
+    <Compile Include="ViewModels\HR\DepartureEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\HR\EditEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\HR\EditPurchaserViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\GrantRole2UserViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\GrantPermission2UserViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\GrantPermission2RoleViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\AddRoleViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\AddUserViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\EditPermissionViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\EditRoleViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\EditUserViewModel.cs" />
+    <Compile Include="ViewModels\HR\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\HR\PurchaserViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\GrantViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\ResetUserPasswordViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\PermissionViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\RoleViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\UserViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddAreaViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddFeedInOutWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddFeedNameViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddFeedOutWarehouseByCompoundViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddFeedOutWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddFeedViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddManufacturerViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddMedicineInOutWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddMedicineNameViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddMedicineViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\AddOtherViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\EditFeedViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\EditMedicineViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\EditOtherViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\FeedInOutWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\FeedViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\FeedWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\MedicineInOutWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\MedicineViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\MedicineWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\OtherInOutWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\OtherViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\OtherWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\MatingCountViewModel.cs" />
+    <Compile Include="ViewModels\ReportForms\BuyReportViewModel.cs" />
+    <Compile Include="ViewModels\ReportForms\FeedReportViewModel.cs" />
+    <Compile Include="ViewModels\ReportForms\FeedSheepReportViewModel.cs" />
+    <Compile Include="ViewModels\ReportForms\FinanceReportViewModel.cs" />
+    <Compile Include="ViewModels\ReportForms\BaseReportViewModel.cs" />
+    <Compile Include="ViewModels\ReportForms\MultiplyReportViewModel.cs" />
+    <Compile Include="ViewModels\ReportForms\SellReportViewModel.cs" />
+    <Compile Include="ViewModels\StartViewModel.cs" />
+    <Compile Include="ViewModels\Tool\FeedParameterViewModel.cs" />
+    <Compile Include="ViewModels\Tool\MedicineParameterViewModel.cs" />
+    <Compile Include="ViewModels\View\NotificationViewModel.cs" />
+    <Compile Include="ViewModels\Tool\SheepParameterViewModel.cs" />
+    <Compile Include="Views\Assist\AddCustomFormulaWindow.xaml.cs">
+      <DependentUpon>AddCustomFormulaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assist\AddFormulaWindow.xaml.cs">
+      <DependentUpon>AddFormulaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assist\AssistMatingUC.xaml.cs">
+      <DependentUpon>AssistMatingUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assist\FormulaNutrientWindow.xaml.cs">
+      <DependentUpon>FormulaNutrientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assist\FormulaNutrientUC.xaml.cs">
+      <DependentUpon>FormulaNutrientUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assist\PedigreeChartUC.xaml.cs">
+      <DependentUpon>PedigreeChartUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assist\TwoMatingWindow.xaml.cs">
+      <DependentUpon>TwoMatingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseInfo\EditSheepfoldWindow.xaml.cs">
+      <DependentUpon>EditSheepfoldWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseInfo\FarmWindow.xaml.cs">
+      <DependentUpon>FarmWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseInfo\SheepFeedRecordUC.xaml.cs">
+      <DependentUpon>SheepFeedRecordUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseInfo\SheepfoldUC.xaml.cs">
+      <DependentUpon>SheepfoldUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\ExceptAssessSheepUC.xaml.cs">
+      <DependentUpon>ExceptAssessSheepUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\AddExceptAssessSheepWindow.xaml.cs">
+      <DependentUpon>AddExceptAssessSheepWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\AddAntiepidemicPlanWindow.xaml.cs">
+      <DependentUpon>AddAntiepidemicPlanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\AddAntiepidemicWindow.xaml.cs">
+      <DependentUpon>AddAntiepidemicWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\AddTreatmentWindow.xaml.cs">
+      <DependentUpon>AddTreatmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\AntiepidemicPlanUC.xaml.cs">
+      <DependentUpon>AntiepidemicPlanUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\AntiepidemicUC.xaml.cs">
+      <DependentUpon>AntiepidemicUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\EditAntiepidemicPlanWindow.xaml.cs">
+      <DependentUpon>EditAntiepidemicPlanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\EditAntiepidemicWindow.xaml.cs">
+      <DependentUpon>EditAntiepidemicWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\EditTreatmentWindow.xaml.cs">
+      <DependentUpon>EditTreatmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\ExecuteAntiepidemicPlanWindow.xaml.cs">
+      <DependentUpon>ExecuteAntiepidemicPlanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiseaseControl\TreatmentUC.xaml.cs">
+      <DependentUpon>TreatmentUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\File\ExportWindow.xaml.cs">
+      <DependentUpon>ExportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddBuyFeedWindow.xaml.cs">
+      <DependentUpon>AddBuyFeedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddBuyMedicineWindow.xaml.cs">
+      <DependentUpon>AddBuyMedicineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddBuyOtherWindow.xaml.cs">
+      <DependentUpon>AddBuyOtherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddBuySheepWindow.xaml.cs">
+      <DependentUpon>AddBuySheepWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddElectricChargeWindow.xaml.cs">
+      <DependentUpon>AddElectricChargeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddPayoffWindow.xaml.cs">
+      <DependentUpon>AddPayoffWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddSellFeedWindow.xaml.cs">
+      <DependentUpon>AddSellFeedWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Finance\AddSellManureWindow.xaml.cs">
+      <DependentUpon>AddSellManureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddSellSheepAllWindow.xaml.cs">
+      <DependentUpon>AddSellSheepAllWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\SellSheepMonitoringWindow.xaml.cs">
+      <DependentUpon>SellSheepMonitoringWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\SellFeedUC.xaml.cs">
+      <DependentUpon>SellFeedUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddSellOtherWindow.xaml.cs">
+      <DependentUpon>AddSellOtherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddSellSheepWindow.xaml.cs">
+      <DependentUpon>AddSellSheepWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddSellWoolWindow.xaml.cs">
+      <DependentUpon>AddSellWoolWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\AddWaterRateWindow.xaml.cs">
+      <DependentUpon>AddWaterRateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\BuyFeedUC.xaml.cs">
+      <DependentUpon>BuyFeedUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\BuyMedicineUC.xaml.cs">
+      <DependentUpon>BuyMedicineUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\BuyOtherUC.xaml.cs">
+      <DependentUpon>BuyOtherUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\BuySheepUC.xaml.cs">
+      <DependentUpon>BuySheepUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\ElectricChargeUC.xaml.cs">
+      <DependentUpon>ElectricChargeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\PayoffUC.xaml.cs">
+      <DependentUpon>PayoffUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\SellOtherUC.xaml.cs">
+      <DependentUpon>SellOtherUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\SellSheepUC.xaml.cs">
+      <DependentUpon>SellSheepUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\SellManureUC.xaml.cs">
+      <DependentUpon>SellManureUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\SellWoolUC.xaml.cs">
+      <DependentUpon>SellWoolUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finance\WaterRateUC.xaml.cs">
+      <DependentUpon>WaterRateUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupManage\SellSheepManageUC.xaml.cs">
+      <DependentUpon>SellSheepManageUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help\CheckUpdateWindow.xaml.cs">
+      <DependentUpon>CheckUpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help\FeedbackWindow.xaml.cs">
+      <DependentUpon>FeedbackWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help\RegisterWindow.xaml.cs">
+      <DependentUpon>RegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HR\DepartureEmployeeUC.xaml.cs">
+      <DependentUpon>DepartureEmployeeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HR\AddDepartureEmployeeWindow.xaml.cs">
+      <DependentUpon>AddDepartureEmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddFeedInOutWarehouseWindow.xaml.cs">
+      <DependentUpon>AddFeedInOutWarehouseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddFeedNameWindow.xaml.cs">
+      <DependentUpon>AddFeedNameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddFeedOutWarehouseByCompoundWindow.xaml.cs">
+      <DependentUpon>AddFeedOutWarehouseByCompoundWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddFeedOutWarehouseWindow.xaml.cs">
+      <DependentUpon>AddFeedOutWarehouseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddFeedWindow.xaml.cs">
+      <DependentUpon>AddFeedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Inputs\AddOtherInOutWarehouseViewModel.cs" />
+    <Compile Include="ViewModels\ListViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\AblactationViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\AbortionViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\AddAblactationViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\AddAbortionViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\AddDeliveryViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\AddMatingViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\DeliveryViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\EditAblactationViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\EditAbortionViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\EditDeliveryViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\EditMatingViewModel.cs" />
+    <Compile Include="ViewModels\Multiplying\MatingViewModel.cs" />
+    <Compile Include="ViewModels\SystemService\ChangePasswordViewModel.cs" />
+    <Compile Include="Views\AccountWindow.xaml.cs">
+      <DependentUpon>AccountWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assist\DiseaseWindow.xaml.cs">
+      <DependentUpon>DiseaseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assist\FormulaUC.xaml.cs">
+      <DependentUpon>FormulaUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assist\SymptomWindow.xaml.cs">
+      <DependentUpon>SymptomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseInfo\AddBreedWindow.xaml.cs">
+      <DependentUpon>AddBreedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseInfo\EditSheepWindow.xaml.cs">
+      <DependentUpon>EditSheepWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseInfo\AddSheepFoldWindow.xaml.cs">
+      <DependentUpon>AddSheepFoldWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseInfo\SheepUC.xaml.cs">
+      <DependentUpon>SheepUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseInfo\AddSheepWindow.xaml.cs">
+      <DependentUpon>AddSheepWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\AddAssessStudsheepWindow.xaml.cs">
+      <DependentUpon>AddAssessStudsheepWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\AddFirstAssessWindow.xaml.cs">
+      <DependentUpon>AddFirstAssessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\AddSecondAssessWindow.xaml.cs">
+      <DependentUpon>AddSecondAssessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\AddThirdAssessWindow.xaml.cs">
+      <DependentUpon>AddThirdAssessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\AssessStudsheepUC.xaml.cs">
+      <DependentUpon>AssessStudsheepUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\EditAssessStudsheepWindow.xaml.cs">
+      <DependentUpon>EditAssessStudsheepWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\EditFirstAssessWindow.xaml.cs">
+      <DependentUpon>EditFirstAssessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\EditSecondAssessWindow.xaml.cs">
+      <DependentUpon>EditSecondAssessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\EditThirdAssessWindow.xaml.cs">
+      <DependentUpon>EditThirdAssessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\FirstAssessOrderUC.xaml.cs">
+      <DependentUpon>FirstAssessOrderUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\FirstAssessUC.xaml.cs">
+      <DependentUpon>FirstAssessUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\SecondAssessOrderUC.xaml.cs">
+      <DependentUpon>SecondAssessOrderUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\SecondAssessUC.xaml.cs">
+      <DependentUpon>SecondAssessUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\StudsheepOrderUC.xaml.cs">
+      <DependentUpon>StudsheepOrderUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\ThirdAssessOrderUC.xaml.cs">
+      <DependentUpon>ThirdAssessOrderUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Breeding\ThirdAssessUC.xaml.cs">
+      <DependentUpon>ThirdAssessUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupManage\AddDeathManageWindow.xaml.cs">
+      <DependentUpon>AddDeathManageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupManage\AddMoveSheepfoldWindow.xaml.cs">
+      <DependentUpon>AddMoveSheepfoldWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupManage\DeathManageUC.xaml.cs">
+      <DependentUpon>DeathManageUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupManage\EditDeathManageWindow.xaml.cs">
+      <DependentUpon>EditDeathManageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupManage\GroupMonitoringWindow.xaml.cs">
+      <DependentUpon>GroupMonitoringWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupManage\MoveSheepfoldUC.xaml.cs">
+      <DependentUpon>MoveSheepfoldUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HR\AddDutyWindow.xaml.cs">
+      <DependentUpon>AddDutyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HR\AddEmployeeWindow.xaml.cs">
+      <DependentUpon>AddEmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HR\AddPurchaserWindow.xaml.cs">
+      <DependentUpon>AddPurchaserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HR\EditEmployeeWindow.xaml.cs">
+      <DependentUpon>EditEmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HR\EditPurchaserWindow.xaml.cs">
+      <DependentUpon>EditPurchaserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\GrantRole2UserWindow.xaml.cs">
+      <DependentUpon>GrantRole2UserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\GrantPermission2UserWindow.xaml.cs">
+      <DependentUpon>GrantPermission2UserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\GrantPermission2RoleWindow.xaml.cs">
+      <DependentUpon>GrantPermission2RoleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\AddRoleWindow.xaml.cs">
+      <DependentUpon>AddRoleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\AddUserWindow.xaml.cs">
+      <DependentUpon>AddUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\EditPermissionWindow.xaml.cs">
+      <DependentUpon>EditPermissionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\EditRoleWindow.xaml.cs">
+      <DependentUpon>EditRoleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\EditUserWindow.xaml.cs">
+      <DependentUpon>EditUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HR\EmployeeUC.xaml.cs">
+      <DependentUpon>EmployeeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HR\PurchaserUC.xaml.cs">
+      <DependentUpon>PurchaserUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\ResetUserPassWordWindow.xaml.cs">
+      <DependentUpon>ResetUserPassWordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\PermissionUC.xaml.cs">
+      <DependentUpon>PermissionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\RoleUC.xaml.cs">
+      <DependentUpon>RoleUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\UserUC.xaml.cs">
+      <DependentUpon>UserUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddAreaWindow.xaml.cs">
+      <DependentUpon>AddAreaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddManufacturerWindow.xaml.cs">
+      <DependentUpon>AddManufacturerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddMedicineInOutWarehouseWindow.xaml.cs">
+      <DependentUpon>AddMedicineInOutWarehouseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddMedicineNameWindow.xaml.cs">
+      <DependentUpon>AddMedicineNameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddMedicineWindow.xaml.cs">
+      <DependentUpon>AddMedicineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddOtherInOutWarehouseWindow.xaml.cs">
+      <DependentUpon>AddOtherInOutWarehouseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\AddOtherWindow.xaml.cs">
+      <DependentUpon>AddOtherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\EditFeedWindow.xaml.cs">
+      <DependentUpon>EditFeedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\EditMedicineWindow.xaml.cs">
+      <DependentUpon>EditMedicineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\EditOtherWindow.xaml.cs">
+      <DependentUpon>EditOtherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\FeedOutWarehouseUC.xaml.cs">
+      <DependentUpon>FeedOutWarehouseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\FeedInWarehouseUC.xaml.cs">
+      <DependentUpon>FeedInWarehouseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\FeedUC.xaml.cs">
+      <DependentUpon>FeedUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\FeedWarehouseUC.xaml.cs">
+      <DependentUpon>FeedWarehouseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\MedicineInOutWarehouseUC.xaml.cs">
+      <DependentUpon>MedicineInOutWarehouseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\MedicineUC.xaml.cs">
+      <DependentUpon>MedicineUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\MedicineWarehouseUC.xaml.cs">
+      <DependentUpon>MedicineWarehouseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\OtherOutWarehouseUC.xaml.cs">
+      <DependentUpon>OtherOutWarehouseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\OtherInWarehouseUC.xaml.cs">
+      <DependentUpon>OtherInWarehouseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\OtherUC.xaml.cs">
+      <DependentUpon>OtherUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inputs\OtherWarehouseUC.xaml.cs">
+      <DependentUpon>OtherWarehouseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoaddingWindow.xaml.cs">
+      <DependentUpon>LoaddingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\AblactationUC.xaml.cs">
+      <DependentUpon>AblactationUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\AbortionUC.xaml.cs">
+      <DependentUpon>AbortionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\AddAblactationWindow.xaml.cs">
+      <DependentUpon>AddAblactationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\AddAbortionWindow.xaml.cs">
+      <DependentUpon>AddAbortionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\AddDeliveryWindow.xaml.cs">
+      <DependentUpon>AddDeliveryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\AddMatingWindow.xaml.cs">
+      <DependentUpon>AddMatingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\DeliveryUC.xaml.cs">
+      <DependentUpon>DeliveryUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\EditAblactationWindow.xaml.cs">
+      <DependentUpon>EditAblactationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\EditAbortionWindow.xaml.cs">
+      <DependentUpon>EditAbortionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\EditDeliveryWindow.xaml.cs">
+      <DependentUpon>EditDeliveryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\EditMatingWindow.xaml.cs">
+      <DependentUpon>EditMatingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\MatingCountUC.xaml.cs">
+      <DependentUpon>MatingCountUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Multiplying\MatingUC.xaml.cs">
+      <DependentUpon>MatingUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportForms\BuyReportUC.xaml.cs">
+      <DependentUpon>BuyReportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportForms\FeedReportUC.xaml.cs">
+      <DependentUpon>FeedReportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportForms\FeedSheepReportUC.xaml.cs">
+      <DependentUpon>FeedSheepReportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportForms\FinanceReportUC.xaml.cs">
+      <DependentUpon>FinanceReportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportForms\MultiplyReportUC.xaml.cs">
+      <DependentUpon>MultiplyReportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportForms\SellReportUC.xaml.cs">
+      <DependentUpon>SellReportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StartUC.xaml.cs">
+      <DependentUpon>StartUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tool\FeedParameterWindow.xaml.cs">
+      <DependentUpon>FeedParameterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tool\MedicineParameterWindow.xaml.cs">
+      <DependentUpon>MedicineParameterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View\NotificationWindow.xaml.cs">
+      <DependentUpon>NotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tool\SheepParameterWindow.xaml.cs">
+      <DependentUpon>SheepParameterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemService\ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Expands\NotificationObjectExp\NotificationObjectExpand.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\ControlTemplate\Assist\Disease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ControlTemplate\Form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ControlTemplate\GroupManage\GroupMonitoring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\Assist\Disease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\Assist\Symptom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\Common.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\DiseaseControl\AntiepidemicPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\Finance\SellSheep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\GroupManage\AddMoveSheepfold.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\HR\Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\InOutWarehouse\FeedOutWarehouse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\InOutWarehouse\OperationFeedUCColumn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\Multiplying\AddDelivery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\SystemService\Role.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplate\SystemService\User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Assist\AddCustomFormula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Assist\AddFormula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Assist\AddOrEditFormulaNutrient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Assist\PedigreeChartUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Assist\TwoMating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\DiseaseControl\AddEditTreatment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Finance\SellSheepMonitoring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\Help\CheckUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Help\Feedback.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\File\Export.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Finance\AddBuyFeed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Finance\BuyInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Finance\SellSheep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Account.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\Assist\Formula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Assist\Sickness.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\Assist\Symptom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\Assist\Disease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\BaseInfo\AddOrEditSheep.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\Form.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\FormWithTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\GroupManage\AddMoveSheepfold.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\GroupManage\GroupMonitoring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Help\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Help\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\HR\AddEmployee.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\Input\Feed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\List.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\Multiplying\AddDelivery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\ReportForms\BaseReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\ReportForms\FeedChartReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Start.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Tool\FeedMedicineParameter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ControlTemplate\TreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Style\Base\View\Notification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\SystemService\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\Base\Tool\SheepParameter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DataPager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FeedChartReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ProgressRing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Assist\AddCustomFormulaWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Assist\AddFormulaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Assist\AssistMatingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Assist\FormulaNutrientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Assist\FormulaNutrientUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Assist\PedigreeChartUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Assist\TwoMatingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BaseInfo\EditSheepfoldWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BaseInfo\FarmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BaseInfo\SheepFeedRecordUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BaseInfo\SheepfoldUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\ExceptAssessSheepUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\AddExceptAssessSheepWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\AddAntiepidemicPlanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\AddAntiepidemicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\AddTreatmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\AntiepidemicPlanUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\AntiepidemicUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\EditAntiepidemicPlanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\EditAntiepidemicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\EditTreatmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\ExecuteAntiepidemicPlanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiseaseControl\TreatmentUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\File\ExportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddBuyFeedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddBuyMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddBuyOtherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddBuySheepWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddElectricChargeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddPayoffWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddSellFeedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddSellManureWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Finance\AddSellSheepAllWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Finance\SellSheepMonitoringWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Finance\SellFeedUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddSellOtherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\AddSellSheepWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Finance\AddSellWoolWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Finance\AddWaterRateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\BuyFeedUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\BuyMedicineUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\BuyOtherUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\BuySheepUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\ElectricChargeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\PayoffUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\SellOtherUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\SellSheepUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\SellManureUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Finance\SellWoolUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Finance\WaterRateUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupManage\SellSheepManageUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Help\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Help\CheckUpdateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Help\FeedbackWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Help\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HR\DepartureEmployeeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HR\AddDepartureEmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddFeedInOutWarehouseWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Inputs\AddFeedNameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddFeedOutWarehouseByCompoundWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddFeedOutWarehouseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddFeedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AccountWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Assist\DiseaseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Assist\FormulaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Assist\SymptomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BaseInfo\AddBreedWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BaseInfo\EditSheepWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BaseInfo\AddSheepFoldWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BaseInfo\SheepUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BaseInfo\AddSheepWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\AddAssessStudsheepWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Breeding\AddFirstAssessWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Breeding\AddSecondAssessWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Breeding\AddThirdAssessWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Breeding\AssessStudsheepUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\EditAssessStudsheepWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\EditFirstAssessWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\EditSecondAssessWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\EditThirdAssessWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\FirstAssessOrderUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\FirstAssessUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\SecondAssessOrderUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\SecondAssessUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\StudsheepOrderUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\ThirdAssessOrderUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Breeding\ThirdAssessUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupManage\AddDeathManageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupManage\AddMoveSheepfoldWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GroupManage\DeathManageUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupManage\EditDeathManageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupManage\GroupMonitoringWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupManage\MoveSheepfoldUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HR\AddDutyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HR\AddEmployeeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HR\AddPurchaserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HR\EditEmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HR\EditPurchaserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemService\GrantRole2UserWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SystemService\GrantPermission2UserWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SystemService\GrantPermission2RoleWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SystemService\AddRoleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemService\AddUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemService\EditPermissionWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SystemService\EditRoleWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SystemService\EditUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HR\EmployeeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HR\PurchaserUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemService\ResetUserPassWordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemService\PermissionUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SystemService\RoleUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemService\UserUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddAreaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddManufacturerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddMedicineInOutWarehouseWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Inputs\AddMedicineNameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddOtherInOutWarehouseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\AddOtherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\EditFeedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\EditMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\EditOtherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\FeedOutWarehouseUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Inputs\FeedInWarehouseUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\FeedUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\FeedWarehouseUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\MedicineInOutWarehouseUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\MedicineUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\MedicineWarehouseUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\OtherOutWarehouseUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Inputs\OtherInWarehouseUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\OtherUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inputs\OtherWarehouseUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoaddingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Multiplying\AblactationUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Multiplying\AbortionUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Multiplying\AddAblactationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Multiplying\AddAbortionWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Multiplying\AddDeliveryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Multiplying\AddMatingWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Multiplying\DeliveryUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Multiplying\EditAblactationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Multiplying\EditAbortionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Multiplying\EditDeliveryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Multiplying\EditMatingWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Multiplying\MatingCountUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Multiplying\MatingUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReportForms\BuyReportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportForms\FeedReportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportForms\FeedSheepReportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportForms\FinanceReportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportForms\MultiplyReportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportForms\SellReportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StartUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Tool\FeedParameterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Tool\MedicineParameterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View\NotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tool\SheepParameterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemService\ChangePasswordWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\Document.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Service References\ProductService\Chanyi.Shepherd.WPF.ProductService.Accounts.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductService\service.wsdl" />
+    <None Include="Service References\ProductService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chanyi.Shepherd.IServices\Chanyi.Shepherd.IServices.csproj">
+      <Project>{d948b65a-4378-4a35-88d5-623560113832}</Project>
+      <Name>Chanyi.Shepherd.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chanyi.Shepherd.QueryModel\Chanyi.Shepherd.QueryModel.csproj">
+      <Project>{ce873449-22b3-431b-9e36-3487a8ac38df}</Project>
+      <Name>Chanyi.Shepherd.QueryModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\AdoDao.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\SetRole.png" />
+    <Resource Include="Images\ResetPassword.ico" />
+    <Resource Include="Images\GrantPermission.png" />
+    <Resource Include="Images\EditRole.png" />
+    <Resource Include="Images\ChangePassword.png" />
+    <Resource Include="Images\AddRole.png" />
+    <Resource Include="Images\EditUser.ico" />
+    <Resource Include="Images\AddUser.png" />
+    <Resource Include="Images\SellChart.png" />
+    <Resource Include="Images\Chart.png" />
+    <Resource Include="Images\Report.png" />
+    <Resource Include="Images\Farm.png" />
+    <Resource Include="Images\Update.ico" />
+    <Resource Include="Images\MatingTest.png" />
+    <None Include="Service References\ProductService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProductService\configuration.svcinfo" />
+    <None Include="Service References\ProductService\configuration91.svcinfo" />
+    <Resource Include="Images\Actived.png" />
+    <Resource Include="Images\Register.ico" />
+    <SplashScreen Include="SplashScreen.png" />
+    <None Include="Data\ReadMe.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Assess.ico" />
+    <Resource Include="Images\AssessStudsheep.ico" />
+    <Resource Include="Images\Alert.png" />
+    <Resource Include="Images\Parameter.png" />
+    <Resource Include="Images\Name.png" />
+    <Resource Include="Images\Area.png" />
+    <Resource Include="Images\Duty.png" />
+    <Resource Include="Images\Help.png" />
+    <Resource Include="Images\About.png" />
+    <Resource Include="Images\Feedback.png" />
+    <Resource Include="Images\Group.png" />
+    <Resource Include="Images\Sheepfold.png" />
+    <Resource Include="Images\Breed.ico" />
+    <Resource Include="Images\Symptom.png" />
+    <Resource Include="Images\FamilyTree.png" />
+    <None Include="Data\Readme.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\FeedOut.png" />
+    <Resource Include="Images\DiseaseDiagnosis.png" />
+    <Resource Include="Images\Employee.png" />
+    <Resource Include="Images\Export.png" />
+    <Resource Include="Images\FeedWarehouse.png" />
+    <Resource Include="Images\MedicineInOutWarehouse.png" />
+    <Resource Include="Images\FeedInOutWarehouse.png" />
+    <Content Include="Config\Log4Net.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Information.png" />
+    <Resource Include="Images\AssessOrder.png" />
+    <Resource Include="Images\DeathManage.png" />
+    <Resource Include="Images\InWarehouse.png" />
+    <Resource Include="Images\Medicine.png" />
+    <Resource Include="Images\FormulaDesign.png" />
+    <Resource Include="Images\Add.png" />
+    <Resource Include="Images\Edit.png" />
+    <Resource Include="Images\Formula.png" />
+    <Resource Include="Images\FormulaNutrient.png" />
+    <Resource Include="Images\Feed.png" />
+    <Resource Include="Images\Ablactation.png" />
+    <Resource Include="Images\Delivery.png" />
+    <Resource Include="Images\Abortion.png" />
+    <Resource Include="Images\Mating.png" />
+    <None Include="Data\Diseases.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Config\MenuItems.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Config\LSideBar.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Content Include="Config\Service.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\MedicineOut.png" />
+    <Resource Include="Images\MedicineWarehouse.png" />
+    <Resource Include="Images\MonitoringGroups.png" />
+    <Resource Include="Images\MoveSheepfold.png" />
+    <Resource Include="Images\Other.png" />
+    <Resource Include="Images\OtherInOutWarehouse.png" />
+    <Resource Include="Images\OtherWarehouse.png" />
+    <Resource Include="Images\OutWarehouse.png" />
+    <Resource Include="Images\Payoff.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\progressring.gif" />
+    <Resource Include="Images\Purchaser.png" />
+    <Resource Include="Images\SellManure.png" />
+    <Resource Include="Images\SellSheep.png" />
+    <Resource Include="Images\SellWool.png" />
+    <Resource Include="Images\Sheep.png" />
+    <Resource Include="Images\SheepData.png" />
+    <Resource Include="Images\user.png" />
+    <Resource Include="Images\volume.png" />
+    <Resource Include="Images\icon.ico" />
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ProductService\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

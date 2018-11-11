@@ -1,0 +1,73 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.SystemService.GrantRole2UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chanyi.Shepherd.WPF.Views.Assist"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="550" Width="850" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Style/Base/Assist/AddCustomFormula.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/DataTemplate/Common.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Margin="10,0,0,0" Text="名称或描述：" />
+                <TextBox Width="180" Text="{Binding Keyword}" />
+                <Button Width="100" Command="{Binding SearchCommand}"
+                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+                                IsDefault="True">
+                    搜索可选角色
+                </Button>
+            </StackPanel>
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="8"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="可选角色">
+                    <DataGrid ItemsSource="{Binding SourceItems}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Header="角色名称" ></DataGridTextColumn>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Description}" Header="角色描述" ></DataGridTextColumn>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Remark}" Header="备注"></DataGridTextColumn>
+                            <DataGridTemplateColumn Header="操作" IsReadOnly="True" CellTemplate="{StaticResource GrantColumn}"></DataGridTemplateColumn>
+                            <DataGridTextColumn IsReadOnly="True" Width="*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+                <GroupBox Header="已有角色" Grid.Column="2">
+                    <DataGrid ItemsSource="{Binding TargetItems}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Header="角色名称" ></DataGridTextColumn>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Description}" Header="角色描述" ></DataGridTextColumn>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Remark}" Header="备注"></DataGridTextColumn>
+                            <DataGridTemplateColumn Header="操作" IsReadOnly="True" CellTemplate="{StaticResource RemoveColumn}"></DataGridTemplateColumn>
+                            <DataGridTextColumn IsReadOnly="True" Width="*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+            </Grid>
+        </Grid>
+        <StackPanel Style="{StaticResource spButtons}" Grid.Row="1">
+            <Button Command="{Binding SubmitCommand}">确定</Button>
+            <Button Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">取消</Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,94 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Finance.AddSellOtherWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chanyi.Shepherd.WPF.Views.Assist"
+        mc:Ignorable="d"
+        Title="添加饲料财务记录" Height="480" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/Payoff.png">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Style/Base/Finance/AddBuyFeed.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/DataTemplate/Common.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Style="{StaticResource contentControl}">
+            <GroupBox Header="需录入财务记录物品">
+                <DataGrid ItemsSource="{Binding SellOthers}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="选择" CellTemplate="{StaticResource CheckedColumn}">
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="物品名称" Binding="{Binding Name}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="数量" Binding="{Binding Amount}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="入库时间" Binding="{Binding OperationDate ,StringFormat=yyyy-MM-dd}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Width="*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="1" Style="{StaticResource contentControl}">
+            <GroupBox Header="物品卖出收入(元)" Grid.Column="2">
+                <DataGrid ItemsSource="{Binding SellOthersCharge}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="物品名称" Binding="{Binding Name}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="卖出数量" Binding="{Binding Amount}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="购买费用(元)">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Price, UpdateSourceTrigger=LostFocus}"></TextBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="购买者">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox  ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid},AncestorLevel=1},Path=DataContext.Purchasers}" DisplayMemberPath="Name" SelectedValue="{Binding PurchaserId,UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Id"></ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="出售时间">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker Style="{StaticResource dp}" SelectedDate="{Binding SellDate,UpdateSourceTrigger=PropertyChanged}"></DatePicker>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="操作人">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid},AncestorLevel=1},Path=DataContext.Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId ,UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Id"></ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="操作" IsReadOnly="True" CellTemplate="{StaticResource RemoveColumn}"></DataGridTemplateColumn>
+                        <DataGridTextColumn Width="*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <GroupBox >
+                <StackPanel>
+                    <TextBlock>备注:</TextBlock>
+                    <TextBox Width="520" Height="40" Margin="15,0,0,0"></TextBox>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+
+        <StackPanel Style="{StaticResource spButtons}" Grid.Row="3">
+            <Button Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">确定</Button>
+            <Button Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">取消</Button>
+        </StackPanel>
+    </Grid>
+</Window>

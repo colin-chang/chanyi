@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE873449-22B3-431B-9E36-3487A8AC38DF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Chanyi.Shepherd.QueryModel</RootNamespace>
+    <AssemblyName>Chanyi.Shepherd.QueryModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Chanyi.Utility, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chanyi.Utility.1.0.4\lib\Chanyi.Utility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.1.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.Core.3.1.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=2.0.1.40000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Spring.Aop.2.0.1\lib\net40\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=2.0.1.40000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Spring.Core.2.0.1\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=2.0.1.40000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Spring.Data.2.0.1\lib\net40\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddModel\BaseInfo\Sheep.cs" />
+    <Compile Include="AddModel\Finance\AddSellInput.cs" />
+    <Compile Include="AddModel\Finance\AddSellSheep.cs" />
+    <Compile Include="BindingFilter\BaseBindFilter.cs" />
+    <Compile Include="BindingFilter\SheepBindFilter.cs" />
+    <Compile Include="BindingFilter\SicknessBindFilter.cs" />
+    <Compile Include="BindingFilter\SymptomBindFilter.cs" />
+    <Compile Include="BindingModel\AreaBind.cs" />
+    <Compile Include="BindingModel\BaseBindModel.cs" />
+    <Compile Include="BindingModel\BreedBind.cs" />
+    <Compile Include="BindingModel\BuyFeedBind.cs" />
+    <Compile Include="BindingModel\BuyInputBind.cs" />
+    <Compile Include="BindingModel\BuyMedicineBind.cs" />
+    <Compile Include="BindingModel\BuyOtherBind.cs" />
+    <Compile Include="BindingModel\CooperaterBind.cs" />
+    <Compile Include="BindingModel\DepartmentBind.cs" />
+    <Compile Include="BindingModel\DiseaseBind.cs" />
+    <Compile Include="BindingModel\DiseaseTypeBind.cs" />
+    <Compile Include="BindingModel\DutyBind.cs" />
+    <Compile Include="BindingModel\FeedNameBind.cs" />
+    <Compile Include="BindingModel\FeedTypeBind.cs" />
+    <Compile Include="BindingModel\FormulaBind.cs" />
+    <Compile Include="BindingModel\InputNameBind.cs" />
+    <Compile Include="BindingModel\InputsBind.cs" />
+    <Compile Include="BindingModel\ManufactureBind.cs" />
+    <Compile Include="BindingModel\MedicineBind.cs" />
+    <Compile Include="BindingModel\MedicineTypeBind.cs" />
+    <Compile Include="BindingModel\OtherBind.cs" />
+    <Compile Include="BindingModel\PurchaserBind.cs" />
+    <Compile Include="BindingModel\SellFeedBind.cs" />
+    <Compile Include="BindingModel\SellInputBind.cs" />
+    <Compile Include="BindingModel\SellOtherBind.cs" />
+    <Compile Include="BindingModel\SheepBind.cs" />
+    <Compile Include="BindingModel\SheepfoldBind.cs" />
+    <Compile Include="BindingModel\SheepfoldSheepCountBind.cs" />
+    <Compile Include="BindingModel\SicknessBind.cs" />
+    <Compile Include="BindingModel\SymptomBind.cs" />
+    <Compile Include="BindingModel\SymptomTypeBind.cs" />
+    <Compile Include="BindingModel\TypeBind.cs" />
+    <Compile Include="BindingModel\UserBind.cs" />
+    <Compile Include="Filter\Assist\DiseaseFilter.cs" />
+    <Compile Include="Filter\Assist\SicknessFilter.cs" />
+    <Compile Include="Filter\Assist\SymptomFilter.cs" />
+    <Compile Include="Filter\BaseInfo\BreedFilter.cs" />
+    <Compile Include="Filter\BaseInfo\SheepFilter.cs" />
+    <Compile Include="Filter\BaseInfo\SheepfoldFilter.cs" />
+    <Compile Include="Filter\BaseModelFilter.cs" />
+    <Compile Include="Filter\BaseModelWithPrincipalFilter.cs" />
+    <Compile Include="Filter\Breeding\ExceptAssessFilter.cs" />
+    <Compile Include="Filter\DiseaseControl\AntiepidemicFilter.cs" />
+    <Compile Include="Filter\DiseaseControl\AntiepidemicPlanFilter.cs" />
+    <Compile Include="Filter\DiseaseControl\TreatmentFilter.cs" />
+    <Compile Include="Filter\Finance\SellFeedFilter.cs" />
+    <Compile Include="Filter\Finance\SellInputFilter.cs" />
+    <Compile Include="Filter\Finance\SellOtherFilter.cs" />
+    <Compile Include="Filter\Finance\SellSheepBatchFilter.cs" />
+    <Compile Include="Filter\HR\QuitFilter.cs" />
+    <Compile Include="Filter\Multiplying\MatingCountFilter.cs" />
+    <Compile Include="Filter\System\PermissionFilter.cs" />
+    <Compile Include="Filter\System\SplitYardFilter.cs" />
+    <Compile Include="Filter\System\RoleFilter.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Filter\Breeding\AssessFilter.cs" />
+    <Compile Include="Filter\Breeding\AssessStudsheepFilter.cs" />
+    <Compile Include="Filter\Breeding\FirstAssessFilter.cs" />
+    <Compile Include="Filter\Breeding\SecondAssessFilter.cs" />
+    <Compile Include="Filter\Breeding\ThirdAssessFilter.cs" />
+    <Compile Include="Filter\Finance\ButOtherFilter.cs" />
+    <Compile Include="Filter\Finance\BuyMedicineFilter.cs" />
+    <Compile Include="Filter\Finance\BuyFeedFilter.cs" />
+    <Compile Include="Filter\Finance\BuyInputsFilter.cs" />
+    <Compile Include="Filter\Finance\BuySheepFilter.cs" />
+    <Compile Include="Filter\Finance\ElectricChargeFilter.cs" />
+    <Compile Include="Filter\Finance\ExpenditureFilter.cs" />
+    <Compile Include="Filter\Finance\IncidentalsFilter.cs" />
+    <Compile Include="Filter\Finance\PayoffFilter.cs" />
+    <Compile Include="Filter\Finance\SellFilter.cs" />
+    <Compile Include="Filter\Finance\SellManureFilter.cs" />
+    <Compile Include="Filter\Finance\SellSheepFilter.cs" />
+    <Compile Include="Filter\Finance\SellWoolFilter.cs" />
+    <Compile Include="Filter\Finance\WaterRateFilter.cs" />
+    <Compile Include="Filter\Formula\FormulaFilter.cs" />
+    <Compile Include="Filter\Formula\FormulaNutrientFilter.cs" />
+    <Compile Include="Filter\Group\DeathManageFilter.cs" />
+    <Compile Include="Filter\Group\MoveSheepfoldFilter.cs" />
+    <Compile Include="Filter\HR\CooperaterFilter.cs" />
+    <Compile Include="Filter\HR\EmployeeFilter.cs" />
+    <Compile Include="Filter\HR\UserFilter.cs" />
+    <Compile Include="Filter\Input\FeedFilter.cs" />
+    <Compile Include="Filter\Input\FeedInOutFilter.cs" />
+    <Compile Include="Filter\Input\FeedInventoryFilter.cs" />
+    <Compile Include="Filter\Input\InOutFilter.cs" />
+    <Compile Include="Filter\Input\InputFilter.cs" />
+    <Compile Include="Filter\Input\InventoryFilter.cs" />
+    <Compile Include="Filter\Input\MedicineFilter.cs" />
+    <Compile Include="Filter\Input\MedicineInOutFilter.cs" />
+    <Compile Include="Filter\Input\MedicineInventoryFilter.cs" />
+    <Compile Include="Filter\Input\OtherFilter.cs" />
+    <Compile Include="Filter\Input\OtherInOutFilter.cs" />
+    <Compile Include="Filter\Input\OtherInventoryFilter.cs" />
+    <Compile Include="Filter\Multiplying\AblactationFilter.cs" />
+    <Compile Include="Filter\Multiplying\AbortionFilter.cs" />
+    <Compile Include="Filter\Multiplying\DeliveryFilter.cs" />
+    <Compile Include="Filter\Multiplying\MatingFilter.cs" />
+    <Compile Include="BindingModel\EmployeeBind.cs" />
+    <Compile Include="Model\Assist\AssistMating.cs" />
+    <Compile Include="Model\Assist\DiseaseType.cs" />
+    <Compile Include="Model\Assist\SymptomType.cs" />
+    <Compile Include="Model\BaseInfo\Farm.cs" />
+    <Compile Include="Model\BaseInfo\Sheep4FeedOutWarehouse.cs" />
+    <Compile Include="Model\Breeding\ExceptAssess.cs" />
+    <Compile Include="Model\Chart\PeriodsSellSheepCount.cs" />
+    <Compile Include="Model\Chart\PeriodsSheepGrowthStageCount.cs" />
+    <Compile Include="Model\Assist\FamilyTree.cs" />
+    <Compile Include="Model\DiseaseControl\Antiepidemic.cs" />
+    <Compile Include="Model\DiseaseControl\AntiepidemicPlan.cs" />
+    <Compile Include="Model\DiseaseControl\Treatment.cs" />
+    <Compile Include="Model\Enums.cs" />
+    <Compile Include="BaseFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Filter\FilterHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IQueryFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Filter\TestFilter.cs" />
+    <Compile Include="Model\Assist\Disease.cs" />
+    <Compile Include="Model\Assist\Symptom.cs" />
+    <Compile Include="Model\BaseInfo\Breed.cs" />
+    <Compile Include="Model\BaseInfo\Sheep.cs" />
+    <Compile Include="Model\BaseInfo\Sheepfold.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\BaseModelWithPrincipal.cs" />
+    <Compile Include="Model\BaseType.cs" />
+    <Compile Include="Model\Breeding\FirstAssess.cs" />
+    <Compile Include="Model\Breeding\SecondAssess.cs" />
+    <Compile Include="Model\Breeding\ThirdAssess.cs" />
+    <Compile Include="Model\Finance\BuyFeed.cs" />
+    <Compile Include="Model\Finance\BuyMedicine.cs" />
+    <Compile Include="Model\Finance\BuyOther.cs" />
+    <Compile Include="Model\Finance\FeedPrice.cs" />
+    <Compile Include="Model\Finance\SellFeed.cs" />
+    <Compile Include="Model\Finance\SellInput.cs" />
+    <Compile Include="Model\Finance\SellSheepBatch.cs" />
+    <Compile Include="Model\Formula\Formula.cs" />
+    <Compile Include="Model\Formula\FormulaFeed.cs" />
+    <Compile Include="Model\Formula\FeedFormulaRelevancy.cs" />
+    <Compile Include="Model\Formula\FormulaNutrient.cs" />
+    <Compile Include="Model\Finance\BuyInput.cs" />
+    <Compile Include="Model\Finance\BuySheep.cs" />
+    <Compile Include="Model\HR\Cooperater.cs" />
+    <Compile Include="Model\HR\Manufacture.cs" />
+    <Compile Include="Model\HR\Quit.cs" />
+    <Compile Include="Model\Input\Feed.cs" />
+    <Compile Include="Model\Input\FeedDetail.cs" />
+    <Compile Include="Model\Input\FeedSheepOutWarehouse.cs" />
+    <Compile Include="Model\Input\FeedWithAllFileds.cs" />
+    <Compile Include="Model\Input\InOutAmount.cs" />
+    <Compile Include="Model\Input\Input.cs" />
+    <Compile Include="Model\Input\Medicine.cs" />
+    <Compile Include="Model\Input\Other.cs" />
+    <Compile Include="Model\Input\OtherInOut.cs" />
+    <Compile Include="Model\Input\OtherInventory.cs" />
+    <Compile Include="Model\Input\SimpleFeed.cs" />
+    <Compile Include="Model\Multiplying\Ablactation.cs" />
+    <Compile Include="Model\Multiplying\MatingCount.cs" />
+    <Compile Include="Model\ReportForms\BaseFinanceReport.cs" />
+    <Compile Include="Model\ReportForms\BuyReport.cs" />
+    <Compile Include="Model\ReportForms\FeedReport.cs" />
+    <Compile Include="Model\ReportForms\FeedSheepReport.cs" />
+    <Compile Include="Model\ReportForms\FinanceReport.cs" />
+    <Compile Include="Model\ReportForms\MultiplyReport.cs" />
+    <Compile Include="Model\ReportForms\SellReport.cs" />
+    <Compile Include="Model\System\Duty.cs" />
+    <Compile Include="Model\Finance\ElectricCharge.cs" />
+    <Compile Include="Model\HR\Employee.cs" />
+    <Compile Include="Model\Finance\Incidentals.cs" />
+    <Compile Include="Model\Finance\Payoff.cs" />
+    <Compile Include="Model\System\FeedRemaindful.cs" />
+    <Compile Include="Model\System\InputRemaindful.cs" />
+    <Compile Include="Model\System\MedicineCritical.cs" />
+    <Compile Include="Model\System\Login.cs" />
+    <Compile Include="Model\HR\Purchaser .cs" />
+    <Compile Include="Model\Finance\SellManure.cs" />
+    <Compile Include="Model\Finance\SellOther.cs" />
+    <Compile Include="Model\Finance\SellSheep.cs" />
+    <Compile Include="Model\Finance\SellWool.cs" />
+    <Compile Include="Model\Finance\WaterRate.cs" />
+    <Compile Include="Model\Group\DeathManage.cs" />
+    <Compile Include="Model\Group\MoveSheepfold.cs" />
+    <Compile Include="Model\System\FeedCritical.cs" />
+    <Compile Include="Model\Input\FeedInOut.cs" />
+    <Compile Include="Model\Input\FeedInventory.cs" />
+    <Compile Include="Model\Input\InOutWarehouse.cs" />
+    <Compile Include="Model\Input\Inventory.cs" />
+    <Compile Include="Model\Input\MedicineInOut.cs" />
+    <Compile Include="Model\Input\MedicineInventory.cs" />
+    <Compile Include="Model\Multiplying\Abortion.cs" />
+    <Compile Include="Model\Breeding\Assess.cs" />
+    <Compile Include="Model\Breeding\AssessStudsheep.cs" />
+    <Compile Include="Model\Finance\Expenditure.cs" />
+    <Compile Include="Model\Finance\Sell.cs" />
+    <Compile Include="Model\Assist\Sickness.cs" />
+    <Compile Include="Model\Multiplying\Delivery.cs" />
+    <Compile Include="Model\Multiplying\Mating.cs" />
+    <Compile Include="Model\System\MedicineRemaindful.cs" />
+    <Compile Include="Model\System\Permission.cs" />
+    <Compile Include="Model\System\PreAblactationRemaindful.cs" />
+    <Compile Include="Model\System\PreDeliveryRemaindful.cs" />
+    <Compile Include="Model\System\Role.cs" />
+    <Compile Include="Model\System\Settings.cs" />
+    <Compile Include="Model\System\SettingsLog.cs" />
+    <Compile Include="Model\System\SheepParameter.cs" />
+    <Compile Include="Model\HR\User.cs" />
+    <Compile Include="Model\System\SheepRemaindful.cs" />
+    <Compile Include="Model\System\SplitYard.cs" />
+    <Compile Include="SetttingsModel\SettingsUsers.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateModel\System\UpdateCritical.cs" />
+    <Compile Include="UpdateModel\System\Settings.cs" />
+    <Compile Include="UpdateModel\System\UpdateSheepParameter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AddModel\Input\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

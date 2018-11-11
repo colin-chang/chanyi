@@ -1,0 +1,44 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Help.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="关于牧羊人" Height="320" Width="390" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/About.png">
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Help/About.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/logo.png"></Image>
+                <TextBlock Style="{StaticResource title}">
+                    牧羊人——<LineBreak/>现代羊场管理系统
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>版本：</TextBlock>
+                    <TextBlock Text="{Binding Version}"></TextBlock>
+                </StackPanel>
+                <TextBlock>更新版本：已是最新版</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>产品ID：</TextBlock>
+                    <TextBlock Text="{Binding ProductId}"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <CheckBox Grid.Row="4" IsChecked="{Binding AutoUpdate}">自动检查新版本</CheckBox>
+            <TextBlock Grid.Row="6">©2015 北京蝉翼科技有限公司。 保留所有权利</TextBlock>
+            <Button Grid.Row="7" Command="{Binding CancelCommand}">关闭(C)</Button>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,494 @@
+﻿<UserControl x:Class="Chanyi.Shepherd.WPF.Views.BaseInfo.SheepUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ap="clr-namespace:Chanyi.Shepherd.WPF.Expands.AttcahProperty"
+             xmlns:b="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:uc="clr-namespace:Chanyi.Shepherd.WPF.UserControls"
+             d:DesignHeight="600"
+             d:DesignWidth="1150"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--  <ResourceDictionary Source="/Resources/Style/Base/BaseInfo/Sheep.xaml"></ResourceDictionary>  -->
+                <ResourceDictionary Source="/Resources/Style/Base/List.xaml" />
+                <ResourceDictionary Source="/Resources/DataTemplate/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Style="{StaticResource colRSide}" />
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <StackPanel Style="{StaticResource stkTitle}">
+                <StackPanel Height="40">
+                    <Image Source="{Binding Icon}" Style="{StaticResource imgTitle}" />
+                    <TextBlock FontSize="18" Text="{Binding Header}" />
+                </StackPanel>
+                <TextBlock Style="{StaticResource intro}" Text="{Binding Intro}" />
+            </StackPanel>
+            <!--
+                <WrapPanel DockPanel.Dock="Top" ComboBox.LostFocus="ComboBox_LostFocus">
+                <WrapPanel.Resources>
+                <cvt:GenderNullable2IntNullableConverter x:Key="g2i"></cvt:GenderNullable2IntNullableConverter>
+                <cvt:GrowthStageNullable2IntNullableConverter x:Key="gs2i"></cvt:GrowthStageNullable2IntNullableConverter>
+                <cvt:OriginNullable2IntNullableConverter x:Key="o2i"></cvt:OriginNullable2IntNullableConverter>
+                <cvt:SheepStatusNullable2IntNullableConverter x:Key="s2i"></cvt:SheepStatusNullable2IntNullableConverter>
+                </WrapPanel.Resources>
+                <StackPanel>
+                <TextBlock>编号：</TextBlock>
+                <ComboBox IsEditable="True" ItemsSource="{Binding Sheeps}" DisplayMemberPath="SerialNumber" SelectedValue="{Binding Id}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>品种：</TextBlock>
+                <ComboBox Width="78" ItemsSource="{Binding Breeds}" DisplayMemberPath="Name" SelectedValue="{Binding BreedId}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>性别：</TextBlock>
+                <ComboBox Width="55" SelectedValue="{Binding Gender,Converter={StaticResource g2i}}" SelectedValuePath="Tag">
+                <ComboBoxItem>全部</ComboBoxItem>
+                <ComboBoxItem Tag="0">公</ComboBoxItem>
+                <ComboBoxItem Tag="1">母</ComboBoxItem>
+                </ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>生理阶段：</TextBlock>
+                <ComboBox Width="55" SelectedValue="{Binding GrowthStage,Converter={StaticResource gs2i}}" SelectedValuePath="Tag">
+                <ComboBoxItem>全部</ComboBoxItem>
+                <ComboBoxItem Tag="0">种羊</ComboBoxItem>
+                <ComboBoxItem Tag="1">羔羊</ComboBoxItem>
+                <ComboBoxItem Tag="2">育成羊</ComboBoxItem>
+                <ComboBoxItem Tag="3">育肥羊</ComboBoxItem>
+                <ComboBoxItem Tag="4">后备种羊</ComboBoxItem>
+                </ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>来源：</TextBlock>
+                <ComboBox Width="55" SelectedValue="{Binding Origin,Converter={StaticResource o2i}}" SelectedValuePath="Tag">
+                <ComboBoxItem>全部</ComboBoxItem>
+                <ComboBoxItem Tag="0">自繁</ComboBoxItem>
+                <ComboBoxItem Tag="1">购入</ComboBoxItem>
+                </ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>初生重(kg)：</TextBlock>
+                <TextBox Text="{Binding MinBirthWeight,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBlock>-</TextBlock>
+                <TextBox Text="{Binding MaxBirthWeight,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>同胎羔羊数：</TextBlock>
+                <ComboBox Width="55" ItemsSource="{Binding CompatriotNumbers,Mode=OneTime}" DisplayMemberPath="Name" SelectedValue="{Binding CompatriotNumber}" SelectedValuePath="Id" >
+                </ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>出生日期：</TextBlock>
+                <DatePicker SelectedDate="{Binding StartBirthDay}"></DatePicker>
+                <TextBlock>-</TextBlock>
+                <DatePicker SelectedDate="{Binding EndBirthDay}"></DatePicker>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>断奶重(kg)：</TextBlock>
+                <TextBox Text="{Binding MinAblactationWeight,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBlock>-</TextBlock>
+                <TextBox Text="{Binding MaxAblactationWeight,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>圈舍：</TextBlock>
+                <ComboBox Width="55" ItemsSource="{Binding Sheepfolds}" DisplayMemberPath="Name" SelectedValue="{Binding SheepfoldId}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>状态：</TextBlock>
+                <ComboBox Width="55" SelectedValue="{Binding Status,Converter={StaticResource s2i}}" SelectedValuePath="Tag">
+                <ComboBoxItem>全部</ComboBoxItem>
+                <ComboBoxItem Tag="0">正常</ComboBoxItem>
+                <ComboBoxItem Tag="1">出售</ComboBoxItem>
+                <ComboBoxItem Tag="2">死亡</ComboBoxItem>
+                </ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>父编号：</TextBlock>
+                <ComboBox IsEditable="True" ItemsSource="{Binding Fathers}" DisplayMemberPath="SerialNumber" SelectedValue="{Binding FatherId}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>母编号：</TextBlock>
+                <ComboBox IsEditable="True" ItemsSource="{Binding Mothers}" DisplayMemberPath="SerialNumber" SelectedValue="{Binding MotherId}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>技术员：</TextBlock>
+                <ComboBox Width="65" ItemsSource="{Binding Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>录入人：</TextBlock>
+                <ComboBox Width="65" ItemsSource="{Binding Operators}" DisplayMemberPath="UserName" SelectedValue="{Binding OperatorId}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>录入日期：</TextBlock>
+                <DatePicker SelectedDate="{Binding StartCreateTime}"></DatePicker>
+                <TextBlock>-</TextBlock>
+                <DatePicker SelectedDate="{Binding EndCreateTime}"></DatePicker>
+                </StackPanel>
+                <StackPanel>
+                <TextBlock>备注：</TextBlock>
+                <TextBox Width="90" Text="{Binding Remark}"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                <Button Margin="70,0,0,0" Command="{Binding SearchCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True">搜 索</Button>
+                <Button Margin="10,0,0,0" Command="{Binding ResetCommand}">重 置</Button>
+                </StackPanel>
+                </WrapPanel>
+            -->
+            <Grid DockPanel.Dock="Bottom" Style="{StaticResource contentControl}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <DataGrid Name="dg" Tag="{Binding ElementName=progress}">
+                    <DataGrid.Resources>
+                        <cvt:Gender2StringConverter x:Key="g2s" />
+                        <cvt:GrowthStage2StringConverter x:Key="gs2s" />
+                        <cvt:Origin2StringConverter x:Key="o2s" />
+                        <cvt:SheepStatus2StringConverter x:Key="s2s" />
+                    </DataGrid.Resources>
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Loaded">
+                            <b:InvokeCommandAction Command="{Binding DataGridLoadedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}, AncestorLevel=1}}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding SerialNumber}"
+                                            Header="编号"
+                                            ap:GridColumn.BindProp="SerialNumber" />
+                        <DataGridTextColumn Binding="{Binding BreedName}"
+                                            Header="品种"
+                                            ap:GridColumn.BindProp="BreedName" />
+                        <DataGridTextColumn Binding="{Binding Gender,
+                                                              Converter={StaticResource g2s}}"
+                                            Header="性别"
+                                            ap:GridColumn.BindProp="Gender"
+                                            ap:GridColumn.Converter="{StaticResource g2s}" />
+                        <DataGridTextColumn Binding="{Binding GrowthStage,
+                                                              Converter={StaticResource gs2s}}"
+                                            Header="生理阶段"
+                                            ap:GridColumn.BindProp="GrowthStage"
+                                            ap:GridColumn.Converter="{StaticResource gs2s}" />
+                        <DataGridTextColumn Binding="{Binding Origin,
+                                                              Converter={StaticResource o2s}}"
+                                            Header="来源"
+                                            ap:GridColumn.BindProp="Origin"
+                                            ap:GridColumn.Converter="{StaticResource o2s}" />
+                        <DataGridTextColumn Binding="{Binding BirthWeight}"
+                                            Header="初生重(kg)"
+                                            ap:GridColumn.BindProp="BirthWeight" />
+                        <DataGridTextColumn Binding="{Binding CompatriotNumber}"
+                                            Header="同胎羔羊数"
+                                            ap:GridColumn.BindProp="CompatriotNumber" />
+                        <DataGridTextColumn Binding="{Binding Birthday,
+                                                              StringFormat=yyyy-MM-dd}"
+                                            Header="出生日期"
+                                            ap:GridColumn.BindProp="Birthday" />
+                        <DataGridTextColumn Binding="{Binding AblactationWeight}"
+                                            Header="断奶重(kg)"
+                                            ap:GridColumn.BindProp="AblactationWeight" />
+                        <DataGridTextColumn Binding="{Binding AblactationDate,
+                                                              StringFormat=yyyy-MM-dd}"
+                                            Header="断奶日期"
+                                            ap:GridColumn.BindProp="AblactationDate" />
+                        <DataGridTextColumn Binding="{Binding SheepfoldName}"
+                                            Header="圈舍"
+                                            ap:GridColumn.BindProp="SheepfoldName" />
+                        <DataGridTextColumn Binding="{Binding Status,
+                                                              Converter={StaticResource s2s}}"
+                                            Header="状态"
+                                            ap:GridColumn.BindProp="Status"
+                                            ap:GridColumn.Converter="{StaticResource s2s}" />
+                        <DataGridTextColumn Binding="{Binding FatherSerialNumber}"
+                                            Header="父编号"
+                                            ap:GridColumn.BindProp="FatherSerialNumber" />
+                        <DataGridTextColumn Binding="{Binding MotherSerialNumber}"
+                                            Header="母编号"
+                                            ap:GridColumn.BindProp="MotherSerialNumber" />
+                        <DataGridTextColumn Binding="{Binding PrincipalName}"
+                                            Header="技术员"
+                                            ap:GridColumn.BindProp="PrincipalName" />
+                        <DataGridTextColumn Binding="{Binding OperatorName}"
+                                            Header="录入人"
+                                            ap:GridColumn.BindProp="OperatorName" />
+                        <DataGridTextColumn Binding="{Binding CreateTime,
+                                                              StringFormat=yyyy-MM-dd}"
+                                            Header="录入日期"
+                                            ap:GridColumn.BindProp="CreateTime" />
+                        <DataGridTextColumn Binding="{Binding Remark}"
+                                            Header="备注"
+                                            ap:GridColumn.BindProp="Remark" />
+                        <DataGridTemplateColumn CellTemplate="{StaticResource OperationColumn}" Header="操作" />
+                        <DataGridTextColumn Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <uc:ProgressRing x:Name="progress" />
+                <StackPanel Style="{StaticResource sppager}">
+                    <uc:DataPager PageSize="{Binding PageSize}"
+                                  TotalCount="{Binding TotalCount}"
+                                  PageIndex="{Binding PageIndex,
+                                                      Mode=TwoWay}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PageChanged">
+                                <b:InvokeCommandAction Command="{Binding PageChangedCommand}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </uc:DataPager>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+        <GridSplitter Grid.Column="1" />
+        <Border Grid.Column="2">
+            <DockPanel Style="{x:Null}">
+                <DockPanel Height="130" DockPanel.Dock="Top">
+                    <Label Content="操作" />
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Style="{StaticResource stkSide}">
+                            <Image Source="/Images/Add.png" />
+                            <TextBlock>
+                                <!--<Hyperlink Command="{Binding AddCommand}">新增羊只</Hyperlink>-->
+                                <Hyperlink Command="{Binding AddCommand}" CommandParameter="BaseInfo.AddSheepWindow" Style="{StaticResource hlkAdd}">新增羊只</Hyperlink>
+                            </TextBlock>
+
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource stkSide}">
+                            <Image Source="/Images/Edit.png" />
+                            <TextBlock>
+                                <!--<Hyperlink Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=dg, Path=SelectedValue.Id}">编辑选中羊只</Hyperlink>--> 
+                                <Hyperlink Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=dg, Path=SelectedValue.Id}" Tag="BaseInfo.EditSheepWindow"  Style="{StaticResource hlkEdit}" Name="lkEdit">编辑选中羊只</Hyperlink>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Margin="5,8">
+                            <Line />
+                        </StackPanel>
+                        <!--
+                            <StackPanel Style="{StaticResource stkSide}">
+                            <Image Source="/Images/Print.png"></Image>
+                            <TextBlock><Hyperlink Command="{Binding PrintCommand}">打印当前列表</Hyperlink></TextBlock>
+                            </StackPanel>
+                        -->
+                        <StackPanel Style="{StaticResource stkSide}">
+                            <Image Source="/Images/Export.png" />
+                            <TextBlock>
+                                <Hyperlink Command="{Binding ExportCommand}">导出当前列表</Hyperlink>
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                    <Label Content="搜索条件" DockPanel.Dock="Bottom" />
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Bottom">
+                    <DockPanel.Resources>
+                        <cvt:GenderNullable2IntNullableConverter x:Key="g2i" />
+                        <cvt:GrowthStageNullable2IntNullableConverter x:Key="gs2i" />
+                        <cvt:OriginNullable2IntNullableConverter x:Key="o2i" />
+                        <cvt:SheepStatusNullable2IntNullableConverter x:Key="s2i" />
+                    </DockPanel.Resources>
+                    <Label Content="搜索" />
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <RowDefinition Style="{StaticResource rwsearch}" />
+                                <!--
+                                    <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                                    <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                                    <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                                    <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                                -->
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Style="{StaticResource spbtns}">
+                                <Button Command="{Binding SearchCommand}"
+                                        CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+                                        IsDefault="True">
+                                    搜 索
+                                </Button>
+                                <Button Margin="10,0" Command="{Binding ResetCommand}">重 置</Button>
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="1">编号：</TextBlock>
+                            <ComboBox Grid.Row="1"
+                                      Grid.Column="1"
+                                      DisplayMemberPath="SerialNumber"
+                                      IsEditable="True"
+                                      ItemsSource="{Binding Sheeps}"
+                                      SelectedValue="{Binding Id}"
+                                      SelectedValuePath="Id" />
+
+                            <TextBlock Grid.Row="2">品种：</TextBlock>
+                            <ComboBox Grid.Row="2"
+                                      Grid.Column="1"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding Breeds}"
+                                      SelectedValue="{Binding BreedId}"
+                                      SelectedValuePath="Id" />
+
+                            <TextBlock Grid.Row="3">性别：</TextBlock>
+                            <ComboBox Grid.Row="3"
+                                      Grid.Column="1"
+                                      SelectedValue="{Binding Gender,
+                                                              Converter={StaticResource g2i}}"
+                                      SelectedValuePath="Tag">
+                                <ComboBoxItem>全部</ComboBoxItem>
+                                <ComboBoxItem Tag="0">公</ComboBoxItem>
+                                <ComboBoxItem Tag="1">母</ComboBoxItem>
+                            </ComboBox>
+
+                            <TextBlock Grid.Row="4">生理阶段：</TextBlock>
+                            <ComboBox Grid.Row="4"
+                                      Grid.Column="1"
+                                      SelectedValue="{Binding GrowthStage,
+                                                              Converter={StaticResource gs2i}}"
+                                      SelectedValuePath="Tag">
+                                <ComboBoxItem>全部</ComboBoxItem>
+                                <ComboBoxItem Tag="0">种羊</ComboBoxItem>
+                                <ComboBoxItem Tag="1">羔羊</ComboBoxItem>
+                                <ComboBoxItem Tag="2">育成羊</ComboBoxItem>
+                                <ComboBoxItem Tag="3">育肥羊</ComboBoxItem>
+                                <ComboBoxItem Tag="4">后备种羊</ComboBoxItem>
+                            </ComboBox>
+
+                            <TextBlock Grid.Row="5">来源：</TextBlock>
+                            <ComboBox Grid.Row="5"
+                                      Grid.Column="1"
+                                      SelectedValue="{Binding Origin,
+                                                              Converter={StaticResource o2i}}"
+                                      SelectedValuePath="Tag">
+                                <ComboBoxItem>全部</ComboBoxItem>
+                                <ComboBoxItem Tag="1">自繁</ComboBoxItem>
+                                <ComboBoxItem Tag="0">购入</ComboBoxItem>
+                            </ComboBox>
+
+                            <TextBlock Grid.Row="6">初生重(kg)：</TextBlock>
+                            <StackPanel Grid.Row="6"
+                                        Grid.Column="1"
+                                        Style="{StaticResource spch}">
+                                <TextBox Style="{StaticResource txtsm}" Text="{Binding MinBirthWeight, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock>-</TextBlock>
+                                <TextBox Style="{StaticResource txtsm}" Text="{Binding MaxBirthWeight, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="7">同胎羔羊数：</TextBlock>
+                            <ComboBox Grid.Row="7"
+                                      Grid.Column="1"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding CompatriotNumbers,
+                                                            Mode=OneTime}"
+                                      SelectedValue="{Binding CompatriotNumber}"
+                                      SelectedValuePath="Id" />
+
+                            <TextBlock Grid.Row="8">出生日期：</TextBlock>
+                            <DatePicker Grid.Row="8"
+                                        Grid.Column="1"
+                                        SelectedDate="{Binding StartBirthDay}" />
+
+                            <TextBlock Grid.Row="9" HorizontalAlignment="Right">至</TextBlock>
+                            <DatePicker Grid.Row="9"
+                                        Grid.Column="1"
+                                        SelectedDate="{Binding EndBirthDay}" />
+
+                            <TextBlock Grid.Row="10">断奶重(kg)：</TextBlock>
+                            <StackPanel Grid.Row="10"
+                                        Grid.Column="1"
+                                        Style="{StaticResource spch}">
+                                <TextBox Style="{StaticResource txtsm}" Text="{Binding MinAblactationWeight, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock>-</TextBlock>
+                                <TextBox Style="{StaticResource txtsm}" Text="{Binding MaxAblactationWeight, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="11">圈舍：</TextBlock>
+                            <ComboBox Grid.Row="11"
+                                      Grid.Column="1"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding Sheepfolds}"
+                                      SelectedValue="{Binding SheepfoldId}"
+                                      SelectedValuePath="Id" />
+
+                            <TextBlock Grid.Row="12">状态：</TextBlock>
+                            <ComboBox Grid.Row="12"
+                                      Grid.Column="1"
+                                      SelectedValue="{Binding Status,
+                                                              Converter={StaticResource s2i}}"
+                                      SelectedValuePath="Tag">
+                                <ComboBoxItem>全部</ComboBoxItem>
+                                <ComboBoxItem Tag="0">正常</ComboBoxItem>
+                                <ComboBoxItem Tag="1">出售</ComboBoxItem>
+                                <ComboBoxItem Tag="2">死亡</ComboBoxItem>
+                            </ComboBox>
+
+                            <TextBlock Grid.Row="13">父编号：</TextBlock>
+                            <ComboBox Grid.Row="13"
+                                      Grid.Column="1"
+                                      DisplayMemberPath="SerialNumber"
+                                      IsEditable="True"
+                                      ItemsSource="{Binding Fathers}"
+                                      SelectedValue="{Binding FatherId}"
+                                      SelectedValuePath="Id" />
+
+                            <TextBlock Grid.Row="14">母编号：</TextBlock>
+                            <ComboBox Grid.Row="14"
+                                      Grid.Column="1"
+                                      DisplayMemberPath="SerialNumber"
+                                      IsEditable="True"
+                                      ItemsSource="{Binding Mothers}"
+                                      SelectedValue="{Binding MotherId}"
+                                      SelectedValuePath="Id" />
+
+                            <TextBlock Grid.Row="15">技术员：</TextBlock>
+                            <ComboBox Grid.Row="15"
+                                      Grid.Column="1"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding Principals}"
+                                      SelectedValue="{Binding PrincipalId}"
+                                      SelectedValuePath="Id" />
+
+                            <!--
+                                <TextBlock Grid.Row="16">录入人：</TextBlock>
+                                <ComboBox Grid.Row="16" Grid.Column="1" ItemsSource="{Binding Operators}" DisplayMemberPath="UserName" SelectedValue="{Binding OperatorId}" SelectedValuePath="Id"></ComboBox>
+                                
+                                <TextBlock Grid.Row="17">录入日期：</TextBlock>
+                                <DatePicker Grid.Row="17" Grid.Column="1" SelectedDate="{Binding StartCreateTime}"></DatePicker>
+                                
+                                <TextBlock Grid.Row="18" HorizontalAlignment="Right">至</TextBlock>
+                                <DatePicker Grid.Row="18" Grid.Column="1" SelectedDate="{Binding EndCreateTime}"></DatePicker>
+                                
+                                <TextBlock Grid.Row="19">备注：</TextBlock>
+                                <TextBox Grid.Row="19" Grid.Column="1" Text="{Binding Remark}"></TextBox>
+                            -->
+                        </Grid>
+                    </ScrollViewer>
+                </DockPanel>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>

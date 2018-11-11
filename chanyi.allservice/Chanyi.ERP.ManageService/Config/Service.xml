@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:aop="http://www.springframework.net/aop">
+
+  <object id="Chanyi.ERP.ManageService" singleton="false" type="Chanyi.ERP.ManageService.Core.Implementations.ManageService, Chanyi.ERP.ManageService">
+    <property name="ERPDao" ref="eRPDao" />
+  </object>
+
+  <object id="serviceERP" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+    <property name="pattern" value="Chanyi.ERP.ManageService.Core.Implementations.*"/>
+  </object>
+
+  <aop:config>
+    <aop:advisor pointcut-ref="serviceERP" advice-ref="perfAdvice"/>
+    <aop:advisor pointcut-ref="serviceERP" advice-ref="errorAdvice"/>
+    <aop:advisor pointcut-ref="serviceERP" advice-ref="logAdvice"/>
+  </aop:config>
+  
+  <object id="perfAdvice" type="Chanyi.ERP.ManageService.Interceptor.PerformanceInterceptor, Chanyi.ERP.ManageService">
+  </object>
+
+  <object id="errorAdvice" type="Chanyi.ERP.ManageService.Interceptor.ErrorInterceptor, Chanyi.ERP.ManageService">
+  </object>
+
+  <object id="logAdvice" type="Chanyi.ERP.ManageService.Interceptor.LogInterceptor,Chanyi.ERP.ManageService">
+  </object>
+
+</objects>

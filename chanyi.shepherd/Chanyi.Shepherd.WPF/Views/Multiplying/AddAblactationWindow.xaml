@@ -1,0 +1,62 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Multiplying.AddAblactationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:aw="clr-namespace:Chanyi.Shepherd.WPF.ViewModels.Multiplying"
+        Title="断奶资料录入" Height="310" Width="420" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize" Icon="/Images/Ablactation.png">
+
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Form.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}" ComboBox.LostFocus="ComboBox_LostFocus">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <TextBlock Grid.Row="1" Grid.Column="1">羔羊编号<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <ComboBox Grid.Row="1" Grid.Column="3" IsEditable="True" ItemsSource="{Binding Sheeps}" DisplayMemberPath="SerialNumber" SelectedValue="{Binding SheepId}" SelectedValuePath="Id"></ComboBox>
+
+            <TextBlock Grid.Row="2" Grid.Column="1">断奶重(kg)<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding AblactationWeight}"></TextBox>
+
+            <TextBlock Grid.Row="3" Grid.Column="1">断奶日期<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <DatePicker Grid.Row="3" Grid.Column="3" SelectedDate="{Binding AblactationDate}"></DatePicker>
+
+
+            <TextBlock Grid.Row="4" Grid.Column="1">技术员<Run Style="{StaticResource required}"></Run>:</TextBlock>
+            <ComboBox Grid.Row="4" Grid.Column="3" ItemsSource="{Binding Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId}" SelectedValuePath="Id"></ComboBox>
+
+            <TextBlock Grid.Row="5" Grid.Column="1" >备注:</TextBlock>
+            <TextBox Grid.Row="5" Grid.Column="3" Style="{StaticResource txtRemark }" Text="{Binding Remark}"></TextBox>
+
+
+            <TextBlock Grid.Row="6" Grid.Column="3" Style="{StaticResource txtblcError}" x:Name="error"  Text="{Binding Error}"></TextBlock>
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <Button Content="确定" Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True"></Button>
+            <Button Content="取消" Command="{Binding CancelCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

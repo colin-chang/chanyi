@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter"
+                    >
+
+    <DataTemplate x:Key="OperationColumn">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <cvt:Su2VisibilityConverter x:Key="s2v"></cvt:Su2VisibilityConverter>
+                <cvt:NotSelfConverter x:Key="nsc"></cvt:NotSelfConverter>
+            </StackPanel.Resources>
+            <TextBlock Visibility="{Binding UserName ,Converter={StaticResource s2v}}" Margin="5,0"><Hyperlink Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Id}" IsEnabled="{Binding ElementName=lkEdit,Path=IsEnabled}">编辑</Hyperlink></TextBlock>
+
+            <TextBlock  Visibility="{Binding UserName ,Converter={StaticResource s2v}}" Margin="5,0"><Hyperlink Command="{Binding DataContext.GrantRoleCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Id}"   IsEnabled="{Binding ElementName=tbSetRole,Path=IsEnabled}">设置角色</Hyperlink></TextBlock>
+
+            <TextBlock  Visibility="{Binding UserName ,Converter={StaticResource s2v}}" Margin="5,0"><Hyperlink Command="{Binding DataContext.GrantPermissionCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Id}"     IsEnabled="{Binding ElementName=tbSetPermission,Path=IsEnabled}">分配权限</Hyperlink></TextBlock>
+
+            <TextBlock  Visibility="{Binding UserName ,Converter={StaticResource s2v}}" Margin="5,0">
+                <Hyperlink Command="{Binding DataContext.ResetPasswordCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}"  CommandParameter="{Binding Id}" IsEnabled="{Binding Id, Converter={StaticResource nsc}}">重置密码</Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </DataTemplate>
+
+
+</ResourceDictionary>

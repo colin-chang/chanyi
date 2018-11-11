@@ -1,0 +1,88 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Inputs.AddMedicineInOutWarehouseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:b="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+       Title="{Binding Title}" Height="420" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/MedicineInOutWarehouse.png">
+
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Form.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.5*"></RowDefinition>
+            <RowDefinition Height="1*" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}" ComboBox.LostFocus="ComboBox_LostFocus">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="1.8*" ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+
+                <RowDefinition  Height="0.1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="1" Grid.Column="1">药品名称<Run Style="{StaticResource required}"></Run>:</TextBlock>
+            <ComboBox Grid.Row="1" Grid.Column="3" IsEditable="True" ItemsSource="{Binding MedicineNames}" DisplayMemberPath="Name" SelectedValue="{Binding MedicineNameId}" SelectedValuePath="Id" x:Name="medicine">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="SelectionChanged">
+                        <b:InvokeCommandAction Command="{Binding SelectMedicineNameChanged}" CommandParameter="{Binding ElementName=medicine}" />
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </ComboBox>
+            
+            <TextBlock Grid.Row="2" Grid.Column="1">药品种类<Run Style="{StaticResource required}"></Run>:</TextBlock>
+            <ComboBox Grid.Row="2" Grid.Column="3"  IsEditable="True" ItemsSource="{ Binding Types}" DisplayMemberPath="Name" SelectedValue="{Binding TypeId}" SelectedValuePath="Id" IsEnabled="{Binding TypeEnable}" x:Name="type" >
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="SelectionChanged">
+                        <b:InvokeCommandAction Command="{Binding SelectTypeNameChanged}" CommandParameter="{Binding ElementName=type}" />
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </ComboBox>
+
+            <TextBlock Grid.Row="3" Grid.Column="1">生产商<Run Style="{StaticResource required}"></Run>:</TextBlock>
+            <ComboBox Grid.Row="3" Grid.Column="3"  IsEditable="True" ItemsSource="{ Binding Manufacturers}" DisplayMemberPath="Name" SelectedValue="{Binding ManufacturerId}" SelectedValuePath="Id" IsEnabled="{Binding ManufacturerEnable}">
+            </ComboBox>
+
+            <TextBlock Grid.Row="4" Grid.Column="1">数量<Run Style="{StaticResource required}"></Run>:</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding Amount}"></TextBox>
+
+
+
+            <TextBlock Grid.Row="5" Grid.Column="1" >有效期至<Run Style="{StaticResource required}"></Run>:</TextBlock>
+            <DatePicker Grid.Row="5" Grid.Column="3" SelectedDate="{Binding ExpirationDate}"></DatePicker>
+
+            <TextBlock Grid.Row="6" Grid.Column="1">日期(出入库)<Run Style="{StaticResource required}"></Run>:</TextBlock>
+            <DatePicker Grid.Row="6" Grid.Column="3" SelectedDate="{Binding OperationDate}"></DatePicker>
+
+            <TextBlock Grid.Row="7" Grid.Column="1">仓管员<Run Style="{StaticResource required}"></Run>:</TextBlock>
+            <ComboBox Grid.Row="7" Grid.Column="3" ItemsSource="{Binding Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId}" SelectedValuePath="Id"></ComboBox>
+
+            <TextBlock Grid.Row="8" Grid.Column="1">备注:</TextBlock>
+            <TextBox Grid.Row="8" Grid.Column="3"  Style="{StaticResource txtRemark}" Text="{Binding Remark}"></TextBox>
+
+            <TextBlock Grid.Row="9" Grid.Column="1" Margin="0,0"  ><Hyperlink Command="{ Binding AddCommand}" Tag="Inputs.AddMedicineWindow" Style="{StaticResource hlkOtherAdd}">新增药品种类</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="9" Grid.Column="3" Style="{StaticResource txtblcError}" x:Name="error"  Text="{Binding Error}"></TextBlock>
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <Button Content="确定" Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True"></Button>
+            <Button Content="取消" Command="{Binding CancelCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

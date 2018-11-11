@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+  <!--<MenuItem Header="基本资料" Gesture="I">
+    <MenuItem Header="羊只信息录入" Gesture="S" KeyMap="Ctrl+N" View="BaseInfo.AddSheepWindow" />
+    <MenuItem Header="羊只查询" Gesture="G" View="BaseInfo.SheepUC"  Icon="/Images/Sheep.png">羊场中所有羊只的信息在此处都可以查询到。</MenuItem>
+  </MenuItem>
+  <MenuItem Header="群体管理" Gesture="G">
+    <MenuItem Header="群体检测" Gesture="S" View="GroupManage.GroupMonitoringWindow" />
+    <MenuItem Header="转圈管理" Gesture="M" View="GroupManage.MoveSheepfoldUC" Icon="/Images/MoveSheepfold.png">羊只的转圈操作在这个菜单里进行操作，涵盖了单只转圈和整体转圈。</MenuItem>
+    <MenuItem Header="离场管理" Gesture="L">
+      
+      <MenuItem Header="出售管理" Gesture="S"  View="GroupManage.SellSheepManageUC" Icon="/Images/Sell.png"/>
+      <MenuItem Header="死亡管理" Gesture="D" View="GroupManage.DeathManageUC" Icon="/Images/DeathManage.png">
+        死亡羊只的登记、查询在此处操作。
+      </MenuItem>
+    </MenuItem>
+  </MenuItem>
+  <MenuItem Header="繁殖管理" Gesture="M" >
+    <MenuItem Header="配种管理" Gesture="M" View="Multiplying.MatingUC" Icon="/Images/Mating.png">羊场中全体适配母羊的配种记录在此处录入。</MenuItem>
+    <MenuItem Header="流产管理" Gesture="A" View="Multiplying.AbortionUC" Icon="/Images/Abortion.png">羊场当前已经配种但流产的记录在此处录入。</MenuItem>
+    <MenuItem Header="分娩管理" Gesture="D" View="Multiplying.DeliveryUC" Icon="/Images/Delivery.png">羊场中母羊产羔记录在此处录入。</MenuItem>
+    <MenuItem Header="断奶管理" Gesture="W" View="Multiplying.AblactationUC" Icon="/Images/Ablactation.png">羊场羔羊断奶记录在此处录入。</MenuItem>
+  </MenuItem>
+  <MenuItem Header="育种管理" Gesture="B" >
+    <MenuItem Header="种养鉴定" Gesture="S"  View="Breeding.AssessStudsheepUC" Icon="/Images/AssessStudsheep.png">羊场中全部种羊的鉴定在此处录入。</MenuItem>
+    <MenuItem Header="后备羊鉴定" Gesture="R">
+      <MenuItem Header="第一次鉴定" Gesture="F" View="Breeding.FirstAssessUC" Icon="/Images/Assess.png">羊场中所有参加第一次鉴定的后备羊的情况在此处录入。 </MenuItem>
+      <MenuItem Header="第二次鉴定" Gesture="S" View="Breeding.SecondAssessUC" Icon="/Images/Assess.png">羊场中所有参加第二次鉴定的后备羊的情况在此处录入。</MenuItem>
+      <MenuItem Header="第三次鉴定" Gesture="T" View="Breeding.ThirdAssessUC" Icon="/Images/Assess.png">羊场中所有参加第三次鉴定的后备羊的情况在此处录入</MenuItem>
+    </MenuItem>
+    <MenuItem Header="育种资料查询" Gesture="Q">
+      <MenuItem Header="现有种羊排序" Gesture="S" View="Breeding.StudsheepOrderUC" Icon="/Images/AssessOrder.png">羊场中现有全部种羊的鉴定成绩、排序在这里查询。</MenuItem>
+      <MenuItem Header="第一次鉴定排序" Gesture="F" View="Breeding.FirstAssessOrderUC" Icon="/Images/AssessOrder.png">羊场中全部参与第一次鉴定的羊只的鉴定成绩、排序在这里查询。</MenuItem>
+      <MenuItem Header="第二次鉴定排序" Gesture="S" View="Breeding.SecondAssessOrderUC" Icon="/Images/AssessOrder.png">羊场中全部参与第二次鉴定的羊只的鉴定成绩、排序在这里查询。</MenuItem>
+      <MenuItem Header="第三次鉴定排序" Gesture="T" View="Breeding.ThirdAssessOrderUC" Icon="/Images/AssessOrder.png">羊场中全部参与第三次鉴定的羊只的鉴定成绩、排序在这里查询。</MenuItem>
+    </MenuItem>
+  </MenuItem>
+  <MenuItem Header="投入品管理" Gesture="W" >
+    <MenuItem Header="种类管理" Gesture="K">
+      <MenuItem Header="饲料种类" Gesture="F" View="Inputs.FeedUC" Icon="/Images/Feed.png">全部的饲料在此处查询</MenuItem>
+      <MenuItem Header="药品种类" Gesture="M"  View="Inputs.MedicineUC" Icon="/Images/Medicine.png">全部的药品在此处查询</MenuItem>
+      <MenuItem Header="其他种类" Gesture="M"  View="Inputs.OtherUC" Icon="/Images/Other.png">除药品与饲料以外的东西在此处查询</MenuItem>
+    </MenuItem>
+    <MenuItem Header="出入库记录" Gesture="I">
+      <MenuItem Header="饲料" Gesture="F" View="Inputs.FeedInOutWarehouseUC" Icon="/Images/InOutWarehouse.png">
+        全部饲料的出入库记录在此处查询。
+      </MenuItem>
+      <MenuItem Header="药品" Gesture="M"  View="Inputs.MedicineInOutWarehouseUC" Icon="/Images/InOutWarehouse.png">
+        全部药品的出入库记录在此处查询。
+      </MenuItem>
+      <MenuItem Header="其他" Gesture="O"  View="Inputs.OtherInOutWarehouseUC" Icon="/Images/InOutWarehouse.png">
+        除药品与饲料以外的其余物品在此处查询。
+      </MenuItem>
+    </MenuItem>
+    <MenuItem Header="库存" Gesture="W">
+      <MenuItem Header="饲料" Gesture="F" View="Inputs.FeedWarehouseUC" Icon="/Images/Warehouse.png">
+        牧场中各种饲料情况总汇。
+      </MenuItem>
+      <MenuItem Header="药品" Gesture="M" View="Inputs.MedicineWarehouseUC" Icon="/Images/MedicineWarehouse.png">
+        牧场中各种药品情况总汇。
+      </MenuItem>
+      <MenuItem Header="其他" Gesture="O" View="Inputs.OtherWarehouseUC" Icon="/Images/Warehouse.png">
+        牧场中除药品和饲料以外的其余物品的情况总汇。
+      </MenuItem>
+    </MenuItem>
+  </MenuItem>
+  <MenuItem Header="财务管理" Gesture="F" >
+    <MenuItem Header="收入" Gesture="E">
+      <MenuItem Header="出售羊只" Gesture="S" View="Finance.SellSheepUC" Icon="/Images/Sell.png"/>
+      <MenuItem Header="出售羊绒" Gesture="W" View="Finance.SellWoolUC" Icon="/Images/Sell.png"/>
+      <MenuItem Header="出售羊粪" Gesture="M" View="Finance.SellManureUC" Icon="/Images/Sell.png"/>
+      <MenuItem Header="出售其他" Gesture="O"/>
+    </MenuItem>
+    <MenuItem Header="支出" Gesture="D">
+      <MenuItem Header="购买羊只" Gesture="S" View="Finance.BuySheepUC" Icon="/Images/Payoff.png"/>
+      <MenuItem Header="购买投入品" Gesture="I">
+        <MenuItem Header="饲料" Gesture="F" View="Finance.BuyFeedUC" Icon="/Images/Payoff.png"/>
+        <MenuItem Header="药品" Gesture="M" View="Finance.BuyMedicineUC" Icon="/Images/Payoff.png"/>
+        <MenuItem Header="其他" Gesture="O" View="Finance.BuyOtherUC" Icon="/Images/Payoff.png" />
+      </MenuItem>
+      <MenuItem Header="员工工资" Gesture="P" View="Finance.PayoffUC" Icon="/Images/Payoff.png"></MenuItem>
+      <MenuItem Header="水费" Gesture="W"  View="Finance.WaterRateUC" Icon="/Images/Payoff.png"></MenuItem>
+      <MenuItem Header="电费" Gesture="E" View="Finance.ElectricChargeUC" Icon="/Images/Payoff.png"></MenuItem>
+      <MenuItem Header="其他" Gesture="O"></MenuItem>
+    </MenuItem>
+  </MenuItem>
+  -->
+  <!--<MenuItem Header="报表服务" Gesture="T" >
+    <MenuItem Header="系谱表" Gesture="P" />
+    <MenuItem Header="群体检测" Gesture="G" />
+    <MenuItem Header="仓库记录" Gesture="W" />
+    <MenuItem Header="财务记录" Gesture="F" />
+  </MenuItem>-->
+  <!--
+  <MenuItem Header="决策辅助" Gesture="D" >
+    <MenuItem Header="辅助配种" Gesture="M" />
+    <MenuItem Header="系谱结构" Gesture="P" />
+    <MenuItem Header="配方设计" Gesture="F">
+      <MenuItem Header="配方查询" Gesture="Q" View="Assist.FormulaUC" Icon="/Images/Formula.png">在此处查询当前应用的以及曾近应用过的配方。</MenuItem>
+      <MenuItem Header="配方营养标准" Gesture="N" View="Assist.FormulaNutrientUC" Icon="/Images/FormulaNutrient.png">涵盖了国家养羊标准和当前场内自制的饲养标准。</MenuItem>
+    </MenuItem>
+    <MenuItem Header="疾病辅助诊断" Gesture="S" View="Assist.DiseaseWindow" />
+  </MenuItem>
+  <MenuItem Header="人事管理" Gesture="H" >
+    <MenuItem Header="用户管理" Gesture="U" View="HR.UserUC" Icon="/Images/User.png">在此处管理能访问到该系统的用户名和密码。</MenuItem>
+    <MenuItem Header="员工管理" Gesture="E" View="HR.EmployeeUC" Icon="/Images/Employee.png">在此处管理羊场中的所有员工。</MenuItem>
+    <MenuItem Header="合作商管理" Gesture="C" View="HR.PurchaserUC" Icon="/Images/Purchaser.png">在此处管理与羊场有合作关系的厂商，例如饲料厂商、兽药厂商等。</MenuItem>
+  </MenuItem>
+  <MenuItem Header="系统服务" Gesture="S" >
+    <MenuItem Header="消息提醒" Gesture="R" View="SystemService.NotificationWindow" />
+    -->
+  <!--<MenuItem Header="参数配置" Gesture="P" View="SystemService.ParameterSettingsWindow" />-->
+  <!--
+    <MenuItem Header="参数配置" Gesture="P">
+      <MenuItem Header="羊只生理参数" Gesture="B" View="SystemService.SheepParameterWindow"></MenuItem>
+      <MenuItem Header="饲料临界值" Gesture="F" View="SystemService.FeedParameterWindow"></MenuItem>
+      <MenuItem Header="药品临界值" Gesture="M" View="SystemService.MedicineParameterWindow"></MenuItem>
+    </MenuItem>
+    <MenuItem Header="修改密码" Gesture="A" View="SystemService.UpdatePasswordWindow" />
+  </MenuItem>-->
+
+
+  <MenuItem Header="文件" Gesture="F">
+    <MenuItem Header="退出" Gesture="X" KeyMap="Alt+F4" Operation="Exit" IsNeedPermission="False"></MenuItem>
+  </MenuItem>
+  <MenuItem Header="查看" Gesture="V">
+    <MenuItem Header="起始页" Gesture="W" View="StartUC"  IsNeedPermission="False"></MenuItem>
+    <MenuItem Header="状态栏" Gesture="S" Operation="ToggleStatusBar"  IsNeedPermission="False"></MenuItem>
+    <MenuItem Header="群体结构" Gesture="G" View="GroupManage.GroupMonitoringWindow"></MenuItem>
+    <MenuItem Header="消息提醒" Gesture="R" View="View.NotificationWindow"  IsNeedPermission="False"/>
+  </MenuItem>
+  <MenuItem Header="工具" Gesture="T">
+    <MenuItem Header="参数配置" Gesture="P">
+      <MenuItem Header="羊只生理参数" Gesture="B" View="Tool.SheepParameterWindow"></MenuItem>
+      <MenuItem Header="饲料临界值" Gesture="F" View="Tool.FeedParameterWindow"></MenuItem>
+      <MenuItem Header="药品临界值" Gesture="M" View="Tool.MedicineParameterWindow"></MenuItem>
+    </MenuItem>
+  </MenuItem>
+  <MenuItem Header="系统服务" Gesture="S" >
+    <MenuItem Header="用户管理" Gesture="U" View="SystemService.UserUC" Icon="/Images/User.png">在此处管理能访问到该系统的用户，以及为用户分配权限、角色。</MenuItem>
+    <MenuItem Header="角色管理" Gesture="R" View="SystemService.RoleUC" Icon="/Images/User.png">管理所有的角色，为角色分配权限。</MenuItem>
+    <MenuItem Header="权限管理" Gesture="P" View="SystemService.PermissionUC" Icon="/Images/User.png">管理所有的权限内容</MenuItem>
+    <MenuItem Header="修改密码" Gesture="A" View="SystemService.ChangePasswordWindow" IsNeedPermission="False"/>
+  </MenuItem>
+  <MenuItem Header="帮助" Gesture="H">
+    <MenuItem Header="查看帮助" Gesture="H" Operation="ViewDocument"  IsNeedPermission="False"></MenuItem>
+    <MenuItem Header="反馈" Gesture="F" View="Help.FeedbackWindow"  IsNeedPermission="False"></MenuItem>
+    <MenuItem Header="注册产品" Gesture="R" View="Help.RegisterWindow"></MenuItem>
+    <MenuItem Header="检查更新" Gesture="U" Operation="CheckUpdate"  IsNeedPermission="False"></MenuItem>
+    <MenuItem Header="关于" Gesture="A" View="Help.AboutWindow"  IsNeedPermission="False"></MenuItem>
+  </MenuItem>
+</Menu>

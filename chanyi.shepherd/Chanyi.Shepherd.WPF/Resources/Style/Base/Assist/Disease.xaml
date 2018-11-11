@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Sickness.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+    
+    <cvt:HasRelevancyConverter x:Key="hr"></cvt:HasRelevancyConverter>
+    <cvt:RelevancyToolTipConverter x:Key="rt"></cvt:RelevancyToolTipConverter>
+    
+    <Style TargetType="Button" BasedOn="{x:Null}" x:Key="btnBadge">
+        <Setter Property="Margin" Value="0,0,5,0"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Visibility" Value="{Binding Relevancy,Mode=OneWay,Converter={StaticResource hr}}"></Setter>
+        <Setter Property="ToolTip" Value="{Binding Relevancy,Mode=OneWay,Converter={StaticResource rt}}"></Setter>
+    </Style>
+    <Style TargetType="Border" x:Key="bdBadge">
+        <Setter Property="CornerRadius" Value="8"></Setter>
+        <Setter Property="Background" Value="#FD0000"></Setter>
+        <Setter Property="Width" Value="15"></Setter>
+        <Setter Property="Height" Value="15"></Setter>
+    </Style>
+    
+    <Style TargetType="RichTextBox">
+        <Setter Property="FontSize" Value="13"></Setter>
+        <Setter Property="FontFamily" Value="微软雅黑"></Setter>
+        <Setter Property="Foreground" Value="#555"></Setter>
+        <Setter Property="IsReadOnly" Value="True"></Setter>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"></Setter>
+    </Style>
+    <Style TargetType="Paragraph">
+        <Setter Property="LineHeight" Value="25"></Setter>
+        <Setter Property="Padding" Value="10"></Setter>
+    </Style>
+</ResourceDictionary>

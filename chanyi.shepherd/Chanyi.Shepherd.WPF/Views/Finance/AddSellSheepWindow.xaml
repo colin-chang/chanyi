@@ -1,0 +1,80 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Finance.AddSellSheepWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:vm="clr-namespace:Chanyi.Shepherd.WPF.ViewModels.Finance"
+        xmlns:uc="clr-namespace:Chanyi.Shepherd.WPF.UserControls"
+        Title="出售羊只" Height="500" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/SellSheep.png">
+
+    <Window.DataContext>
+        <vm:AddSellSheepViewModel></vm:AddSellSheepViewModel>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/DataTemplate/Finance/SellSheep.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.1*"></ColumnDefinition>
+                        <ColumnDefinition Width="8"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="10,0,0,0" >
+                        <TextBlock Text="圈舍："></TextBlock>
+                        <ComboBox Width="80" ItemsSource="{Binding SheepfoldsBind}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SheepfoldId}"></ComboBox> 
+                    <TextBlock Text="编号：" Margin="10,0,0,0"></TextBlock>
+                        <TextBox Width="60" Text="{Binding SerialNumber}"></TextBox>
+                        <Button IsDefault="True" Command="{Binding SearchCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">搜索</Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Style="{StaticResource skpTarget}">
+                        <TextBlock Margin="20,0,0,0">购买者<Run Style="{StaticResource required}"/>：</TextBlock>
+                        <ComboBox ItemsSource="{Binding Purchasers}" DisplayMemberPath="Name" SelectedValue="{Binding PurchaserId}" SelectedValuePath="Id"></ComboBox>
+                        <TextBlock  Grid.Row="3" Grid.Column="4" ><Hyperlink Command="{Binding AddPurchaserCommand}" Tag="HR.AddPurchaserWindow" Style="{StaticResource hlkOtherAdd}">新增</Hyperlink></TextBlock>
+                        <TextBlock Margin="10,0,0,0">操作人<Run Style="{StaticResource required}"/>：</TextBlock>
+                        <ComboBox ItemsSource="{Binding Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId}" SelectedValuePath="Id"></ComboBox> 
+                        <TextBlock Text="出售日期：" Margin="20,0,0,0"></TextBlock>
+                        <DatePicker SelectedDate="{Binding OperationDate}" ></DatePicker>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                        <ColumnDefinition Width="8"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="所有羊只">
+                        <TreeView ItemsSource="{Binding TreeData}" ItemTemplate="{StaticResource treeMoveSheepfold}"></TreeView>
+                    </GroupBox>
+                    <GroupBox Header="出售羊只" Grid.Column="2">
+                        <ListBox ItemsSource="{Binding Sheeps}" ItemTemplate="{StaticResource listMoveSellSheep}"></ListBox>
+                    </GroupBox>
+                </Grid>             
+                <Grid Grid.Row="2">
+
+                    <StackPanel Margin="10,0,0,0" >
+                        <TextBlock Text="备注："></TextBlock>                             
+                        <TextBox Width="800" Height="40" Text="{Binding Remark}"></TextBox>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <uc:ProgressRing x:Name="progress"></uc:ProgressRing>
+        <StackPanel Style="{StaticResource spButtons}" Grid.Row="1">
+            <Button Command="{Binding SubmitCommand}"  CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">确定</Button>
+            <Button Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">取消</Button>
+        </StackPanel>
+    </Grid>
+</Window>
+

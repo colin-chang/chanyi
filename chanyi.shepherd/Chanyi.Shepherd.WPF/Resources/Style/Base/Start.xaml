@@ -1,0 +1,79 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:toolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+                    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="GroupManage/GroupMonitoring.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="Grid" x:Key="mainGrid">
+        <Setter Property="Margin" Value="20"></Setter>
+        <Setter Property="MinHeight" Value="500"></Setter>
+        <Setter Property="MinWidth" Value="800"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="txtblcBase">
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        <Setter Property="FontSize" Value="13"></Setter>
+        <Setter Property="TextDecorations" Value="None"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" BasedOn="{StaticResource txtblcBase}"></Style>
+    <Style TargetType="StackPanel" x:Key="stkLogo">
+        <Setter Property="Orientation" Value="Horizontal"></Setter>
+        <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        <Setter Property="Margin" Value="10,20"></Setter>
+    </Style>
+    <Style TargetType="Image">
+        <Setter Property="Height" Value="64"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="logo">
+        <Setter Property="Foreground" Value="#00BCF2"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="Margin" Value="30,0"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="version">
+        <Setter Property="Margin" Value="30,5"></Setter>
+        <Setter Property="Foreground" Value="#00BCF2"></Setter>
+        <Setter Property="FontWeight" Value="Light"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ad">
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Foreground" Value="#68227A"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="tip">
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="FontWeight" Value="Light"></Setter>
+        <Setter Property="Margin" Value="0,5"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="txtNews" BasedOn="{StaticResource txtblcBase}">
+        <Setter Property="Margin" Value="0,3"></Setter>
+    </Style>
+    <Style TargetType="Hyperlink">
+        <Setter Property="TextDecorations" Value="None"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="title">
+        <Setter Property="Foreground" Value="#020202"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="Margin" Value="10"></Setter>
+    </Style>
+    <Style TargetType="ItemsControl" x:Key="statistics">
+        <Setter Property="Margin" Value="10"></Setter>
+        <Setter Property="Foreground" Value="#0079D2"></Setter>
+        <Setter Property="FontWeight" Value="Light"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+    </Style>
+    <Style TargetType="Border" x:Key="bdChart">
+        <Setter Property="BorderBrush" Value="#E8E8EC"></Setter>
+        <Setter Property="BorderThickness" Value="0,1,0,0"></Setter>
+        <Setter Property="Grid.Row" Value="2"></Setter>
+        <Setter Property="Grid.Column" Value="2"></Setter>
+    </Style>
+    <Style TargetType="toolkit:Chart" BasedOn="{StaticResource baseChart}">
+        <Setter Property="Width" Value="330"></Setter>
+        <Setter Property="Height" Value="320"></Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<body>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        var download = function (customer) {
+            $("result").attr("value", "");
+            var form = $('<form action="/Shepherd/Download" method="post"></form>');
+            $.each(customer, function () { $('<input name="' + this.name + '" value="' + this.value + '" />').appendTo(form); });
+            form.appendTo($("body")).submit();
+        };
+    </script>
+</body>
+</html>

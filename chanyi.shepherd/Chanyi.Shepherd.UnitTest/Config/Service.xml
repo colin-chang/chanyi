@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:aop="http://www.springframework.net/aop">
+  <object id="services" singleton="false" type="Chanyi.Shepherd.Services.Service, Chanyi.Shepherd.Services">
+    <property name="Dao" ref="dao" />
+  </object>
+</objects>

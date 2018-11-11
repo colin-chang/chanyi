@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tree>
+  <TreeViewItem Header="基本资料" Gesture="I">
+    <TreeViewItem Header="我的羊场信息" Gesture="S" KeyMap="Ctrl+N" View="BaseInfo.FarmWindow" />
+    <TreeViewItem Header="羊只信息录入" Gesture="S" KeyMap="Ctrl+N" View="BaseInfo.AddSheepWindow" />
+    <TreeViewItem Header="圈舍管理" Gesture="S" KeyMap="Ctrl+N" View="BaseInfo.SheepfoldUC"  Icon="/Images/Sheepfold.png">管理羊场内的圈舍信息。</TreeViewItem>
+    <TreeViewItem Header="羊只信息查询" Gesture="G" View="BaseInfo.SheepUC"  Icon="/Images/Sheep.png">羊场中所有羊只的信息在此处都可以查询到。</TreeViewItem>
+  </TreeViewItem>
+  <TreeViewItem Header="羊群结构" Gesture="S" View="GroupManage.GroupMonitoringWindow" />
+  <TreeViewItem Header="日常管理" Gesture="G">
+    <TreeViewItem Header="转圈记录" Gesture="M" View="GroupManage.MoveSheepfoldUC" Icon="/Images/MoveSheepfold.png">羊只的转圈操作在这个菜单里进行操作，涵盖了单只转圈和整体转圈。</TreeViewItem>
+    <TreeViewItem Header="离场记录" Gesture="L">
+
+      <TreeViewItem Header="出售记录" Gesture="S"  View="GroupManage.SellSheepManageUC" Icon="/Images/SellSheep.png">羊场中已经出售的羊只的信息在此处查询。</TreeViewItem>
+      <TreeViewItem Header="死亡记录" Gesture="D" View="GroupManage.DeathManageUC" Icon="/Images/DeathManage.png">死亡羊只的登记、查询在此处操作。</TreeViewItem>
+    </TreeViewItem>
+    <TreeViewItem Header="投入品" Gesture="W" >
+      <TreeViewItem Header="种类" Gesture="K">
+        <TreeViewItem Header="饲料" Gesture="F" View="Inputs.FeedUC" Icon="/Images/Feed.png">全部的饲料在此处查询</TreeViewItem>
+        <TreeViewItem Header="药品" Gesture="M"  View="Inputs.MedicineUC" Icon="/Images/Medicine.png">全部的药品在此处查询</TreeViewItem>
+        <TreeViewItem Header="其他" Gesture="M"  View="Inputs.OtherUC" Icon="/Images/Other.png">除药品与饲料以外的东西在此处查询</TreeViewItem>
+      </TreeViewItem>
+      <TreeViewItem Header="出入库记录" Gesture="I">
+        <TreeViewItem Header="饲料" Gesture="F">
+          <TreeViewItem Header="入库饲料" Gesture="F" View="Inputs.FeedInWarehouseUC" Icon="/Images/FeedInOutWarehouse.png">全部饲料的入库记录在此处查询。</TreeViewItem>
+          <TreeViewItem Header="出库饲料" Gesture="F" View="Inputs.FeedOutWarehouseUC" Icon="/Images/FeedInOutWarehouse.png">全部饲料的出库记录在此处查询。</TreeViewItem>
+        </TreeViewItem>
+        <TreeViewItem Header="药品" Gesture="M"  View="Inputs.MedicineInOutWarehouseUC" Icon="/Images/MedicineInOutWarehouse.png">全部药品的出入库记录在此处查询。</TreeViewItem>
+        <TreeViewItem Header="其他" Gesture="O">
+          <TreeViewItem Header="其他入库" Gesture="O"  View="Inputs.OtherInWarehouseUC" Icon="/Images/OtherInOutWarehouse.png">除药品与饲料以外的其余物品在此处查询。 </TreeViewItem>
+          <TreeViewItem Header="其他出库" Gesture="O"  View="Inputs.OtherOutWarehouseUC" Icon="/Images/OtherInOutWarehouse.png">除药品与饲料以外的其余物品在此处查询。</TreeViewItem>
+        </TreeViewItem>
+
+
+      </TreeViewItem>
+      <TreeViewItem Header="库存" Gesture="W">
+        <TreeViewItem Header="饲料" Gesture="F" View="Inputs.FeedWarehouseUC" Icon="/Images/FeedWarehouse.png">牧场中各种饲料情况总汇</TreeViewItem>
+        <TreeViewItem Header="药品" Gesture="M" View="Inputs.MedicineWarehouseUC" Icon="/Images/MedicineWarehouse.png">牧场中各种药品情况总汇</TreeViewItem>
+        <TreeViewItem Header="其他" Gesture="O" View="Inputs.OtherWarehouseUC" Icon="/Images/OtherWarehouse.png">牧场中除药品和饲料以外的其余物品的情况总汇</TreeViewItem>
+      </TreeViewItem>
+    </TreeViewItem>
+    <TreeViewItem Header="羊场收支" Gesture="F" >
+      <TreeViewItem Header="收入" Gesture="E">
+        <TreeViewItem Header="出售羊只记录" Gesture="S" View="Finance.SellSheepUC" Icon="/Images/SellSheep.png">羊场中出售羊只的记录在此处录入、查询。</TreeViewItem>
+        <TreeViewItem Header="出售羊毛（绒）记录" Gesture="W" View="Finance.SellWoolUC" Icon="/Images/SellWool.png">羊场中羊毛(绒)的出售情况在此处录入查询。</TreeViewItem>
+        <TreeViewItem Header="出售羊粪记录" Gesture="M" View="Finance.SellManureUC" Icon="/Images/SellManure.png">羊场中羊粪出售情况在此处录入、查询。</TreeViewItem>
+        <TreeViewItem Header="出售饲料记录" Gesture="M" View="Finance.SellFeedUC" Icon="/Images/Feed.png">羊场中饲料出售情况在此处录入、查询。</TreeViewItem>
+        <TreeViewItem Header="出售其他记录" Gesture="M" View="Finance.SellOtherUC" Icon="/Images/Other.png">羊场中其他物品出售情况在此处录入、查询。</TreeViewItem>
+      </TreeViewItem>
+      <TreeViewItem Header="支出" Gesture="D">
+        <TreeViewItem Header="购买羊只记录" Gesture="S" View="Finance.BuySheepUC" Icon="/Images/Payoff.png">羊场日常购买羊只的信息在此处录入、查询。</TreeViewItem>
+        <TreeViewItem Header="购买饲料记录" Gesture="F" View="Finance.BuyFeedUC" Icon="/Images/Payoff.png">羊场日常购买饲料的信息在此处录入、查询。</TreeViewItem>
+        <TreeViewItem Header="购买药品记录" Gesture="M" View="Finance.BuyMedicineUC" Icon="/Images/Payoff.png">羊场日常购买药品的信息在此处录入、查询。</TreeViewItem>
+        <TreeViewItem Header="购买其他记录" Gesture="O" View="Finance.BuyOtherUC" Icon="/Images/Payoff.png" >羊场日常购买除药品与饲料以外的信息在此处录入、查询。</TreeViewItem>
+        <TreeViewItem Header="员工工资" Gesture="P" View="Finance.PayoffUC" Icon="/Images/Payoff.png">羊场中所有员工的工资支出信息在此处录入、查询。</TreeViewItem>
+        <TreeViewItem Header="水费" Gesture="W"  View="Finance.WaterRateUC" Icon="/Images/Payoff.png">羊场中水费支出信息在此处录入、查询。</TreeViewItem>
+        <TreeViewItem Header="电费" Gesture="E" View="Finance.ElectricChargeUC" Icon="/Images/Payoff.png">羊场中电费支出信息在此处录入、查询。</TreeViewItem>
+      </TreeViewItem>
+    </TreeViewItem>
+  </TreeViewItem>
+  <TreeViewItem Header="繁殖管理" Gesture="M" >
+    <TreeViewItem Header="辅助配种" Gesture="M" View="Assist.AssistMatingUC" Icon="/Images/Formula.png">在此处查看羊只的辅助配种。</TreeViewItem>
+    <TreeViewItem Header="配种期">
+      <TreeViewItem Header="配种记录" Gesture="M" View="Multiplying.MatingUC" Icon="/Images/Mating.png">羊场中全体适配母羊的配种记录在此处录入。</TreeViewItem>
+      <TreeViewItem Header="配种次数统计" Gesture="M" View="Multiplying.MatingCountUC" Icon="/Images/Mating.png">统计羊场中的母羊配种次数。</TreeViewItem>
+    </TreeViewItem>
+    <TreeViewItem Header="孕期">
+      <TreeViewItem Header="流产记录" Gesture="A" View="Multiplying.AbortionUC" Icon="/Images/Abortion.png">羊场当前已经配种但流产的记录在此处录入。</TreeViewItem>
+      <TreeViewItem Header="产羔记录" Gesture="D" View="Multiplying.DeliveryUC" Icon="/Images/Delivery.png">羊场中母羊产羔记录在此处录入。</TreeViewItem>
+    </TreeViewItem>
+    <TreeViewItem Header="哺乳期">
+      <TreeViewItem Header="断奶记录" Gesture="W" View="Multiplying.AblactationUC" Icon="/Images/Ablactation.png">羊场羔羊断奶记录在此处录入。</TreeViewItem>
+    </TreeViewItem>
+  </TreeViewItem>
+  <TreeViewItem Header="育种管理" Gesture="B" >
+    <TreeViewItem Header="系谱结构" Gesture="P"  View="Assist.PedigreeChartUC" Icon="/Images/Formula.png">在此处查看羊只的系谱结构。</TreeViewItem>
+    <TreeViewItem Header="羊只淘汰" Gesture="S"  View="Breeding.ExceptAssessSheepUC" Icon="/Images/AssessStudsheep.ico">羊场中不需要再次鉴定的羊的信息在此处录入。</TreeViewItem>
+    <TreeViewItem Header="种羊测评">
+      <TreeViewItem Header="种羊测评记录录入" Gesture="S" KeyMap="Ctrl+N" View="Breeding.AddAssessStudsheepWindow" />
+      <TreeViewItem Header="种羊测评记录查询" Gesture="S"  View="Breeding.AssessStudsheepUC" Icon="/Images/AssessStudsheep.ico">羊场中全部种羊的测评资料在此处查询、录入。</TreeViewItem>
+      <TreeViewItem Header="种羊测评结果查询" Gesture="S" View="Breeding.StudsheepOrderUC" Icon="/Images/AssessOrder.png">羊场中现有全部种羊的测评成绩、排序在这里查询。</TreeViewItem>
+    </TreeViewItem>
+    <TreeViewItem Header="后备种羊测评">
+      <TreeViewItem Header="断奶测评">
+        <TreeViewItem Header="断奶测评记录录入" Gesture="S" KeyMap="Ctrl+N" View="Breeding.AddFirstAssessWindow" />
+        <TreeViewItem Header="断奶测评记录查询" Gesture="F" View="Breeding.FirstAssessUC" Icon="/Images/Assess.ico">羊场中所有参加断奶鉴定的后备羊的情况在此处录入。 </TreeViewItem>
+        <TreeViewItem Header="断奶测评结果查询" Gesture="F" View="Breeding.FirstAssessOrderUC" Icon="/Images/AssessOrder.png">羊场中全部参与断奶鉴定的羊只的鉴定成绩、排序在这里查询。</TreeViewItem>
+      </TreeViewItem>
+      <TreeViewItem Header="配种前测评">
+        <TreeViewItem Header="配种前测评记录录入" Gesture="S" KeyMap="Ctrl+N" View="Breeding.AddSecondAssessWindow" />
+        <TreeViewItem Header="配种前测评记录查询" Gesture="S" View="Breeding.SecondAssessUC" Icon="/Images/Assess.ico">羊场中所有参加配种前鉴定的后备羊的情况在此处录入。</TreeViewItem>
+        <TreeViewItem Header="配种前测评结果查询" Gesture="S" View="Breeding.SecondAssessOrderUC" Icon="/Images/AssessOrder.png">羊场中全部参与配种前鉴定的羊只的鉴定成绩、排序在这里查询。</TreeViewItem>
+      </TreeViewItem>
+      <TreeViewItem Header="产后测评" Gesture="Q">
+        <TreeViewItem Header="产后测评记录录入" Gesture="S" KeyMap="Ctrl+N" View="Breeding.AddThirdAssessWindow" />
+        <TreeViewItem Header="产后测评记录查询" Gesture="T" View="Breeding.ThirdAssessUC" Icon="/Images/Assess.ico">羊场中所有参加产后鉴定的后备羊的情况在此处录入</TreeViewItem>
+        <TreeViewItem Header="产后测评结果查询" Gesture="T" View="Breeding.ThirdAssessOrderUC" Icon="/Images/AssessOrder.png">羊场中全部参与产后鉴定的羊只的鉴定成绩、排序在这里查询。</TreeViewItem>
+      </TreeViewItem>
+    </TreeViewItem>
+  </TreeViewItem>
+  <TreeViewItem Header="疾病防疫" Gesture="Q">
+    <TreeViewItem Header="防疫（消毒）记录" Gesture="F" View="DiseaseControl.AntiepidemicUC" Icon="/Images/Medicine.png">阶段执行防疫执行情况。</TreeViewItem>
+    <TreeViewItem Header="疾病治疗记录" Gesture="S" View="DiseaseControl.TreatmentUC" Icon="/Images/Medicine.png">羊只疾病的治疗、药品使用、治疗结果。</TreeViewItem>
+  </TreeViewItem>
+  <TreeViewItem Header="专家辅助" Gesture="D" >
+    <TreeViewItem Header="配方设计" Gesture="F">
+      <TreeViewItem Header="配方查询" Gesture="Q" View="Assist.FormulaUC" Icon="/Images/Formula.png">在此处查询当前应用的以及曾近应用过的配方。</TreeViewItem>
+      <TreeViewItem Header="配方营养标准" Gesture="N" View="Assist.FormulaNutrientUC" Icon="/Images/FormulaNutrient.png">涵盖了国家养羊标准和当前场内自制的饲养标准。</TreeViewItem>
+    </TreeViewItem>
+    <TreeViewItem Header="疾病辅助诊断" Gesture="S" View="Assist.DiseaseWindow" />
+  </TreeViewItem>
+  <TreeViewItem Header="员工管理" Gesture="E" View="HR.EmployeeUC" Icon="/Images/Employee.png">
+    <TreeViewItem Header="员工信息" Gesture="E" View="HR.EmployeeUC" Icon="/Images/Employee.png">在此处管理羊场中的所有员工。</TreeViewItem>
+    <TreeViewItem Header="离职员工信息" Gesture="E" View="HR.DepartureEmployeeUC" Icon="/Images/Employee.png">在此处管理羊场中的所有员工。</TreeViewItem>
+  </TreeViewItem>
+  <TreeViewItem Header="合作商管理" Gesture="C" View="HR.PurchaserUC" Icon="/Images/Purchaser.png">在此处管理与羊场有合作关系的厂商，例如饲料厂商、兽药厂商等。</TreeViewItem>
+  <TreeViewItem Header="报表管理" Gesture="C" >
+    <TreeViewItem Header="收入报表" Gesture="U" View="ReportForms.SellReportUC" Icon="/Images/Report.png">一定时间段内的羊场收入情况统计。</TreeViewItem>
+    <TreeViewItem Header="支出报表" Gesture="U" View="ReportForms.BuyReportUC" Icon="/Images/Report.png">一定时间段内的羊场支出情况统计。</TreeViewItem>
+    <TreeViewItem Header="收支报表" Gesture="U" View="ReportForms.FinanceReportUC" Icon="/Images/Report.png">一定时间段内的羊场收入与支出情况统计。</TreeViewItem>
+    <TreeViewItem Header="羊只繁殖报表" Gesture="U" View="ReportForms.MultiplyReportUC" Icon="/Images/Report.png">一定时间段内母羊的分娩数量、流产数量、总产羔数量、产活数量、分娩率、流产率、产活率。</TreeViewItem>
+    <TreeViewItem Header="饲料月统计" Gesture="U" View="ReportForms.FeedReportUC" Icon="/Images/Report.png">饲料的月使用量与饲料每月的库存量统计。</TreeViewItem>
+    <TreeViewItem Header="羊只进食统计" Gesture="U" View="ReportForms.FeedSheepReportUC" Icon="/Images/Report.png">饲料的月使用量与饲料每月的库存量统计。</TreeViewItem>
+  </TreeViewItem>
+</Tree>

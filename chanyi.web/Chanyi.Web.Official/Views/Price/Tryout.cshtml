@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "免费下载牧羊人试用版-北京蝉翼科技有限公司";
+    ViewBag.Keywords = "免费羊场管理软件,羊场管理软件免费下载,羊场管理软件免费试用,试用常见问题帮助";
+    ViewBag.Description = "提交羊场信息免费下载试用牧羊人羊场管理系统";
+}
+
+@model Chanyi.Web.Official.Models.Customer
+
+@section head{
+    <script src="//cdn.bootcss.com/messenger/1.4.0/js/messenger.min.js"></script>
+    <script src="//cdn.bootcss.com/messenger/1.4.0/js/messenger-theme-future.js"></script>
+    <link href="//cdn.bootcss.com/messenger/1.4.0/css/messenger.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/messenger/1.4.0/css/messenger-theme-future.css" rel="stylesheet">
+
+    <link rel="stylesheet/less" type="text/css" href="~/Content/Price/tryout.less">
+
+    <script src="//cdn.bootcss.com/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <script src="~/Scripts/Price/tryout.js"></script>
+}
+
+<div class="main">
+    <div class="box">
+        <div class="title"><h3><span>免费下载</span></h3></div>
+        <div class="body">
+            <div class="col-lg-8 col-md-8 col-sm-7">
+                <form class="form-horizontal form-customer">
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.Department, new { @class = "control-label col-lg-2 col-md-2 col-sm-3" })
+                        <div class="col-lg-10 col-md-10 col-sm-9">
+                            @Html.TextBoxFor(c => c.Department, new { @class = "form-control", placeholder = "单位名称" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.Scale, new { @class = "control-label col-lg-2 col-md-2 col-sm-3" })
+                        <div class="col-lg-10 col-md-10 col-sm-9">
+                            @Html.TextBoxFor(c => c.Scale, new { @class = "form-control", placeholder = "牧场存栏量" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.ContactPerson, new { @class = "control-label col-lg-2 col-md-2 col-sm-3" })
+                        <div class="col-lg-10 col-md-10 col-sm-9">
+                            @Html.TextBoxFor(c => c.ContactPerson, new { @class = "form-control", placeholder = "联系人姓名" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.PhoneNumber, new { @class = "control-label col-lg-2 col-md-2 col-sm-3" })
+                        <div class="col-lg-10 col-md-10 col-sm-9">
+                            @Html.TextBoxFor(c => c.PhoneNumber, new { @class = "form-control", placeholder = "手机号" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.Address, new { @class = "control-label col-lg-2 col-md-2 col-sm-3" })
+                        <div class="col-lg-10 col-md-10 col-sm-9">
+                            @Html.TextAreaFor(c => c.Address, new { @class = "form-control", placeholder = "单位地址" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-lg-10 col-md-10 col-sm-9 ">
+                            <input type="submit" class="btn btn-success btn-download" value="&nbsp;免费下载&nbsp;" />
+                            <div class="validationSummary">
+                                @Html.ValidationMessageFor(c => c.Department)
+                                @Html.ValidationMessageFor(c => c.Scale)
+                                @Html.ValidationMessageFor(c => c.ContactPerson)
+                                @Html.ValidationMessageFor(c => c.PhoneNumber)
+                                @Html.ValidationMessageFor(c => c.Address)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-lg-10 col-md-10 col-sm-9 ">
+                            <div class="progress hidden">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">加载中…</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-5">
+                <div class="help">
+                    <div><h4 class="text-info">试用帮助</h4></div>
+                    <ol>
+                        <li class="text-warning">试用版登录系统的用户名与密码均为admin。</li>
+                        <li class="text-warning">
+                            确保计算机已经安装以下环境，否则请先下载安装
+                            <ul>
+                                <li><a href="https://download.microsoft.com/download/7/0/3/703455ee-a747-4cc8-bd3e-98a615c3aedb/dotNetFx35setup.exe" target="_blank">.NET Framework 3.5</a></li>
+                                <li><a href="https://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe" target="_blank">.Net Framework 4.0</a></li>
+                                <li><a href="https://download.microsoft.com/download/2/9/7/29765F48-D253-4691-92FF-F95CA714D3DA/dotNetFx40LP_Full_x86_x64zh-Hans.exe" target="_blank">.Net Framework 4.0 中文包</a></li>
+                            </ul>
+                        </li>
+                        <li class="text-warning"><a href="~/Shepherd/DownloadDocument?version=1.0.0.1">点击下载牧羊人使用文档</a>。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<iframe src="~/Tools/DownloadTryout" class="hidden frame-download"></iframe>

@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Style/Base/Finance/SellSheep.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate x:Key="CheckedFeedColumn">
+        <CheckBox IsChecked="{Binding IsCheck, UpdateSourceTrigger=PropertyChanged}" Command="{Binding RelativeSource={RelativeSource AncestorLevel=1,AncestorType={x:Type DataGrid}},Path=DataContext.FeedSourceSelectCommand}" CommandParameter="{Binding KindId}">
+        </CheckBox>
+    </DataTemplate>
+    <DataTemplate x:Key="RemoveFeedColumn">
+        <CheckBox IsChecked="{Binding IsCheck,UpdateSourceTrigger=PropertyChanged}" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid},AncestorLevel=1}, Path=DataContext.FeedSourceRemoveCommand}" CommandParameter="{Binding KindId}"></CheckBox>
+    </DataTemplate>
+
+
+    <DataTemplate x:Key="listOfAllSheepfold">
+        <StackPanel Orientation="Horizontal">
+            <CheckBox Margin="5,7,0,0"  IsChecked="{Binding IsCheck,UpdateSourceTrigger=PropertyChanged}" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBox},AncestorLevel=1},Path=DataContext.CheckFoldCommand}" CommandParameter="{Binding Id}"></CheckBox>
+            <ContentPresenter Width="50" Content="{Binding Name}" Margin="20,6,0,8"></ContentPresenter>
+            <ContentPresenter Width="30" Content="{Binding Count}" Margin="20,6,0,8"></ContentPresenter>
+            <ContentPresenter Width="30" Content="只" Margin="0,6,0,8"></ContentPresenter>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="listOfToSheepfold">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{x:Null}" Margin="8,0,15,0">
+                <Hyperlink Style="{StaticResource del}" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBox},AncestorLevel=1},Path=DataContext.RemoveFoldCommand}" CommandParameter="{Binding Id}">x</Hyperlink>
+            </TextBlock>
+            <ContentPresenter   Content="{Binding Name}" Margin="10,2,8,0"></ContentPresenter>
+        </StackPanel>
+    </DataTemplate>
+
+
+    <DataTemplate x:Key="CheckedFormulaColumn">
+        <RadioButton GroupName="radio" IsChecked="{Binding IsCheck, UpdateSourceTrigger=PropertyChanged}" Command="{Binding RelativeSource={RelativeSource AncestorLevel=1,AncestorType={x:Type DataGrid}},Path=DataContext.FormulaSourceSelectCommand}" CommandParameter="{Binding Id}">
+        </RadioButton>
+    </DataTemplate>
+
+</ResourceDictionary>

@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Style/Base/GroupManage/AddMoveSheepfold.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <HierarchicalDataTemplate ItemsSource="{Binding Children}" x:Key="treeMoveSheepfold">
+        <CheckBox Margin="5" Content="{Binding Name}" IsChecked="{Binding IsChecked}" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type TreeView}},Path=DataContext.NodeClickCommand}"  CommandParameter="{Binding Id}"></CheckBox>
+    </HierarchicalDataTemplate>
+    <DataTemplate x:Key="listMoveSheepfold">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{x:Null}" Margin="8,0,15,0">
+                <Hyperlink Style="{StaticResource del}" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBox},AncestorLevel=1},Path=DataContext.RemoveSymptopmCommand}" CommandParameter="{Binding Id}">x</Hyperlink>
+            </TextBlock>
+            <ContentPresenter Content="{Binding SerialNumber}" Margin="0,2,8,0"></ContentPresenter>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

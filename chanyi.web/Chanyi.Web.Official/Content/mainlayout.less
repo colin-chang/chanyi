@@ -1,0 +1,50 @@
+﻿@import "site.less";
+
+@headerHeight: 50px;
+@copyrightHeight: 130px;
+
+.header {
+    /*margin-bottom: @headerHeight;*/
+    height: @headerHeight;
+
+    .navbar-img {
+        position: relative;
+        top: -5px;
+    }
+
+    .navbar-right-margin {
+        margin-right: 10px;
+    }
+}
+
+.copyright {
+    @copyright-color: #dcdcdc;
+
+    height: @copyrightHeight;
+    padding: 15px;
+    background-color: #373F48;
+    color: @copyright-color;
+
+
+    a {
+        color: #7C8B7D;
+
+        &:hover {
+            color: @copyright-color;
+        }
+    }
+
+    .links {
+        border-bottom: 1px solid #4f4f4f;
+    }
+
+    .rights {
+        margin-top: 20px;
+    }
+
+    @media(max-width:767px) {
+        .links{
+            display:none;
+        }
+    }
+}

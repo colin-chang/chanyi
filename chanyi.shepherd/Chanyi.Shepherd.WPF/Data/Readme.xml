@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Explain>
+  <New>
+    <Item>增加报表功能。</Item>
+    <Item>了解疾病辅助诊断。</Item>
+    <Item>增加产羔率、羔羊成活率、受胎率等指标计算</Item>
+  </New>
+  <Fix>
+  </Fix>
+</Explain>

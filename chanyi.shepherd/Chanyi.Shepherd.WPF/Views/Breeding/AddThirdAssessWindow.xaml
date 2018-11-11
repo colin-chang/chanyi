@@ -1,0 +1,67 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Breeding.AddThirdAssessWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:am="clr-namespace:Chanyi.Shepherd.WPF.ViewModels.Breeding"
+       Title="产后测评" Height="380" Width="350" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize" Icon="/Images/Assess.ico">
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Form.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.5*"></RowDefinition>
+            <RowDefinition Height="0.8*" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}" ComboBox.LostFocus="ComboBox_LostFocus">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition  Height="1.8*"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition  Height="0.2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition Width="1.8*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <TextBlock Grid.Row="1" Grid.Column="1">羊编号<Run Style="{StaticResource required}"/>:</TextBlock>
+            <ComboBox Grid.Row="1" Grid.Column="3" IsEditable="True" ItemsSource="{Binding Sheeps}" DisplayMemberPath="SerialNumber" SelectedValue="{Binding SheepId}" SelectedValuePath="Id"></ComboBox>
+
+            <TextBlock Grid.Row="2" Grid.Column="1">配种能力<Run Style="{StaticResource required}"/>:</TextBlock>
+            <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding MatingAbility}" ></TextBox>
+
+            <TextBlock Grid.Row="3" Grid.Column="1">体重(kg)<Run Style="{StaticResource required}"/>:</TextBlock>
+            <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding Weight}"></TextBox>
+
+            <TextBlock Grid.Row="4" Grid.Column="1">体况评分<Run Style="{StaticResource required}"/>:</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding HabitusScore}"></TextBox>
+
+            <TextBlock Grid.Row="5" Grid.Column="1">评估日期<Run Style="{StaticResource required}"/>:</TextBlock>
+            <DatePicker Grid.Row="5" Grid.Column="3" SelectedDate="{Binding AssessDate}"></DatePicker>
+
+            <TextBlock Grid.Row="6" Grid.Column="1">测评人<Run Style="{StaticResource required}"/>:</TextBlock>
+            <ComboBox Grid.Row="6" Grid.Column="3" ItemsSource="{Binding Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId}" SelectedValuePath="Id"></ComboBox>
+
+            <TextBlock Grid.Row="7" Grid.Column="1">备注:</TextBlock>
+            <TextBox Grid.Row="7" Grid.Column="3" Style="{StaticResource txtRemark}" Text="{Binding Remark}"></TextBox>
+
+
+            <TextBlock Grid.Row="8" Grid.Column="3" Style="{StaticResource txtblcError}" x:Name="error"  Text="{Binding Error}"></TextBlock>
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <Button Content="确定" IsDefault="True" Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"></Button>
+            <Button Content="取消" Command="{Binding CancelCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

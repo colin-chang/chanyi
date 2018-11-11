@@ -1,0 +1,62 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Tool.SheepParameterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter"
+        Title="羊只生理参数配置" Height="350" Width="360" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/Parameter.png">
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Tool/SheepParameter.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.Resources>
+                <cvt:BoolReverseConverter x:Key="rvs"></cvt:BoolReverseConverter>
+            </Grid.Resources>
+
+            <TextBlock Grid.Column="1">断奶日龄：</TextBlock>
+            <TextBox Grid.Column="2" Text="{Binding AblactationDays}"></TextBox>
+            <TextBlock Grid.Row="1" Grid.Column="1">断奶提醒</TextBlock>
+            <RadioButton Grid.Row="1" Grid.Column="2" GroupName="ablactation" IsChecked="{Binding IsAblactationRemaindful}" Name="rdAN">是</RadioButton>
+            <RadioButton Grid.Row="1" Grid.Column="2" Margin="40,0"  GroupName="ablactation" IsChecked="{Binding ElementName=rdAN,Path=IsChecked,Converter={StaticResource rvs}}">否</RadioButton>
+
+            <TextBlock Grid.Row="2" Grid.Column="1">妊娠天数：</TextBlock>
+            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding GestationDays}"></TextBox>
+            <TextBlock Grid.Row="3" Grid.Column="1">妊娠浮动天数：</TextBlock>
+            <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Range}"></TextBox>
+            <TextBlock Grid.Row="4" Grid.Column="1">分娩提醒</TextBlock>
+            <RadioButton Grid.Row="4" Grid.Column="2" GroupName="gestation" IsChecked="{Binding IsGestationRemaindful}" Name="rdDN">是</RadioButton>
+            <RadioButton Grid.Row="4" Grid.Column="2" Margin="40,0" GroupName="gestation" IsChecked="{Binding ElementName=rdDN,Path=IsChecked,Converter={StaticResource rvs}}">否</RadioButton>
+
+            <TextBlock Grid.Row="5" Grid.Column="1">备注：</TextBlock>
+            <TextBox Grid.Row="5" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource remark}" Text="{Binding Remark}"></TextBox>
+            <TextBlock Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" x:Name="error" Style="{StaticResource txtblcError}" Text="{Binding Error}"></TextBlock>
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <Button Content="确定" Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True"></Button>
+            <Button Content="取消" Command="{Binding CancelCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../FormWithTreeView.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <!--  继承表单控件样式  -->
+    <Style BasedOn="{StaticResource txtblc}" TargetType="TextBlock" />
+    <Style BasedOn="{StaticResource cmbox}" TargetType="ComboBox">
+        <Setter Property="Width" Value="80" />
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="Height" Value="25" />
+    </Style>
+    <Style TargetType="Button">
+        <Setter Property="Margin" Value="10,0" />
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Height" Value="23" />
+    </Style>
+    <Style TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+    <Style x:Key="skpTarget" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Margin" Value="0,0,10,0" />
+    </Style>
+    <!--  备注  -->
+    <Style x:Key="txtRemark" TargetType="TextBox">
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="AcceptsReturn" Value="True" />
+        <Setter Property="Height" Value="40" />
+    </Style>
+</ResourceDictionary>

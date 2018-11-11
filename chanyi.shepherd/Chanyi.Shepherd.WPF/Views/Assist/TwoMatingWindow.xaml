@@ -1,0 +1,45 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.Assist.TwoMatingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+        Title="配种检测" Height="250" Width="320" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/MatingTest.png">
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Assist/TwoMating.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3.5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}" ComboBox.LostFocus="ComboBox_LostFocus">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="1" Grid.Column="1">配种公羊编号<Run Style="{StaticResource required}"/>：</TextBlock>
+            <ComboBox Grid.Row="1" Grid.Column="3" IsEditable="True" ItemsSource="{Binding Males}" DisplayMemberPath="SerialNumber" SelectedValue="{Binding MaleId}" SelectedValuePath="Id" ></ComboBox>
+
+            <TextBlock Grid.Row="2" Grid.Column="1">配种母羊编号<Run Style="{StaticResource required}"/>：</TextBlock>
+            <ComboBox Grid.Row="2" Grid.Column="3" IsEditable="True" ItemsSource="{Binding Females}" DisplayMemberPath="SerialNumber"  SelectedValue="{Binding FemaleId}" SelectedValuePath="Id" ></ComboBox>
+
+            <TextBlock Grid.Row="3" Grid.Column="3" Style="{StaticResource error}" x:Name="error" Tag="{Binding IsOK}" Text="{Binding Error}"></TextBlock>
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <Button Content="测 试" Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True"></Button>
+            <Button Content="关 闭" Command="{Binding CancelCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
+

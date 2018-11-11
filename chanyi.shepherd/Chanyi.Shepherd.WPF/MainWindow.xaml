@@ -1,0 +1,114 @@
+﻿<Window xmlns:Views="clr-namespace:Chanyi.Shepherd.WPF.Views" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Chanyi.Shepherd.WPF.MainWindow"
+        Title="牧羊人羊场管理系统" Height="700" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#D6DBE9" Icon="/Images/logo.png">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Style/Base/Main.xaml" />
+                <ResourceDictionary Source="/Resources/DataTemplate/Main.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <!--菜单栏-->
+            <Menu ItemsSource="{Binding Source={StaticResource menuItems}}" ItemTemplate="{StaticResource menu}" MenuItem.Click="MenuItemClick" Loaded="Menu_Loaded"></Menu>
+            <!--工具栏-->
+            <StackPanel Style="{StaticResource toolbar}" Button.Click="ToolBarClick">
+                <ToolBar>
+                    <Button ToolTip="羊只信息录入" Tag="BaseInfo.AddSheepWindow" Style="{StaticResource tbButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/SheepData.png"></Image>
+                            <TextBlock>羊只录入</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button ToolTip="群体监测" Tag="GroupManage.GroupMonitoringWindow" Style="{StaticResource tbButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/MonitoringGroups.png"></Image>
+                            <TextBlock>群体监测</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </ToolBar>
+                <ToolBar>
+                    <Button ToolTip="饲料出库" Tag="Inputs.AddFeedInOutWarehouseWindow" Style="{StaticResource tbButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/FeedOut.png"></Image>
+                            <TextBlock>饲料出库</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button ToolTip="药品出库" Tag="Inputs.AddMedicineInOutWarehouseWindow" Style="{StaticResource tbButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/MedicineOut.png"></Image>
+                            <TextBlock>药品出库</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button ToolTip="出售羊只" Tag="Finance.AddSellSheepWindow" Style="{StaticResource tbButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/SellSheep.png"></Image>
+                        </StackPanel>
+                    </Button>
+                    <Button ToolTip="购买羊只" Tag="Finance.AddBuySheepWindow" Style="{StaticResource tbButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/Payoff.png"></Image>
+                        </StackPanel>
+                    </Button>
+                </ToolBar>
+                <ToolBar>
+                    <Button ToolTip="疾病诊断" Tag="Assist.DiseaseWindow" Style="{StaticResource tbButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/DiseaseDiagnosis.png"></Image>
+                        </StackPanel>
+                    </Button>
+                    <Button ToolTip="消息提醒" Tag="View.NotificationWindow">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/Information.png"></Image>
+                        </StackPanel>
+                    </Button>
+                </ToolBar>
+            </StackPanel>
+            <!--内容区-->
+            <Grid DockPanel.Dock="Bottom" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Style="{StaticResource colRSide}"></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TreeView ItemsSource="{Binding Source={StaticResource TreeNodes}}" ItemTemplate="{StaticResource LSideBar}"  TreeViewItem.Selected="TreeViewItem_Selected" Loaded="TreeView_Loaded">
+                    <TreeView.Resources>
+                        <ResourceDictionary Source="/Resources/ControlTemplate/TreeView.xaml" />
+                    </TreeView.Resources>
+                </TreeView>
+                
+                <GridSplitter Grid.Column="1" Margin="1,0"></GridSplitter>
+                <Grid Grid.Column="2" x:Name="pane" Grid.ColumnSpan="3"></Grid>
+            </Grid>
+        </DockPanel>
+        <!--状态栏-->
+        <StatusBar Name="stusBar" Grid.Row="1">
+            <StatusBarItem>
+                <ProgressBar Style="{StaticResource pgr}" Value="{Binding ProgressBarValue}" Name="pgr"></ProgressBar>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding OperationDesc}"></TextBlock>
+            </StatusBarItem>
+
+            <StatusBarItem HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images/volume.png" Style="{StaticResource imgNotification}"></Image>
+                    <TextBlock Style="{StaticResource txtblcNotification}">
+                        <Hyperlink Command="{Binding NotificationCommand}"><TextBlock Text="{Binding Notification}"></TextBlock></Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

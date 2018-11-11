@@ -1,0 +1,147 @@
+﻿<UserControl x:Class="Chanyi.Shepherd.WPF.Views.Inputs.OtherWarehouseUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter"
+             xmlns:uc="clr-namespace:Chanyi.Shepherd.WPF.UserControls"
+             xmlns:ap="clr-namespace:Chanyi.Shepherd.WPF.Expands.AttcahProperty"
+             xmlns:b="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1150">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Style/Base/List.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/DataTemplate/Common.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Style="{StaticResource colRSide}"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <StackPanel Style="{StaticResource stkTitle}">
+                <StackPanel Height="40">
+                    <Image Source="{Binding Icon}" Style="{StaticResource imgTitle}"></Image>
+                    <TextBlock FontSize="18" Text="{Binding Header}"></TextBlock>
+                </StackPanel>
+                <TextBlock Style="{StaticResource intro}" Text="{Binding Intro}"></TextBlock>
+            </StackPanel>
+            <!--<WrapPanel ComboBox.LostFocus="ComboBox_LostFocus">
+                <StackPanel>
+                    <TextBlock>物品名称：</TextBlock>
+                    <ComboBox  IsEditable="True" ItemsSource="{Binding Names}" DisplayMemberPath="Name" SelectedValue="{Binding Id}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock>数量：</TextBlock>
+                    <TextBox  Text="{Binding MinAmount,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBlock>-</TextBlock>
+                    <TextBox  Text="{Binding MaxAmount,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
+
+                <StackPanel>
+                    <Button Margin="5,0,0,0" Command="{Binding SearchCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True">搜 索</Button>
+                    <Button Margin="5,0,0,0" Command="{Binding ResetCommand}">重 置</Button>
+                </StackPanel>
+            </WrapPanel>-->
+            <Grid DockPanel.Dock="Bottom" Style="{StaticResource contentControl}">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid Name="dg" Tag="{Binding ElementName=progress}">
+                    <DataGrid.Resources>
+                        <cvt:InOutWarehouseStatus2StringConverter x:Key="w2s"></cvt:InOutWarehouseStatus2StringConverter>
+                    </DataGrid.Resources>
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Loaded">
+                            <b:InvokeCommandAction Command="{Binding DataGridLoadedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid},AncestorLevel=1}}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="物品名称" ap:GridColumn.BindProp="Name"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Unit}" Header="计量单位" ap:GridColumn.BindProp="Unit"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Amount}" Header="数量" ap:GridColumn.BindProp="Amount"></DataGridTextColumn>
+                        <DataGridTextColumn Width="*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <uc:ProgressRing x:Name="progress"></uc:ProgressRing>
+                <StackPanel Style="{StaticResource sppager}">
+                    <uc:DataPager PageIndex="{Binding PageIndex, Mode=TwoWay}" PageSize="{Binding PageSize}" TotalCount="{Binding TotalCount}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PageChanged">
+                                <b:InvokeCommandAction Command="{Binding PageChangedCommand}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </uc:DataPager>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+        <GridSplitter Grid.Column="1"></GridSplitter>
+        <Border Grid.Column="2">
+            <DockPanel>
+                <DockPanel Style="{StaticResource dpoperation}">
+                    <Label Content="操作"></Label>
+                    <StackPanel Orientation="Vertical">
+                        <!--<StackPanel Margin="5,8">
+                        <Line></Line>
+                    </StackPanel>-->
+                        <!--<StackPanel Style="{StaticResource stkSide}">
+                        <Image Source="/Images/Print.png"></Image>
+                        <TextBlock><Hyperlink Command="{Binding PrintCommand}">打印当前列表</Hyperlink></TextBlock>
+                    </StackPanel>-->
+                        <StackPanel Style="{StaticResource stkSide}">
+                            <Image Source="/Images/Export.png"></Image>
+                            <TextBlock><Hyperlink Command="{Binding ExportCommand}">导出当前列表</Hyperlink></TextBlock>
+                        </StackPanel>
+                        <!--<StackPanel Style="{StaticResource stkSide}">
+                        <Image Source="/Images/Add.png"></Image>
+                        <TextBlock><Hyperlink Command="{Binding AddCommand}">新增羊只</Hyperlink></TextBlock>
+                    </StackPanel>
+                    <StackPanel Style="{StaticResource stkSide}">
+                        <Image Source="/Images/Edit.png"></Image>
+                        <TextBlock><Hyperlink Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=dg, Path=SelectedValue.Id}">编辑选中羊只</Hyperlink></TextBlock>
+                    </StackPanel>-->
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Bottom">
+                    <Label Content="搜索"></Label>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Style="{StaticResource spbtns}">
+                            <Button Command="{Binding SearchCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True">搜 索</Button>
+                            <Button Margin="10,0" Command="{Binding ResetCommand}">重 置</Button>
+                        </StackPanel>
+                        <TextBlock Grid.Row="1">物品名称：</TextBlock>
+                        <ComboBox Grid.Row="1" Grid.Column="1" IsEditable="True" ItemsSource="{Binding Names}" DisplayMemberPath="Name" SelectedValue="{Binding Id}" SelectedValuePath="Id"></ComboBox>
+
+                        <TextBlock Grid.Row="2">数量：</TextBlock>
+                        <StackPanel Grid.Row="2" Grid.Column="1" Style="{StaticResource spch}">
+                            <TextBox Style="{StaticResource txtsm}" Text="{Binding MinAmount,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBlock>-</TextBlock>
+                            <TextBox Style="{StaticResource txtsm}" Text="{Binding MaxAmount,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </StackPanel>
+                    </Grid>
+                </DockPanel>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>
+
+

@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter"
+                    xmlns:ap="clr-namespace:Chanyi.Shepherd.WPF.Expands.AttcahProperty"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="OperationColumn">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5,0"><Hyperlink Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Id}" IsEnabled="{Binding ElementName=lkEdit,Path=IsEnabled}">编辑</Hyperlink></TextBlock>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="RemoveColumn">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5,0"><Hyperlink Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Id}">删除</Hyperlink></TextBlock>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="OperationRemoveColumn">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <cvt:HasPermissionConverter x:Key="hpc"></cvt:HasPermissionConverter>
+            </StackPanel.Resources>
+            <TextBlock Margin="5,0"><Hyperlink Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Id}"  IsEnabled="{Binding ElementName=lkEdit,Path=IsEnabled}">编辑</Hyperlink></TextBlock>
+            <TextBlock Margin="5,0">
+                <Hyperlink 
+                    Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" 
+                    CommandParameter="{Binding Id}" 
+                    IsEnabled="{Binding ElementName=grid,Path=Tag,
+                        Converter={StaticResource hpc}}">
+                    删除
+                </Hyperlink>
+            </TextBlock>
+        
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CheckedColumn">
+        <CheckBox 
+            Command="{Binding RelativeSource={RelativeSource AncestorLevel=1,AncestorType={x:Type DataGrid}},Path=DataContext.SourceSelectCommand}" 
+            CommandParameter="{Binding Id}" 
+            IsChecked="{Binding IsChecked,UpdateSourceTrigger=PropertyChanged}" 
+            Margin="5,0">
+        </CheckBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="GrantColumn">
+        <TextBlock Margin="5,0"><Hyperlink Command="{Binding DataContext.GrantCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Id}">分配</Hyperlink></TextBlock>
+    </DataTemplate>
+</ResourceDictionary>

@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{17C4FD1F-9C7A-457F-B874-5E6A715DAC18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Chanyi.Web.Official</RootNamespace>
+    <AssemblyName>Chanyi.Web.Official</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin.AspEngine">
+      <HintPath>lib\Owin.AspEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Files\Shepherd\TempFile\" />
+    <Folder Include="Files\Shepherd\Zip\" />
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssistController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\PriceController.cs" />
+    <Compile Include="Controllers\ShepherdController.cs" />
+    <Compile Include="Controllers\ToolsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AjaxResult.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Service References\ProductService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TinyAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\sitemap.css" />
+    <Content Include="Content\sitemap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Files\Shepherd\ReadMe.txt" />
+    <Content Include="Files\Shepherd\shepherd-1.0.0.1.exe" />
+    <Content Include="Files\Shepherd\牧羊人试用版.exe" />
+    <Content Include="Images\Assist\support-bg-sm.png" />
+    <Content Include="Images\Assist\support-bg-xs.png" />
+    <Content Include="Images\Home\banner-lg.png" />
+    <Content Include="Images\Home\banner-md.png" />
+    <Content Include="Images\Home\banner-sm.png" />
+    <Content Include="Images\Home\banner-xs.png" />
+    <Content Include="Images\Home\culture1-lg.png" />
+    <Content Include="Images\Home\culture1-md.png" />
+    <Content Include="Images\Home\culture2-lg.png" />
+    <Content Include="Images\Home\culture2-md.png" />
+    <Content Include="Images\Home\culture3-lg.png" />
+    <Content Include="Images\Home\culture3-md.png" />
+    <Content Include="Images\Home\intro-lg.png" />
+    <Content Include="Images\Assist\pop.png" />
+    <Content Include="Images\Home\intro-md.png" />
+    <Content Include="Images\Home\intro-sm.png" />
+    <Content Include="Images\Home\intro-xs.png" />
+    <Content Include="Images\Price\bg-ad-lg.jpg" />
+    <Content Include="Images\Price\bg-ad-md.jpg" />
+    <Content Include="Images\Price\bg-ad-sm.jpg" />
+    <Content Include="Images\Price\bg-ad-xs.jpg" />
+    <Content Include="Images\Price\bg-banner-lg.png" />
+    <Content Include="Images\Price\bg-banner-md.png" />
+    <Content Include="Images\Price\bg-banner-sm.png" />
+    <Content Include="Images\Price\bg-banner-xs.png" />
+    <Content Include="Images\Shepherd\banner-lg.png" />
+    <Content Include="Images\Shepherd\banner-md.png" />
+    <Content Include="Images\Shepherd\banner-sm.png" />
+    <Content Include="Images\Shepherd\banner-xs.png" />
+    <Content Include="Images\Shepherd\feature1-lg.png" />
+    <Content Include="Images\Shepherd\feature1-md.png" />
+    <Content Include="Images\Shepherd\feature2-lg.png" />
+    <Content Include="Images\Shepherd\feature2-md.png" />
+    <Content Include="Images\Shepherd\feature3-lg.png" />
+    <Content Include="Images\Shepherd\feature3-md.png" />
+    <Content Include="Images\Shepherd\feature4-lg.png" />
+    <Content Include="Images\Shepherd\feature4-md.png" />
+    <Content Include="Images\Shepherd\feature5-lg.png" />
+    <Content Include="Images\Shepherd\feature5-md.png" />
+    <Content Include="Images\Shepherd\function5.png" />
+    <Content Include="Images\logo-sm.png" />
+    <Content Include="Images\Shepherd\function2.png" />
+    <Content Include="Images\Shepherd\function3.png" />
+    <Content Include="Images\Shepherd\function4.png" />
+    <Content Include="Images\Shepherd\function1.png" />
+    <Content Include="Images\Shepherd\function6.png" />
+    <Content Include="Images\Shepherd\structure-sm.png" />
+    <Content Include="Images\Shepherd\structure-xs.png" />
+    <Content Include="lib\Owin.AspEngine.dll" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\Assist\index.js" />
+    <Content Include="Content\site.less" />
+    <Content Include="Content\Common\common.less" />
+    <Content Include="Content\Assist\index.less" />
+    <None Include="Chanyi.Web.Offical.pubxml" />
+    <None Include="Chanyi.Web.Official.pubxml" />
+    <None Include="Content\Home\index.less" />
+    <Content Include="Content\Shepherd\index.less" />
+    <Content Include="Content\mainlayout.less" />
+    <Content Include="Files\Shepherd\shepherd-doc-1.0.0.1.pdf" />
+    <Content Include="Files\Shepherd\shepherd-publog-1.0.0.1.docx" />
+    <Content Include="Content\Tools\vpn.less" />
+    <Content Include="Files\Shepherd\shepherd-ppt-1.0.0.1.ppt" />
+    <Content Include="Content\Price\index.less" />
+    <Content Include="Content\Price\tryout.less" />
+    <None Include="Scripts\jquery-1.11.3.intellisense.js" />
+    <Content Include="Scripts\headroom-0.7.0.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsrender.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Price\index.js" />
+    <Content Include="Scripts\Price\tryout.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\Tools\vpn.js" />
+    <Content Include="Service References\ProductService\Chanyi.Web.Official.ProductService.ServiceResultOfstring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jsrender.min.js.map" />
+    <None Include="Service References\ProductService\configuration91.svcinfo" />
+    <None Include="Service References\ProductService\configuration.svcinfo" />
+    <None Include="Service References\ProductService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="sitemap.html" />
+    <Content Include="sitemap.xml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Global.asax" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shepherd\Index.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
+    <Content Include="Views\Shepherd\_ViewStart.cshtml" />
+    <Content Include="Views\Partials\_HeaderPartial.cshtml" />
+    <Content Include="Views\Partials\_FooterPartial.cshtml" />
+    <Content Include="Views\Assist\Index.cshtml" />
+    <Content Include="Views\Assist\_ViewStart.cshtml" />
+    <Content Include="Views\Tools\VPN.cshtml" />
+    <Content Include="Views\Tools\_ViewStart.cshtml" />
+    <Content Include="Views\Price\Index.cshtml" />
+    <Content Include="Views\Price\_ViewStart.cshtml" />
+    <None Include="Service References\ProductService\Chanyi.DomainModel.Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\service.wsdl" />
+    <None Include="Service References\ProductService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Price\Tryout.cshtml" />
+    <Content Include="Views\Tools\DownloadTryout.cshtml" />
+    <Content Include="Scripts\jquery-2.2.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <None Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <None Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <None Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css" />
+    <None Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css" />
+    <None Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery.cookie-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ProductService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4169/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+</Project>

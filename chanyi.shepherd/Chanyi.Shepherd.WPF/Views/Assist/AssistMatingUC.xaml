@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="Chanyi.Shepherd.WPF.Views.Assist.AssistMatingUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter"
+             xmlns:uc="clr-namespace:Chanyi.Shepherd.WPF.UserControls"
+             xmlns:ap="clr-namespace:Chanyi.Shepherd.WPF.Expands.AttcahProperty"
+             xmlns:b="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1150">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Style/Base/List.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/DataTemplate/Common.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/Style/Base/Assist/PedigreeChartUC.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Style="{StaticResource colRSide}"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <StackPanel Style="{StaticResource stkTitle}">
+                <StackPanel Height="40">
+                    <Image Source="{Binding Icon}" Style="{StaticResource imgTitle}"></Image>
+                    <TextBlock FontSize="18" Text="{Binding Header}"></TextBlock>
+                </StackPanel>
+                <TextBlock Style="{StaticResource intro}" Text="{Binding Intro}"></TextBlock>
+            </StackPanel>
+            <!--<WrapPanel ComboBox.LostFocus="ComboBox_LostFocus" >
+                <WrapPanel.Resources>
+                </WrapPanel.Resources>
+                <StackPanel>
+                    <TextBlock>羊只编号：</TextBlock>
+                    <ComboBox  Width="120" IsEditable="True" ItemsSource="{Binding Sheeps}" DisplayMemberPath="SerialNumber" SelectedValue="{Binding SheepId,NotifyOnSourceUpdated=True}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+                <StackPanel>
+                    <Button Margin="5,0,0,0" Command="{Binding SearchCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True">搜 索</Button>
+                </StackPanel>
+            </WrapPanel>-->        
+            <Grid DockPanel.Dock="Bottom" Style="{StaticResource contentControl}" Background="White">
+                <Grid.Resources>
+                    <cvt:Bool2Visibility x:Key="b2v"></cvt:Bool2Visibility>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource Remind}"> 请选择羊只编号,点击“搜索”以查看可以与选中羊只进行配种的羊只！</TextBlock>
+                <DataGrid Name="dg" Tag="{Binding ElementName=progress}" Grid.ColumnSpan="2" Visibility="{Binding HasAnyRecord,Converter={StaticResource b2v}}">
+                    <DataGrid.Resources>
+                        <cvt:Gender2StringConverter x:Key="g2s"></cvt:Gender2StringConverter>
+                        <cvt:Origin2StringConverter x:Key="o2s"></cvt:Origin2StringConverter> 
+                    </DataGrid.Resources>
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Loaded">
+                            <b:InvokeCommandAction Command="{Binding DataGridLoadedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid},AncestorLevel=1}}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding SerialNumber}" Header="羊编号" ap:GridColumn.BindProp="SerialNumber"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Gender,Converter={StaticResource g2s}}" Header="性别" ap:GridColumn.BindProp="Gender" ap:GridColumn.Converter="{StaticResource g2s}"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Sheepfold}" Header="圈舍" ap:GridColumn.BindProp="Sheepfold"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Breed}" Header="品种" ap:GridColumn.BindProp="Breed"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Origin,Converter={StaticResource o2s}}" Header="来源" ap:GridColumn.BindProp="Origin" ap:GridColumn.Converter="{StaticResource o2s}"></DataGridTextColumn>
+                        <DataGridTextColumn Width="*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <uc:ProgressRing x:Name="progress" Grid.Column="1" Margin="317.463,185,410,185"></uc:ProgressRing>
+            </Grid>
+        </DockPanel>
+        <GridSplitter Grid.Column="1"></GridSplitter>
+        <Border Grid.Column="2">
+            <DockPanel>
+                <DockPanel Style="{StaticResource dpoperation}">
+                    <Label Content="操作"></Label>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Style="{StaticResource stkSide}">
+                            <Image Source="/Images/MatingTest.png"></Image>
+                            <TextBlock><Hyperlink Command="{Binding MatingTestCommand}" CommandParameter="Assist.TwoMatingWindow" Style="{StaticResource hlkAdd}">配种检测</Hyperlink></TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="5,8">
+                            <Line></Line>
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource stkSide}">
+                            <Image Source="/Images/Export.png"></Image>
+                            <TextBlock><Hyperlink Command="{Binding ExportCommand}">导出当前列表</Hyperlink></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Bottom">
+                    <Label Content="搜索"></Label>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Style="{StaticResource spbtns}">
+                            <Button Command="{Binding SearchCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True">搜 索</Button>
+                            <Button Margin="10,0" Command="{Binding ResetCommand}">重 置</Button>
+                        </StackPanel>
+                        <TextBlock Grid.Row="1">羊只编号：</TextBlock>
+                        <ComboBox Grid.Row="1" Grid.Column="1"  IsEditable="True" ItemsSource="{Binding Sheeps}" DisplayMemberPath="SerialNumber" SelectedValue="{Binding SheepId,NotifyOnSourceUpdated=True}" SelectedValuePath="Id"></ComboBox>
+                        
+                        <TextBlock Grid.Row="2">祖代数：</TextBlock>
+                        <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Generations}"  DisplayMemberPath="Name" SelectedValue="{Binding Generation,NotifyOnSourceUpdated=True}" SelectedValuePath="Id">
+                        </ComboBox>
+                    </Grid>
+                </DockPanel>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>

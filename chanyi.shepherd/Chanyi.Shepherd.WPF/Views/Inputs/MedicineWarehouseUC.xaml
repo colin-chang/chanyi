@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="Chanyi.Shepherd.WPF.Views.Inputs.MedicineWarehouseUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter"
+             xmlns:uc="clr-namespace:Chanyi.Shepherd.WPF.UserControls"
+             xmlns:ap="clr-namespace:Chanyi.Shepherd.WPF.Expands.AttcahProperty"
+             xmlns:b="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1150">
+
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Style/Base/List.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/DataTemplate/Common.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Style="{StaticResource colRSide}"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <StackPanel Style="{StaticResource stkTitle}">
+                <StackPanel Height="40">
+                    <Image Source="{Binding Icon}" Style="{StaticResource imgTitle}"></Image>
+                    <TextBlock FontSize="18" Text="{Binding Header}"></TextBlock>
+                </StackPanel>
+                <TextBlock Style="{StaticResource intro}" Text="{Binding Intro}"></TextBlock>
+            </StackPanel>
+            <!--<WrapPanel ComboBox.LostFocus="ComboBox_LostFocus">
+                <StackPanel>
+                    <TextBlock>药品名称：</TextBlock>
+                    <ComboBox  IsEditable="True" ItemsSource="{Binding MedicineNames}" DisplayMemberPath="Name" SelectedValue="{Binding NameId}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock>生产厂商：</TextBlock>
+                    <ComboBox Width="150"  IsEditable="True" ItemsSource="{ Binding Manufacturers}" DisplayMemberPath="Name" SelectedValue="{Binding ManufacturerId}" SelectedValuePath="Id"></ComboBox>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock>数量：</TextBlock>
+                    <TextBox  Text="{Binding MinAmount,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBlock>盒</TextBlock>
+                    <TextBlock>-</TextBlock>
+                    <TextBox  Text="{Binding MaxAmount,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBlock>盒</TextBlock>
+                </StackPanel>
+
+                <StackPanel>
+                    <Button Margin="5,0,0,0" Command="{Binding SearchCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True">搜 索</Button>
+                    <Button Margin="5,0,0,0" Command="{Binding ResetCommand}">重 置</Button>
+                </StackPanel>
+            </WrapPanel>-->
+            <Grid DockPanel.Dock="Bottom" Style="{StaticResource contentControl}">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid Name="dg" Tag="{Binding ElementName=progress}">
+                    <DataGrid.Resources>
+                        <cvt:InOutWarehouseStatus2StringConverter x:Key="w2s"></cvt:InOutWarehouseStatus2StringConverter>
+                    </DataGrid.Resources>
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Loaded">
+                            <b:InvokeCommandAction Command="{Binding DataGridLoadedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid},AncestorLevel=1}}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="药品名称" ap:GridColumn.BindProp="Name"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Department}" Header="生产厂商" ap:GridColumn.BindProp="Department"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Amount}" Header="数量" ap:GridColumn.BindProp="Amount"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding ExpirationDate,StringFormat=yyyy-MM-dd}" Header="有效期至" ap:GridColumn.BindProp="ExpirationDate"></DataGridTextColumn>
+                        <DataGridTextColumn Width="*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <uc:ProgressRing x:Name="progress"></uc:ProgressRing>
+                <StackPanel Style="{StaticResource sppager}">
+                    <uc:DataPager PageIndex="{Binding PageIndex, Mode=TwoWay}" PageSize="{Binding PageSize}" TotalCount="{Binding TotalCount}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PageChanged">
+                                <b:InvokeCommandAction Command="{Binding PageChangedCommand}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </uc:DataPager>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+        <GridSplitter Grid.Column="1"></GridSplitter>
+        <Border Grid.Column="2">
+            <DockPanel>
+                <DockPanel Style="{StaticResource dpoperation}">
+                    <Label Content="操作"></Label>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Style="{StaticResource stkSide}">
+                            <Image Source="/Images/Export.png"></Image>
+                            <TextBlock><Hyperlink Command="{Binding ExportCommand}">导出当前列表</Hyperlink></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Bottom">
+                    <Label Content="搜索"></Label>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                            <RowDefinition Style="{StaticResource rwsearch}"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Style="{StaticResource spbtns}">
+                            <Button Command="{Binding SearchCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True">搜 索</Button>
+                            <Button Margin="10,0" Command="{Binding ResetCommand}">重 置</Button>
+                        </StackPanel>
+                        <TextBlock Grid.Row="1">药品名称：</TextBlock>
+                        <ComboBox Grid.Row="1" Grid.Column="1" IsEditable="True" ItemsSource="{Binding MedicineNames}" DisplayMemberPath="Name" SelectedValue="{Binding NameId}" SelectedValuePath="Id"></ComboBox>
+
+                        <TextBlock Grid.Row="2">生产厂商：</TextBlock>
+                        <ComboBox Grid.Row="2" Grid.Column="1" IsEditable="True" ItemsSource="{ Binding Manufacturers}" DisplayMemberPath="Name" SelectedValue="{Binding ManufacturerId}" SelectedValuePath="Id"></ComboBox>
+
+                        <TextBlock Grid.Row="3">数量<TextBlock>盒</TextBlock> ：</TextBlock>
+                        <StackPanel Grid.Row="3" Grid.Column="1" Style="{StaticResource spch}">
+                            <TextBox Style="{StaticResource txtsm}" Text="{Binding MinAmount,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBlock>-</TextBlock>
+                            <TextBox Style="{StaticResource txtsm}" Text="{Binding MaxAmount,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </StackPanel>
+
+                        <TextBlock Grid.Row="4">有效期至：</TextBlock>
+                        <DatePicker Grid.Row="4" Grid.Column="1" SelectedDate="{Binding StartExpirationDate}"></DatePicker>
+                        <TextBlock Grid.Row="5"  HorizontalAlignment="Right">至</TextBlock>
+                        <DatePicker Grid.Row="5" Grid.Column="1" SelectedDate="{Binding EndExpirationDate}"></DatePicker>
+                    </Grid>
+                </DockPanel>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>
+

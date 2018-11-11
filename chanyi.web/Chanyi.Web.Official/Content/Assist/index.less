@@ -1,0 +1,253 @@
+﻿@import "../Common/common";
+
+.banner {
+    min-height: 300px;
+    padding: 50px 0;
+    .bg-linear(#F1F3F0,#ECF0F1);
+
+    .glyphicon {
+        font-size: 40px;
+    }
+
+    .input-group-search {
+        max-width: 55%;
+        margin: 30px auto;
+    }
+
+    @media(max-width:1200px) {
+        .input-group-search {
+            max-width: 70%;
+        }
+    }
+
+    @media(max-width:768px) {
+        .input-group-search {
+            max-width: 85%;
+        }
+
+        .input-group-lg > .form-control,
+        .input-group-lg > .input-group-btn > .btn {
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .input-group-lg > .form-control {
+            .border-radius(3px,0,0,3px);
+        }
+
+        .input-group-lg > .input-group-btn > .btn {
+            .border-radius(0,3px,3px,0);
+        }
+    }
+}
+
+.question-pop(@bg-color: #E5E5EA) {
+    margin: 15px;
+    padding: 10px 30px;
+    background-color: @bg-color;
+    overflow: hidden;
+    .border-radius(20px);
+    .box-shadow;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.question {
+    padding: 120px 0;
+
+    article {
+        min-height: 460px;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    .pop {
+        .question-pop;
+
+        a {
+            color: #3E3A39;
+            outline: none;
+
+            &:hover {
+                color: #317A2E;
+            }
+        }
+    }
+
+
+
+    .pop-active {
+        .bg-linear(#007CDA,#006EC4);
+
+        a {
+            color: #fff;
+            text-decoration: none;
+
+            &:hover {
+                color: #eee;
+            }
+        }
+    }
+
+    .glyphicon {
+        color: #337AB7;
+        font-size: 45px;
+    }
+
+    p {
+        .margin-top(20px);
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    #answers p:not([class*=active]) {
+        display: none;
+    }
+}
+
+@media(max-width:991px) {
+    .question {
+        padding: 60px 0;
+    }
+}
+
+@media(max-width:767px) {
+    .question {
+        article {
+            text-align: left;
+            padding: 0;
+        }
+
+        .pop {
+            display: block;
+
+            a:before {
+                content: "▶  ";
+            }
+
+            .caret {
+                font-size: 25px;
+            }
+        }
+
+        .pop-active a {
+            &:before {
+                content: "▼  ";
+            }
+        }
+
+        #answers {
+            display: none;
+        }
+
+        .answer {
+            .question-pop(#F7F7F9);
+            display: block;
+            line-height: 25px;
+            font-size: 14px;
+
+            &:before {
+                content: "A：";
+            }
+        }
+    }
+}
+
+.support {
+    min-height: 320px;
+    max-height: 360px;
+    padding: 30px 0;
+    box-sizing: border-box;
+    color: #fff;
+    background-image: url(../../Images/Assist/support-bg-sm.png);
+    background-color: #2492CB;
+    background-position-x: center;
+    background-repeat: no-repeat;
+
+    section {
+        padding: 0 10%;
+    }
+
+    h2 {
+        margin-left: 20px;
+    }
+
+    .fa {
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 50px;
+        color: #3DF1FC;
+    }
+
+    ul {
+        line-height: 30px;
+        font-size: 15px;
+    }
+
+    a {
+        color: #eee;
+        text-decoration: underline;
+
+        &:hover {
+            color: #FFB080;
+        }
+    }
+}
+
+@media(max-width:768px) {
+    .support {
+        min-height: 260px;
+        background-image: url(../../Images/Assist/support-bg-xs.png);
+
+        section {
+            padding: 0 5%;
+        }
+
+        .fa {
+            font-size: 35px;
+        }
+
+        ul {
+            font-size: 13px;
+        }
+
+        h2 {
+            font-size: 25px;
+        }
+    }
+}
+
+.contact {
+    padding: 50px 0 80px 0;
+    text-align: center;
+
+    h3 {
+        margin-bottom: 60px;
+    }
+
+    small {
+        font-size: 15px;
+        display: block;
+        .margin-top;
+    }
+
+    address p {
+        .margin-top(20px);
+    }
+
+    .glyphicon, .fa {
+        display: block;
+        font-size: 60px;
+        opacity: 0.8;
+        color: #1479C7;
+    }
+
+    /*.feedback {
+        display: block;
+        .margin-top(50px);
+    }*/
+}

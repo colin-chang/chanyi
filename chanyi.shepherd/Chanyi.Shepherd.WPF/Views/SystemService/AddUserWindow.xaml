@@ -1,0 +1,52 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.SystemService.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chanyi.Shepherd.WPF.Views.SystemService"
+        mc:Ignorable="d"
+        Title="新增用户" Height="270" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Images/AddUser.png">
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Form.xaml"></ResourceDictionary>
+    </Window.Resources>
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.2*"></RowDefinition>
+            <RowDefinition Height="1.1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}" Name="contentGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="0.6*"></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="1" Grid.Column="1">用户名<Run Style="{StaticResource required}"/>：</TextBlock>
+            <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding UserName}" ></TextBox>
+
+            <TextBlock Grid.Row="2" Grid.Column="1">密码<Run Style="{StaticResource required}"/>：</TextBlock>
+            <PasswordBox Grid.Row="2" Grid.Column="3" Name="pwd" ></PasswordBox>
+
+            <TextBlock Grid.Row="4" Grid.Column="1">备注:</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="3" Style="{StaticResource txtRemark}" Text="{Binding Remark}"></TextBox>
+
+            <TextBlock Grid.Row="5" Grid.Column="3" Style="{StaticResource txtblcError}" x:Name="error"  Text="{Binding Error}"></TextBlock>
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <Button Content="确定" Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True"></Button>
+            <Button Content="取消" Command="{Binding CancelCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

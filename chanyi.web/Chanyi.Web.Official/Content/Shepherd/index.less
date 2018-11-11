@@ -1,0 +1,346 @@
+﻿@import "../Common/common";
+
+.banner {
+    .banner(#00903A,#1CBC5C);
+    border: 1px solid transparent;
+
+    .bg-banner {
+        .bg-banner;
+        .margin-top;
+    }
+
+    @media(min-width:1200px) {
+        .bg-banner {
+            min-height: 700px;
+            background-image: url("/Images/Shepherd/banner-lg.png");
+        }
+
+        .slogan {
+            position: relative;
+            top: 180px;
+        }
+    }
+
+    @media(max-width:1200px) {
+        .bg-banner {
+            min-height: 560px;
+            background-image: url("/Images/Shepherd/banner-md.png");
+        }
+
+        .slogan {
+            position: relative;
+            top: 120px;
+        }
+    }
+
+    @media(max-width:991px) {
+        .bg-banner {
+            min-height: 510px;
+            background-image: url("/Images/Shepherd/banner-sm.png");
+        }
+
+        .slogan {
+            position: relative;
+            top: 60px;
+            left: -20px;
+        }
+    }
+
+    @media(max-width:767px) {
+        .bg-banner {
+            .margin-top(40px);
+            min-height: 350px;
+            background-image: url("/Images/Shepherd/banner-xs.png");
+        }
+
+        .slogan {
+            position: initial;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+.features {
+    @media( min-width : 992px) {
+        .col-lg-5ths, .col-md-5ths {
+            position: relative;
+            .calc-width(20%,4.8px);
+            margin: 0 3px;
+            float: left;
+        }
+    }
+
+    min-height: 200px;
+    .margin-top;
+
+    [class*=feature-] {
+        min-height: 200px;
+        padding: 10px 30px;
+        color: #fff;
+        position: relative;
+        .border-radius;
+        background-repeat: no-repeat;
+        background-position: right top;
+    }
+
+    small {
+        font-size: 15px;
+        font-weight: 500;
+        color: #eaeaea;
+        position: relative;
+    }
+
+    .feature-1 {
+        .bg-linear(#128FEF,#006EC4);
+        margin-left: 0;
+    }
+
+    .feature-2 {
+        .bg-linear(#5ACBFF,#0197DB);
+    }
+
+    .feature-3 {
+        .bg-linear(#FAAE46,#F04832);
+    }
+
+    .feature-4 {
+        .bg-linear(#2A816C,#2B6456);
+    }
+
+    .feature-5 {
+        .bg-linear(#56C9FD,#00B2BF);
+        margin-right: 0;
+        float: right;
+    }
+
+    .bg-feature(@size: "lg") {
+        .feature-1 {
+            background-image: url("/Images/Shepherd/feature1-@{size}.png");
+        }
+
+        .feature-2 {
+            background-image: url("/Images/Shepherd/feature2-@{size}.png");
+        }
+
+        .feature-3 {
+            background-image: url("/Images/Shepherd/feature3-@{size}.png");
+        }
+
+        .feature-4 {
+            background-image: url("/Images/Shepherd/feature4-@{size}.png");
+        }
+
+        .feature-5 {
+            background-image: url("/Images/Shepherd/feature5-@{size}.png");
+        }
+    }
+
+    @media(min-width:1200px) {
+        .bg-feature;
+
+        small {
+            top: 35px;
+        }
+    }
+
+    @media(max-width:1199px) {
+        .bg-feature("md");
+
+        small {
+            top: 15px;
+        }
+    }
+
+    @media(max-width:991px) {
+        .bg-feature;
+
+        .feature-5 {
+            width: 100%;
+        }
+
+        small {
+            top: 12px;
+        }
+    }
+
+    @media(max-width:767px) {
+        .bg-feature("md");
+
+        small {
+            top: 30px;
+        }
+    }
+
+    .explain {
+        background-color: #9766A4;
+        position: absolute;
+        bottom: 0;
+        right: 0px;
+        height: 100%;
+        padding: 15px;
+        text-indent: 30px;
+        line-height: 22px;
+        opacity: 0;
+        transition: opacity ease-in-out 0.5s;
+
+        &:hover {
+            opacity: 0.9;
+            cursor: pointer;
+        }
+    }
+}
+
+.structure {
+    .margin-top(30px);
+    padding-top: 400px;
+    background-image: url("/Images/Shepherd/structure-sm.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    .functions {
+        img, h4 {
+            max-width: 260px;
+            margin: 0 auto;
+        }
+
+        h4 {
+            .margin-top(15px);
+        }
+
+        small {
+            display: block;
+            line-height: 23px;
+        }
+
+        .row > div {
+            .margin-top(50px);
+        }
+    }
+}
+
+.specialty {
+    .margin-top(60px);
+    margin-bottom: -10px;
+    padding: 30px 0;
+    background-color: #f5f5f5;
+
+    .row > div {
+        .margin-top(50px);
+    }
+
+    .media {
+        margin-left:10%;
+    }
+
+    .media-body {
+        position: relative;
+        left: 20px;
+    }
+
+    .media-body p {
+        color: #999;
+        line-height: 35px;
+        font-size: 15px;
+        width: 75%;
+    }
+
+    .media-heading {
+        color: #333;
+    }
+
+    .glyphicon, .fa {
+        font-size: 75px;
+    }
+
+    .glyphicon-hand-right {
+        color: #7DAFEC;
+    }
+
+    .glyphicon-export {
+        color: #F7AF4A;
+    }
+
+    .fa-shield {
+        color: #88B33E;
+    }
+
+    .glyphicon-bell {
+        color: #EA732B;
+    }
+}
+
+.recommend {
+    .margin-top;
+    min-height: 340px;
+    padding: 75px 0;
+    text-align: center;
+    background-color: #009DDC;
+    color: #fff;
+
+    small {
+        font-size: 15px;
+        color: #fff;
+        display: inline-block;
+        .margin-top(20px);
+        line-height: 25px;
+    }
+
+    .btn-exp {
+        .margin-top(25px);
+    }
+}
+
+@media(min-width:1200px) {
+    .banner {
+        min-height: 720px;
+    }
+}
+
+@media(max-width:1200px) {
+    .banner {
+        min-height: 580px;
+    }
+}
+
+@media(max-width:991px) {
+    .banner {
+        min-height: 530px;
+        padding: 0 10px;
+    }
+
+    .features {
+        .margin-top(0);
+        min-height: 950px;
+
+        [class*=feature-] {
+            min-height: 180px;
+            margin: 12px 0 0 0;
+        }
+    }
+}
+
+@media(max-width:950px) {
+    .structure {
+        background-size: contain;
+        padding-top: 300px;
+    }
+}
+
+@media(max-width:767px) {
+    .banner {
+        min-height: 680px;
+        padding: 0 20px;
+    }
+
+    .structure {
+        background-image: url("/Images/Shepherd/structure-xs.png");
+        padding-top: 250px;
+    }
+}
+
+@media(max-width:414px) {
+    .structure {
+        padding-top: 130px;
+    }
+}

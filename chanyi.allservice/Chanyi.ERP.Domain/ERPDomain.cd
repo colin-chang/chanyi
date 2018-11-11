@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Chanyi.Doamin.Accounts">
+    <Position X="1.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAACAAAAAAQAAAEAAAACAAAAAAAAAEA=</HashCode>
+      <FileName>Accounts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chanyi.Doamin.Bookkeeping" Collapsed="true">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAFAAAAAAACACgAAACAAAEEAAAAAIgAAAAAIQA=</HashCode>
+      <FileName>Bookkeeping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chanyi.Doamin.Department" Collapsed="true">
+    <Position X="9" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAGAAAAAAQAAAEAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chanyi.Doamin.Duty" Collapsed="true">
+    <Position X="5.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAACAAEAAAQAAAEAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Duty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chanyi.Doamin.Log" Collapsed="true">
+    <Position X="7.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIEAAAAAAQA=</HashCode>
+      <FileName>Log.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chanyi.Doamin.User" Collapsed="true">
+    <Position X="9" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAoAEAAAAACCAACAAAAAQAAEIBAACEQAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

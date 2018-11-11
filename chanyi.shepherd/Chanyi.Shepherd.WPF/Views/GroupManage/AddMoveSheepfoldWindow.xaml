@@ -1,0 +1,115 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.GroupManage.AddMoveSheepfoldWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uc="clr-namespace:Chanyi.Shepherd.WPF.UserControls"
+        xmlns:vm="clr-namespace:Chanyi.Shepherd.WPF.ViewModels.GroupManage"
+        Title="转圈管理"
+        Width="650"
+        Height="500"
+        Icon="/Images/MoveSheepfold.png"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:AddMoveSheepfoldViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/DataTemplate/GroupManage/AddMoveSheepfold.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="0.15*" />
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="8" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="10,0,0,0">
+                        <TextBlock>原圈舍：</TextBlock>
+                        <ComboBox DisplayMemberPath="Name"
+                                  ItemsSource="{Binding SheepfoldsBind}"
+                                  SelectedValue="{Binding SheepfoldId}"
+                                  SelectedValuePath="Id" />
+                        <TextBlock Margin="10,0,0,0" Text="编号：" />
+                        <TextBox Width="60" Text="{Binding SerialNumber}" />
+                        <Button Command="{Binding SearchCommand}"
+                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+                                IsDefault="True">
+                            搜索
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Style="{StaticResource skpTarget}">
+                        <TextBlock>
+                            新圈舍<Run Style="{StaticResource required}" />
+                        </TextBlock>
+                        <ComboBox DisplayMemberPath="Name"
+                                  ItemsSource="{Binding TargetSheepfoldBind}"
+                                  SelectedValue="{Binding TargetSheepfoldId}"
+                                  SelectedValuePath="Id" />
+                        <!--
+                            <TextBlock  Margin="10,0,0,0">技术员<Run Style="{StaticResource required}"></Run>：</TextBlock>
+                            <ComboBox ItemsSource="{Binding Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId}" SelectedValuePath="Id"></ComboBox>
+                        -->
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*" />
+                        <ColumnDefinition Width="8" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="所有羊只">
+                        <TreeView ItemTemplate="{StaticResource treeMoveSheepfold}" ItemsSource="{Binding TreeData}">
+                            <TreeView.Resources>
+                                <ResourceDictionary Source="../../Resources/ControlTemplate/TreeView.xaml" />
+                            </TreeView.Resources>
+                        </TreeView>
+                    </GroupBox>
+                    <GroupBox Grid.Column="2" Header="转圈羊只">
+                        <ListBox ItemTemplate="{StaticResource listMoveSheepfold}" ItemsSource="{Binding Sheeps}" />
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock>转圈原因：</TextBlock>
+                    <TextBox Grid.Column="1"
+                             Style="{StaticResource txtRemark}"
+                             Text="{Binding Remark}" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <uc:ProgressRing x:Name="progress" />
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <TextBlock Margin="10,0,0,0">
+                技术员<Run Style="{StaticResource required}" />
+                ：
+            </TextBlock>
+            <ComboBox DisplayMemberPath="Name"
+                      ItemsSource="{Binding Principals}"
+                      SelectedValue="{Binding PrincipalId}"
+                      SelectedValuePath="Id" />
+            <Button Command="{Binding SubmitCommand}">确定</Button>
+            <Button Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">取消</Button>
+        </StackPanel>
+    </Grid>
+</Window>

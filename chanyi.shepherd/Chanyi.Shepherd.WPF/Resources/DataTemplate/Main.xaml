@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter">
+    
+    <cvt:IsTopMenuItemConverter x:Key="tmi"></cvt:IsTopMenuItemConverter>
+    <XmlDataProvider x:Key="menuItems" Source="../../Config/MenuItems.xml" XPath="Menu/MenuItem"></XmlDataProvider>
+    <HierarchicalDataTemplate x:Key="menu" DataType="MenuItem" ItemsSource="{Binding XPath=MenuItem}">
+        <HierarchicalDataTemplate.ItemContainerStyle>
+            <Style TargetType="MenuItem">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self},Converter={StaticResource tmi}}" Value="false">
+                        <Setter Property="Background" Value="#EAF0FF"></Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </HierarchicalDataTemplate.ItemContainerStyle>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat=" {0}({1})">
+                        <Binding XPath="@Header" />
+                        <Binding XPath="@Gesture" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock Text="{Binding XPath=@KeyMap,StringFormat='&#x09;{0}'}"></TextBlock>
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+    
+    <XmlDataProvider x:Key="TreeNodes" Source="../../Config/LSideBar.xml" XPath="Tree/TreeViewItem"></XmlDataProvider>
+    <HierarchicalDataTemplate x:Key="LSideBar" DataType="TreeViewItem"  ItemsSource="{Binding XPath=TreeViewItem}">
+        <TextBlock Text="{Binding XPath=@Header}" Tag="{Binding XPath=@View}"></TextBlock>
+    </HierarchicalDataTemplate>
+</ResourceDictionary>

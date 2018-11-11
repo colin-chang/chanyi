@@ -1,0 +1,63 @@
+﻿<Window x:Class="Chanyi.Shepherd.WPF.Views.DiseaseControl.AddAntiepidemicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="添加防疫(消毒)执行记录"  Height="390" Width="400" Icon="/Images/Medicine.png" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Style/Base/Form.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource mainControl}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource contentControl}" ComboBox.LostFocus="ComboBox_LostFocus" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition   Height="2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="1" Grid.Column="1">防疫（消毒）名称<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Name}"></TextBox>
+
+            <TextBlock Grid.Row="2" Grid.Column="1">使用药品<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Vaccine}"></TextBox>
+
+            <TextBlock Grid.Row="3" Grid.Column="1">执行日期<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <DatePicker Grid.Row="3" Grid.Column="2" SelectedDate="{Binding ExecuteDate}"></DatePicker>
+
+            <TextBlock Grid.Row="4" Grid.Column="1">防疫（消毒）效果：</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Effect}"></TextBox>
+            
+            <TextBlock Grid.Row="5" Grid.Column="1">防疫（消毒）羊群<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding SheepFlock}"></TextBox>
+
+            <TextBlock Grid.Row="6" Grid.Column="1">执行人<Run Style="{StaticResource required}"></Run>：</TextBlock>
+            <ComboBox Grid.Row="6" Grid.Column="2" ItemsSource="{Binding Principals}" DisplayMemberPath="Name" SelectedValue="{Binding PrincipalId}" SelectedValuePath="Id" ></ComboBox>
+
+            <TextBlock Grid.Row="7" Grid.Column="1">备注：</TextBlock>
+            <TextBox Grid.Row="7" Grid.Column="2" Style="{StaticResource txtRemark}" Text="{Binding Remark}"></TextBox>
+
+
+            <TextBlock Grid.Row="8" Grid.Column="2" Style="{StaticResource txtblcError}" x:Name="error"  Text="{Binding Error}"></TextBlock>
+        </Grid>
+        <StackPanel Grid.Row="1" Style="{StaticResource spButtons}">
+            <Button Content="确定" Command="{Binding SubmitCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}" IsDefault="True"></Button>
+            <Button Content="取消" Command="{Binding CancelCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

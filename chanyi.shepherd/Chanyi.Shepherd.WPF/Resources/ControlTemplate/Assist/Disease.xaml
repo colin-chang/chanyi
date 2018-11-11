@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Style/Base/Assist/Disease.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="Button" BasedOn="{x:Null}" x:Key="badge">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource btnBadge}">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource bdBadge}">
+                                        <ContentPresenter HorizontalAlignment="Center" Content="{Binding Relevancy,Mode=OneWay}"></ContentPresenter>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <ContentPresenter Content="{Binding Name}"></ContentPresenter>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

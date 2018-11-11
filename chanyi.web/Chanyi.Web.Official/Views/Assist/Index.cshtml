@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "产品服务-北京蝉翼科技有限公司";
+    ViewBag.Keywords = "常见问题,使用文档,产品介绍,发布日志,联系我们,联系方式,用户反馈";
+    ViewBag.Description = "提供产品常见问题解决办法,介绍产品及发布日志历史,提供产品文档下载和蝉翼科技联系方式,允许用户提交反馈信息";
+}
+@section head{
+    @*<script src="//cdn.bootcss.com/messenger/1.4.0/js/messenger.min.js"></script>
+    <script src="//cdn.bootcss.com/messenger/1.4.0/js/messenger-theme-future.js"></script>
+    <link href="//cdn.bootcss.com/messenger/1.4.0/css/messenger.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/messenger/1.4.0/css/messenger-theme-future.css" rel="stylesheet">*@
+
+    <link rel="stylesheet/less" type="text/css" href="~/Content/Assist/index.less">
+    <script src="~/Scripts/Assist/index.js"></script>
+}
+
+<div class="banner">
+    <div class="text-center">
+        <span class="glyphicon glyphicon-question-sign"></span>
+    </div>
+    <h2 class="text-center">产品服务</h2>
+    <form>
+        <div class="input-group input-group-lg input-group-search">
+            <input type="text" id="bdcsMain" class="form-control" placeholder="搜索您的问题或关键词，例如： 安装、系谱、疾病诊断 ...">
+            <span class="input-group-btn">
+                @*<button class="btn btn-success" type="submit" onclick="msgBox('抱歉，此功能暂不可用。十分抱歉因此为您带来不便！')"> &nbsp;搜 索&nbsp; </button>*@
+                <button class="btn btn-success" type="submit"> &nbsp;搜 索&nbsp; </button>
+            </span>
+
+        </div>
+    </form>
+</div>
+
+<div class="question">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-8 col-sm-11">
+                <article>
+                    <div class="pop"><a href="#q1">如何安装“牧羊人”？</a></div>
+                    <div class="pop"><a href="#q2">初次使用注意事项有哪些？</a></div>
+                    <div class="pop"><a href="#q3">如何购买“牧羊人羊场管理系统”？</a></div>
+                    <div class="pop"><a href="#q4">我公司的业务有哪些？</a></div>
+                    <div class="pop"><a href="#q5">登录密码忘记了怎么办？</a></div>
+                    <div class="pop"><a href="#q6">系谱查不出来怎么办？</a></div>
+                    <div class="pop"><a href="#q7">如何联系技术支持？</a></div>
+                    <div class="pop"><a href="#q8">蝉翼售后服务包含哪些？</a></div>
+                    <div class="pop"><a href="#q9">如何获取“牧羊人羊场管理系统”使用指南？</a></div>
+                </article>
+            </div>
+            <div class="col-lg-3 col-lg-offset-1 col-md-4 col-sm-9 col-sm-offset-1" id="answers">
+                <h3>解决方案，看这里&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-down"></span></h3>
+                <p class="text-muted active">
+                    我们为您提供7X24小时的贴心服务，无论何时您有什么问题请及时告诉我们，我们会以最快的速度做出响应为您解决问题。您的满意始终是我们不懈的追求。再次感谢您选择蝉翼科技！
+                </p>
+                <p class="text-muted" id="q1">
+                    在您购买牧羊人羊场管理系统以后，自您支付预付款之日起7天内蝉翼科技将派出专业的安装工程师上门为您安装并调试。
+                </p>
+                <p class="text-muted" id="q2">
+                    系统初次使用请先完善系统运行所需的基本信息：羊场基本信息、羊场员工基本信息。为了保证系统运行的通畅以及您使用的方便我们建议您在使用过程中尽量将我们设置的字段全部填录，
+                    而不仅仅只填写必填字段。
+                </p>
+                <p class="text-muted" id="q3">
+                    请联系我们当地的经销商或者直接联系我们<br />电话：17090099602。
+                </p>
+                <p class="text-muted" id="q4">
+                    我们提供完善的企业信息化解决方案。软硬件技术开发、咨询、服务、推广、技术转让、产品设计、基础软件服务、应用软件服务、计算机系统服务。
+                </p>
+                <p class="text-muted" id="q5">
+                    请先仔细核对用户名是否正确，如果确认无误请联系您场的超级管理员，请超级管理员帮您查看修改。如果您是超级管理员，请联系我们的客服人员<br />电话：17090406342。
+                </p>
+                <p class="text-muted" id="q6">
+                    请先确认您要查的这只羊的信息是否健全，当该羊只没有相关的系谱信息时，系统默认在显示区只显示该羊信息。如果健全还是查不到请联系我们的客服人员。<br />电话：17090406342。
+                </p>
+                <p class="text-muted" id="q7">
+                    我们的联系方式<br />
+                    地址：北京市海淀区清河嘉园东区19幢1层109室<br />
+                    电话：17090099602/18266527565<br />
+                    E-mail:chanyi@chanyikeji.com
+                </p>
+                <p class="text-muted" id="q8">
+                    我们严格按照国家三包政策执行售后保障服务，另外我们提供7X24小时不间断服务，保证及时为您解决您遇到的问题。
+                </p>
+                <p class="text-muted" id="q9">
+                    请您先仔细阅读我们为您提供的《牧羊人羊场管理系统使用说明书》，如有不明白的请及时与我们联系，我们的客服人员将尽心为您解答。如您丢失了我们安装时为您留下的说明书，请登陆官方网站下载牧羊人羊场管理系统使用说明书。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="support">
+    <div class="container">
+        <section>
+            <h2><i class="fa fa-file-pdf-o"></i>产品文档</h2>
+            <ul>
+                <li>
+                    <strong><a href="~/Price/Index">牧羊人 v1.0.0.1</a></strong>&nbsp;&nbsp;&nbsp;
+                    <time datetime="2015-09-20">2015-09-20</time>&nbsp;&nbsp;
+                    <a href="~/Shepherd/DownloadDocument?version=1.0.0.1">使用文档</a>&nbsp;&nbsp;
+                    <a href="~/Shepherd/DownloadPPT?version=1.0.0.1">产品介绍</a>&nbsp;&nbsp;
+                    <a href="~/Shepherd/DownloadPubLog?version=1.0.0.1">发布日志</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<div class="contact" id="contact">
+    <div class="container">
+        <h3 class="text-center">把建议和想法告诉我们</h3>
+        <div class="row">
+            <address class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                <span class="glyphicon glyphicon-envelope"></span>
+                <small>公司邮箱</small>
+                <p class="text-info"><a href="mailto:chanyi@chanyikeji.com">chanyi@chanyikeji.com</a></p>
+            </address>
+            <address class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                <span class="glyphicon glyphicon-phone-alt"></span>
+                <small>销售咨询</small>
+                <p class="text-info">170-9009-9602</p>
+            </address>
+            <address class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                <span class="glyphicon glyphicon-wrench"></span>
+                <small>技术支持</small>
+                <p class="text-info">170-9040-6342</p>
+            </address>
+            <address class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                <i class="fa fa-building"></i>
+                <small>公司地址</small>
+                <p class="text-info text-center">北京市海淀区清河嘉园东区19幢1层109室</p>
+            </address>
+        </div>
+        @*<p class="feedback">
+            <a href="javascript:msgBox('抱歉，反馈暂未开通，如有问题请通过公司Email进行反馈！')" class="btn btn-success btn-lg btn-feedback">提交在线反馈，客服人员将跟进</a>
+        </p>*@
+    </div>
+</div>
+
+
+@section foot{
+    <script type="text/javascript">(function () { document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E')); var bdcs = document.createElement('script'); bdcs.type = 'text/javascript'; bdcs.async = true; bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=14426895269750603485' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date() / 3600000); var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bdcs, s); })();</script>
+}

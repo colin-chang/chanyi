@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter">
+
+    <cvt:EmployeeStatus2BoolConverter x:Key="es2b"></cvt:EmployeeStatus2BoolConverter>
+    
+    <DataTemplate x:Key="OperationColumn">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5,0"><Hyperlink Command="{Binding DataContext.EditCommand,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Id}">编辑</Hyperlink></TextBlock>
+
+            <TextBlock Margin="5,0"><Hyperlink Command="{Binding DataContext.DepartureCommand,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Id}" IsEnabled="{Binding Status,Converter={StaticResource es2b}}">离场</Hyperlink></TextBlock>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: 
+Disallow: /Content
+Disallow: /Files
+Disallow: /Scripts
+Disallow: /bin
+Disallow: /fonts
+Disallow: /Tools/DownloadTryout
+Sitemap: http://www.chanyikeji.com/sitemap.xml
+Sitemap: http://www.chanyikeji.com/sitemap.html

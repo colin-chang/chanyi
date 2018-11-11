@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="Chanyi.Shepherd.WPF.Views.SystemService.UserUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cvt="clr-namespace:Chanyi.Shepherd.WPF.Expands.Converter"
+             xmlns:uc="clr-namespace:Chanyi.Shepherd.WPF.UserControls"
+             xmlns:ap="clr-namespace:Chanyi.Shepherd.WPF.Expands.AttcahProperty"
+             xmlns:b="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1150">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Style/Base/List.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/DataTemplate/SystemService/User.xaml"></ResourceDictionary>
+                <ResourceDictionary>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                        <Setter Property="Width" Value="100"></Setter>
+                    </Style>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <Style x:Key="dgCell" TargetType="TextBlock">
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Style="{StaticResource colRSide}"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <StackPanel Style="{StaticResource stkTitle}">
+                <StackPanel Height="40">
+                    <Image Source="{Binding Icon}" Style="{StaticResource imgTitle}"></Image>
+                    <TextBlock FontSize="18" Text="{Binding Header}"></TextBlock>
+                </StackPanel>
+                <TextBlock Style="{StaticResource intro}" Text="{Binding Intro}"></TextBlock>
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" Style="{StaticResource contentControl}">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid Name="dg" Tag="{Binding ElementName=progress}">
+                    <DataGrid.Resources>
+                        <cvt:IsEnabled2StringConverter x:Key="i2s"></cvt:IsEnabled2StringConverter>
+                    </DataGrid.Resources>
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Loaded">
+                            <b:InvokeCommandAction Command="{Binding DataGridLoadedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid},AncestorLevel=1}}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+
+                    <DataGrid.Columns >
+                        <DataGridTextColumn  Binding="{Binding UserName}" Header="用户名" ap:GridColumn.BindProp="UserName"></DataGridTextColumn>
+                        <DataGridTextColumn  Binding="{Binding IsEnabled,Converter={StaticResource i2s}}" Header="是否启用" ap:GridColumn.BindProp="IsEnabled" ap:GridColumn.Converter="{StaticResource i2s}"></DataGridTextColumn>
+                        <DataGridTextColumn  Binding="{Binding OperatorName}" Header="录入人" ap:GridColumn.BindProp="OperatorName"></DataGridTextColumn>
+                        <DataGridTextColumn  Binding="{Binding CreateTime, StringFormat=yyyy-MM-dd}" Header="创建日期" ap:GridColumn.BindProp="CreateTime"></DataGridTextColumn>
+                        <DataGridTextColumn  Binding="{Binding Remark}" Header="备注" ap:GridColumn.BindProp="Remark"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="操作"  CellTemplate="{StaticResource OperationColumn}">
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Width="*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <uc:ProgressRing x:Name="progress"></uc:ProgressRing>
+                <StackPanel Style="{StaticResource sppager}">
+                    <uc:DataPager PageIndex="{Binding PageIndex, Mode=TwoWay}" PageSize="{Binding PageSize}" TotalCount="{Binding TotalCount}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PageChanged">
+                                <b:InvokeCommandAction Command="{Binding PageChangedCommand}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </uc:DataPager>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+        <GridSplitter Grid.Column="1"></GridSplitter>
+        <Border Grid.Column="2">
+            <DockPanel Style="{x:Null}">
+                <Label Content="操作"></Label>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel.Resources>
+                        <cvt:Su2VisibilityConverter x:Key="s2v"></cvt:Su2VisibilityConverter>
+                    </StackPanel.Resources>
+                    <StackPanel Style="{StaticResource stkSide}">
+                        <Image Source="/Images/Add.png"></Image>
+                        <TextBlock><Hyperlink Command="{Binding AddCommand}" CommandParameter="SystemService.AddUserWindow" Style="{StaticResource hlkAdd}">新增用户</Hyperlink></TextBlock>
+                    </StackPanel>
+                    <StackPanel Visibility="{Binding ElementName=dg,Path=SelectedValue.UserName,Converter={StaticResource s2v}}" Style="{StaticResource stkSide}">
+                        <Image Source="/Images/Edit.png"></Image>
+                        <TextBlock><Hyperlink Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=dg, Path=SelectedValue.Id}" Tag="SystemService.EditUserWindow"  Style="{StaticResource hlkEdit}" Name="lkEdit">编辑用户</Hyperlink></TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="5,8">
+                        <Line></Line>
+                    </StackPanel>
+                    <StackPanel Style="{StaticResource stkSide}">
+                        <Image Source="/Images/ResetPassword.ico"></Image>
+                        <TextBlock><Hyperlink Command="{Binding ResetPasswordCommand}">重置密码</Hyperlink></TextBlock>
+                    </StackPanel>
+                    <StackPanel Visibility="{Binding ElementName=dg,Path=SelectedValue.UserName,Converter={StaticResource s2v}}" Style="{StaticResource stkSide}">
+                        <Image Source="/Images/SetRole.png"></Image>
+                        <TextBlock><Hyperlink Command="{Binding GrantRoleCommand}" CommandParameter="{Binding ElementName=dg, Path=SelectedValue.Id}"  Tag="SystemService.GrantRole2UserWindow"  IsEnabled="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Tag, Converter={StaticResource hpc}}" Name="tbSetRole">设置角色</Hyperlink></TextBlock>
+                    </StackPanel>
+                    <StackPanel Visibility="{Binding ElementName=dg,Path=SelectedValue.UserName,Converter={StaticResource s2v}}" Style="{StaticResource stkSide}">
+                        <Image  Source="/Images/GrantPermission.png"></Image>
+                        <TextBlock><Hyperlink Command="{Binding GrantPermissionCommand}" CommandParameter="{Binding ElementName=dg, Path=SelectedValue.Id}" Tag="SystemService.GrantPermission2UserWindow" IsEnabled="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Tag, Converter={StaticResource hpc}}" Name="tbSetPermission">分配权限</Hyperlink></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>
